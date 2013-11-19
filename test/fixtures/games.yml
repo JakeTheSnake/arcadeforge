@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author: MyString
+  title: MyString
+  description: MyString
+  feedback: MyString
+  limitations: MyString
+  saved_game: MyString
+
+two:
+  author: MyString
+  title: MyString
+  description: MyString
+  feedback: MyString
+  limitations: MyString
+  saved_game: MyString

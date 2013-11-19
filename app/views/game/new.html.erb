@@ -1,0 +1,33 @@
+
+<div id="dialogueOverlay"></div>
+<div id="addGlobalObjectContainer" style="float:top; width:75px">
+  <button id="addGlobalObjectButton" class="regularButton">+</button>
+</div>
+<div id="globalObjectList" style="float:left; width: 100px">&nbsp;</div>
+<div id="mainCanvas" style="position: absolute; left:100px"></div>
+<div id="mainMenu">
+    <form style="margin-top: 1em;">
+      <div id="mode">
+          <input type="radio" id="mode_edit" name="radio" onClick="GameCreator.editActiveScene()" checked="checked"><label for="mode_edit">Edit Scene</label>
+          <input type="radio" id="mode_direct" name="radio"  onClick="GameCreator.directActiveScene()"><label for="mode_direct">Direct Scene</label>
+      </div>
+  </form>
+    <div id="editSceneObjectPane" style="margin-top:20px;">
+        <div><span id="editSceneObjectTitle" style="font-size:20px; font-weight:bold;"></span></div>
+        <div id="editSceneObjectContent" style="margin-top:10px;">
+        
+        </div>
+    </div>
+</div>
+<div style="position:absolute;top:660px;">
+    <div>
+        <textarea id="saveGameTextArea" style="width:500px;height:300px;"></textarea>
+    </div>
+    <button id="saveGameButton" onClick="$('#saveGameTextArea').val(GameCreator.saveState())">Save Game</button>
+    <button id="loadGameButton" onClick="GameCreator.restoreState($('#saveGameTextArea').val())">Load Game</button>
+</div>
+
+<div id="editGlobalObjectWindow"></div>
+
+<div id="dialogueWindow"></div>
+
