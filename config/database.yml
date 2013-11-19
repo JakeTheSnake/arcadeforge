@@ -25,5 +25,5 @@ production:
   host: localhost
   username: postgres
   password: kuk
-  database: af
+  database: af-dev
 
