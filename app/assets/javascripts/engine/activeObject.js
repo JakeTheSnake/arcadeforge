@@ -23,6 +23,8 @@ GameCreator.activeObject = {
         obj.isMovable = true;
         obj.isRenderable = true;
         
+        obj.counters = {};
+        
         obj.objectType = "activeObject";
         
         obj.movementType = args.movementType ? args.movementType : "free";
@@ -43,6 +45,7 @@ GameCreator.activeObject = {
         GameCreator.addObjFunctions.collidableObjectFunctions(obj);
         GameCreator.addObjFunctions.stoppableObjectFunctions(obj);
         GameCreator.addObjFunctions.bounceableObjectFunctions(obj);
+        GameCreator.addObjFunctions.clickableObjectFunctions(obj);
         
         obj.isCollidable = true;
         obj.isMovable = true;
@@ -74,9 +77,11 @@ GameCreator.addObjFunctions.activeObjectFunctions = function(activeObject)
         this.accX = GameCreator.helperFunctions.getRandomFromRange(this.accX);
         this.width = GameCreator.helperFunctions.getRandomFromRange(this.width);
         this.height = GameCreator.helperFunctions.getRandomFromRange(this.height);
+        this.x = GameCreator.helperFunctions.getRandomFromRange(this.x);
+        this.y = GameCreator.helperFunctions.getRandomFromRange(this.y);
     }
-    activeObject.calculateSpeed = function(modifier){
-        
+    
+    activeObject.calculateSpeed = function(modifier){    
         this.speedY += this.accY;
         this.speedX += this.accX;
     }
@@ -84,7 +89,47 @@ GameCreator.addObjFunctions.activeObjectFunctions = function(activeObject)
     activeObject.shoot = function(staticParameters){
         var projectileSpeed = GameCreator.helperFunctions.getRandomFromRange(staticParameters.projectileSpeed);
         var unitVector = GameCreator.helperFunctions.calcUnitVector(this.speedX, this.speedY);
-        GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: this.x, y: this.y, speedX: unitVector.x * projectileSpeed, speedY: unitVector.y * projectileSpeed});
+        var x = 0, y = 0, speedX = 0, speedY = 0;
+        switch(staticParameters.projectileDirection){
+            case "Default":
+                speedX = unitVector.x * projectileSpeed;
+                speedY = unitVector.y * projectileSpeed;
+                x = this.x;
+                y = this.y;
+                break;
+            case "Up":
+                x = this.x + this.width / 2;
+                y = this.y;
+                speedY = -projectileSpeed;
+                break;
+            case "Down":
+                x = this.x + this.width / 2;
+                y = this.y + this.height;
+                speedY = projectileSpeed;
+                break;
+            case "Left":
+                x = this.x;
+                y = this.y + this.height / 2;
+                speedX = -projectileSpeed;
+                break;
+            case "Right":
+                x = this.x + this.width;
+                y = this.y + this.height / 2;
+                speedX = projectileSpeed;
+                break;            
+            default:
+                var target = GameCreator.getRuntimeObject(staticParameters.projectileDirection);
+                if (!target) {
+                    // We did not find the target, return without shooting anything.
+                    return;
+                }
+                x = this.x + this.width / 2;
+                y = this.y + this.height / 2;
+                var unitVector = GameCreator.helperFunctions.calcUnitVector(target.x - this.x, target.y - this.y);
+                speedX = unitVector.x * projectileSpeed;
+                speedY = unitVector.y * projectileSpeed;
+        }
+        GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: x, y: y, speedX: speedX, speedY: speedY});
     }
     
     activeObject.move = function(modifier){

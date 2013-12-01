@@ -13,6 +13,7 @@
 //= require jquery-1.9.1
 //= require jsonfn
 //= require ./engine/gameCreator
+//= require ./engine/scene
 //= require startup
 
 //= require ./engine/ui
@@ -30,4 +31,5 @@
 //= require ./engine/sceneObject
 //= require ./engine/topDownObject
 //= require ./engine/timerHandler
+//= require ./engine/counter
 

@@ -8,6 +8,7 @@ GameCreator.sceneObject = {
     displayWidth: 0,
     displayHeight: 0,    
     image: undefined,
+    counters: {},
     
     clickOffsetX: 0,
     clickOffsetY: 0,
@@ -34,8 +35,8 @@ GameCreator.sceneObject = {
         this.displayHeight = parseInt(this.height[this.height.length - 1]);
     },
     instantiate: function(globalObj, args){
-        this.x = args.x != undefined ? args.x : 0
-        this.y = args.y != undefined ? args.y : 0
+        this.x = args.x != undefined ? args.x : globalObj.x
+        this.y = args.y != undefined ? args.y : globalObj.y
         this.accX = args.accX != undefined ? args.accX : globalObj.accX;
         this.accY = args.accY != undefined ? args.accY : globalObj.accY;
         this.speedX = args.speedX != undefined ? args.speedX : globalObj.speedX;
@@ -82,11 +83,23 @@ GameCreator.sceneObject = {
         this.routeForward = args.routeForward != undefined ? args.routeForward : true;
         this.speed = args.speed != undefined ? args.speed : globalObj.speed;
         this.update();
+        
+        this.counters = {};
     },
     delete: function() {
         var activeScene = GameCreator.scenes[GameCreator.activeScene];
         activeScene.splice(activeScene.indexOf(this), 1);
         GameCreator.renderableObjects.splice(GameCreator.renderableObjects.indexOf(this), 1);
         GameCreator.render();
+    },
+    reset: function(){
+    	GameCreator.resetCounters(this, this.parent.counters);
+    },
+    setCounterParent: function(){
+    	for(counter in this.counters){
+    		if(this.counters.hasOwnProperty(counter)){
+    			this.counters[counter].parentObject = this;
+    		}
+    	}
     }
 }

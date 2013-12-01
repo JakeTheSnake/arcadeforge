@@ -18,7 +18,9 @@ GameCreator.topDownObject = {
         obj.isMovable = true;
         obj.isRenderable = true;
         obj.isEventable = true;
+        
         obj.collisions = [];
+        obj.counters = {};
         
         obj.objectType = "topDownObject";
         
@@ -33,11 +35,12 @@ GameCreator.topDownObject = {
         image.src = savedObject.imageSrc;
         obj.image = image;
 
-        GameCreator.addObjFunctions.topDownObjectFunctions(obj);
+        GameCreator.addObjFunctions.topDownObjectFunctions(obj, savedObject);
         GameCreator.addObjFunctions.collidableObjectFunctions(obj);
         GameCreator.addObjFunctions.stoppableObjectFunctions(obj);
         GameCreator.addObjFunctions.bounceableObjectFunctions(obj);
         GameCreator.addObjFunctions.keyObjectFunctions(obj);
+        GameCreator.addObjFunctions.clickableObjectFunctions(obj);
         
         obj.isCollidable = true;
         obj.isMovable = true;
@@ -56,8 +59,6 @@ GameCreator.topDownObject = {
         }
         
         GameCreator.globalObjects[obj.name] = obj;
-        
-        obj.instantiated();
         
         return obj;
     }
@@ -89,6 +90,8 @@ GameCreator.addObjFunctions.topDownObjectFunctions = function(topDownObject, arg
         this.accX = GameCreator.helperFunctions.getRandomFromRange(this.accX);
         this.width = GameCreator.helperFunctions.getRandomFromRange(this.width);
         this.height = GameCreator.helperFunctions.getRandomFromRange(this.height);
+        this.x = GameCreator.helperFunctions.getRandomFromRange(this.x);
+        this.y = GameCreator.helperFunctions.getRandomFromRange(this.y);
     };
 
     topDownObject.calculateSpeed = function()
@@ -209,67 +212,106 @@ GameCreator.addObjFunctions.topDownObjectFunctions = function(topDownObject, arg
     }
     
     topDownObject.shoot = function(staticParameters){
-        var facing = this.facing;
         var x = 0, y = 0, speedX = 0, speedY = 0;
         var projectileSpeed = GameCreator.helperFunctions.getRandomFromRange(staticParameters.projectileSpeed);
         var angularSpeed = GameCreator.helperFunctions.calcAngularSpeed(projectileSpeed);
-        switch(facing){
-            case 1:
-            x = this.x + this.width / 2;
-            y = this.y;
-            speedY = -projectileSpeed;
+        switch(staticParameters.projectileDirection){
+            case "Default":
+            var facing = this.facing;
+            switch(facing){
+                case 1:
+                    x = this.x + this.width / 2;
+                    y = this.y;
+                    speedY = -projectileSpeed;
+                    break;
+                
+                case 2:
+                    x = this.x + this.width;
+                    y = this.y;
+                    speedX = angularSpeed;
+                    speedY = -angularSpeed;
+                    break;
+                
+                case 3:
+                    x = this.x + this.width;
+                    y = this.y + this.height / 2;
+                    speedX = projectileSpeed;
+                    break;
+                
+                case 4:
+                    x = this.x + this.width;
+                    y = this.y + this.height;
+                    speedX = angularSpeed;
+                    speedY = angularSpeed;
+                    break;
+                
+                case 5:
+                    x = this.x + this.width / 2;
+                    y = this.y + this.height;
+                    speedY = projectileSpeed;
+                    break;
+                
+                case 6:
+                    x = this.x;
+                    y = this.y + this.height;
+                    speedX = -angularSpeed;
+                    speedY = angularSpeed;
+                    break;
+                
+                case 7:
+                    x = this.x;
+                    y = this.y + this.height / 2;
+                    speedX = -projectileSpeed;
+                    break;
+                
+                case 8:
+                    x = this.x;
+                    y = this.y;
+                    speedX = -angularSpeed;
+                    speedY = -angularSpeed;
+                    break;
+            }
             break;
             
-            case 2:
-            x = this.x + this.width;
-            y = this.y;
-            speedX = angularSpeed;
-            speedY = -angularSpeed;
-            break;
+            case "Up":
+                x = this.x + this.width / 2;
+                y = this.y;
+                speedY = -projectileSpeed;
+                break;
             
-            case 3:
-            x = this.x + this.width;
-            y = this.y + this.height / 2;
-            speedX = projectileSpeed;
-            break;
+            case "Down":
+                x = this.x + this.width / 2;
+                y = this.y + this.height;
+                speedY = projectileSpeed;
+                break;
             
-            case 4:
-            x = this.x + this.width;
-            y = this.y + this.height;
-            speedX = angularSpeed;
-            speedY = angularSpeed;
-            break;
+            case "Left":
+                x = this.x;
+                y = this.y + this.height / 2;
+                speedX = -projectileSpeed;
+                break;
             
-            case 5:
-            x = this.x + this.width / 2;
-            y = this.y + this.height;
-            speedY = projectileSpeed;
-            break;
-            
-            case 6:
-            x = this.x;
-            y = this.y + this.height;
-            speedX = -angularSpeed;
-            speedY = angularSpeed;
-            break;
-            
-            case 7:
-            x = this.x;
-            y = this.y + this.height / 2;
-            speedX = -projectileSpeed;
-            break;
-            
-            case 8:
-            x = this.x;
-            y = this.y;
-            speedX = -angularSpeed;
-            speedY = -angularSpeed;
-            break;
+            case "Right":
+                x = this.x + this.width;
+                y = this.y + this.height / 2;
+                speedX = projectileSpeed;
+                break;
+
+            default:
+                var target = GameCreator.getRuntimeObject(staticParameters.projectileDirection);
+                if (!target) {
+                    // We did not find the target, return without shooting anything.
+                    return;
+                }
+                x = this.x + (this.facingLeft ? 0 : this.width)
+                y = this.y;
+                var unitVector = GameCreator.helperFunctions.calcUnitVector(target.x - this.x - (this.facingLeft ? 0 : this.width), target.y - this.y);
+                speedX = unitVector.x * projectileSpeed;
+                speedY = unitVector.y * projectileSpeed;
         }
         GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: x, y: y, speedX: speedX, speedY: speedY});
     }
     
     topDownObject.onDestroy = function(){
-        
     }
 }

@@ -1,5 +1,5 @@
-var GCHeight = 600;
-var GCWidth = 800;
+var GCHeight = 768;
+var GCWidth = 1024;
 
 var GameCreator = {
     height: GCHeight,
@@ -24,11 +24,12 @@ var GameCreator = {
     renderableObjects: [],
     eventableObjects: [],
     objectsToDestroy: [],
+    newlyCreatedObjects: [],
+
     addObjFunctions: {},
     helperFunctions: {},
     //The currently selected scene object.
     selectedObject: undefined,
-    selectedGlobalObject: undefined,
     draggedObject: undefined,
     draggedNode: undefined,
     idCounter: 0,
@@ -38,9 +39,61 @@ var GameCreator = {
         borderT: {name: "borderT", x: -500, y: -500, height: 500, width: GCWidth + 1000, image: function(){var img = (new Image()); $(img).css("width","65");img.src = "images/zergling.png"; return img}(), isCollidable: true},
         borderB: {name: "borderB", x: -500, y: GCHeight, height: 500, width: GCWidth + 1000, image: function(){var img = (new Image()); $(img).css("width","65");img.src = "images/zergling.png"; return img}(), isCollidable: true}
     },
+    gameLoop: function () {
+        var now = Date.now();
+        var delta = now - then;
     
+        GameCreator.runFrame(delta);
+        GameCreator.render();
+    
+        then = now;
+    },
+
+    runFrame: function(modifier){
+        var runtimeObj;
+        if(!GameCreator.paused){
+            for (var i=0;i < GameCreator.movableObjects.length;++i) {
+                if(!GameCreator.paused)
+                {
+                    runtimeObj = GameCreator.movableObjects[i];
+                    runtimeObj.parent.calculateSpeed.call(runtimeObj, modifier/1000);
+                }
+            }
+            for (i=0;i < GameCreator.collidableObjects.length;++i) {
+                GameCreator.helperFunctions.checkCollisions(GameCreator.collidableObjects[i]);
+            }
+            for (i=0;i < GameCreator.movableObjects.length;++i) {
+                if(!GameCreator.paused)
+                {
+                    runtimeObj = GameCreator.movableObjects[i];
+                    runtimeObj.parent.move.call(runtimeObj, modifier/1000);
+                }
+            }
+            for (i=0;i < GameCreator.eventableObjects.length;++i) {
+                if(!GameCreator.paused)
+                {
+                    runtimeObj = GameCreator.eventableObjects[i];
+                    runtimeObj.parent.checkEvents.call(runtimeObj);
+                }
+            }
+            GameCreator.timerHandler.update(modifier);
+            for (i=0;i < GameCreator.objectsToDestroy.length;++i)
+            {
+                runtimeObj = GameCreator.objectsToDestroy[i];
+                runtimeObj.parent.removeFromGame.call(runtimeObj);
+            }
+            for (i=0;i < GameCreator.newlyCreatedObjects.length;++i)
+            {
+                runtimeObj = GameCreator.newlyCreatedObjects[i];
+                runtimeObj.parent.onCreate.call(runtimeObj);
+            }
+            GameCreator.newlyCreatedObjects = [];
+        }
+    },
+
     reset: function() {
         clearInterval(GameCreator.timer);
+        GameCreator.timerHandler.clear();
         this.collidableObjects = [];
         this.movableObjects = [];
         this.renderableObjects = [];
@@ -55,101 +108,9 @@ var GameCreator = {
         $(GameCreator.canvas).css("cursor", "default");
     },
     
-    createInstance: function(globalObj, scene, args){
-        var obj = Object.create(GameCreator.sceneObject);
-        obj.instantiate(globalObj, args);
-        scene.push(obj);
-        return obj;
-    },
     
-    createRuntimeObject: function(globalObj, args){
-        var obj = Object.create(GameCreator.sceneObject);
-        obj.instantiate(globalObj, args);
-        GameCreator.addToRuntime(obj);
-    },
-    
-    runFrame: function(modifier){
-        var obj;
-        if(!GameCreator.paused){
-            for (var i=0;i < GameCreator.movableObjects.length;++i) {
-                if(!GameCreator.paused)
-                {
-                    obj = GameCreator.movableObjects[i];
-                    obj.parent.calculateSpeed.call(obj, modifier/1000);
-                }
-            }
-            for (var i=0;i < GameCreator.collidableObjects.length;++i) {
-                GameCreator.helperFunctions.checkCollisions(GameCreator.collidableObjects[i]);
-            }
-            for (var i=0;i < GameCreator.objectsToDestroy.length;++i)
-            {
-                obj = GameCreator.objectsToDestroy[i];
-                obj.parent.destroy.call(obj);
-            }
-            GameCreator.objectsToDestroy.length = 0;
-            for (var i=0;i < GameCreator.movableObjects.length;++i) {
-                if(!GameCreator.paused)
-                {
-                    obj = GameCreator.movableObjects[i];
-                    obj.parent.move.call(obj, modifier/1000);
-                }
-            }
-            for (var i=0;i < GameCreator.eventableObjects.length;++i) {
-                obj = GameCreator.eventableObjects[i];
-                obj.parent.checkEvents.call(obj);
-            }
-            GameCreator.timerHandler.update(modifier);
-        }
-    },
 
-    findClickedObject: function(x, y) {
-        for (var i=0;i < GameCreator.renderableObjects.length;++i) {
-            var obj = GameCreator.renderableObjects[i];
-            // If in edit mode, this should look for displayWidth instead.
-            if(x >= obj.x && x <= obj.x + obj.width && y >= obj.y && y <= obj.y + obj.height)
-            {
-                obj.clickOffsetX = x - obj.x;
-                obj.clickOffsetY = y - obj.y;
-                return obj;
-            }
-        }
-        return null;
-    },
-
-    playScene: function(scene) {
-        GameCreator.reset();
-        //Populate the runtime arrays with clones of objects from this scene array. How do we make sure the right object ends up in the right arrays?
-        //Do we need a new type of object? runtimeObject?
-        for (var i=0;i < scene.length;++i) {
-            var obj = jQuery.extend({}, scene[i]);
-            GameCreator.addToRuntime(obj);
-        }
-
-        then = Date.now();
-        GameCreator.resumeGame();
-        
-        if(GameCreator.state = 'editing') {
-        	GameCreator.stopEditing();
-        }
-        
-        GameCreator.sceneStarted();
-        
-        GameCreator.state = 'playing';
-        GameCreator.timer = setInterval(this.gameLoop, 1);
-    },
-
-    gameLoop: function () {
-        var now = Date.now();
-        var delta = now - then;
-    
-        GameCreator.runFrame(delta);
-        GameCreator.render();
-    
-        then = now;
-    },
-
-    pauseGame: function()
-    {
+    pauseGame: function() {
         GameCreator.paused = true;
         $(document).off("keydown.gameKeyListener");
         $(document).off("keyup.gameKeyListener");
@@ -180,9 +141,16 @@ var GameCreator = {
             }
         }
     },
-
-    resumeGame: function()
-    {
+    
+    restartGame: function() {
+        if (GameCreator.state === 'directing') {
+            GameCreator.directScene(GameCreator.scenes[0]);
+        } else if (GameCreator.state === 'playing') {
+            GameCreator.playScene(GameCreator.scenes[0]);       
+        }
+    },
+    
+    resumeGame: function() {
         GameCreator.paused = false;
         var activeScene = GameCreator.scenes[GameCreator.activeScene];
         for (var i=0;i < activeScene.length;++i) {
@@ -242,45 +210,126 @@ var GameCreator = {
         }
 
     },
+
     
-    addToRuntime: function(obj){
-        if(obj.parent.isCollidable)
-            GameCreator.collidableObjects.push(obj);
-        if(obj.parent.isMovable)
-            GameCreator.movableObjects.push(obj);
-        if(obj.parent.isRenderable)
-            GameCreator.renderableObjects.push(obj);
-        if(obj.parent.isEventable)
-            GameCreator.eventableObjects.push(obj);
-        obj.parent.initialize.call(obj);
+
+    createRuntimeObject: function(globalObj, args){
+        var runtimeObj = Object.create(GameCreator.sceneObject);
+        if (globalObj.hasOwnProperty("objectToCreate")) {
+            args.x = globalObj.x
+            args.y = globalObj.y
+            globalObj = GameCreator.globalObjects[globalObj.objectToCreate];
+        }
+        runtimeObj.instantiate(globalObj, args);
+        GameCreator.addToRuntime(runtimeObj);
+    },
+
+    addToRuntime: function(runtimeObj){
+        if(runtimeObj.parent.isCollidable)
+            GameCreator.collidableObjects.push(runtimeObj);
+        if(runtimeObj.parent.isMovable)
+            GameCreator.movableObjects.push(runtimeObj);
+        if(runtimeObj.parent.isRenderable)
+            GameCreator.renderableObjects.push(runtimeObj);
+        if(runtimeObj.parent.isEventable)
+            GameCreator.eventableObjects.push(runtimeObj);
+        runtimeObj.parent.initialize.call(runtimeObj);
+        GameCreator.newlyCreatedObjects.push(runtimeObj);
+    },
+
+    getGlobalObjects: function() {
+        var allGlobalObjects = {};
+        for(globalObj in GameCreator.globalObjects) {
+            if(GameCreator.globalObjects.hasOwnProperty(globalObj)) {
+                allGlobalObjects[globalObj] = globalObj;
+            }
+        }
+        return allGlobalObjects;
     },
     
+    
+    
+    getCountersForGlobalObj: function(globalObjName) {
+    	var obj;
+    	GameCreator.globalObjects[globalObjName];
+    	if (GameCreator.globalObjects.hasOwnProperty(globalObjName)) {
+			obj = GameCreator.globalObjects[globalObjName];
+    	} else {
+    		obj = GameCreator.getSceneObjectById(globalObjName).parent;
+    	}
+    	var result = {};
+    	for (var counter in obj.counters) {
+    		if (obj.counters.hasOwnProperty(counter)) {
+    			result[counter] = counter;
+    		}
+    	}
+    	return result;
+    },
+    
+    changeCounter: function(runtimeObj, params) {
+    	var selectedObjectId = params.counterObject;
+    	if (runtimeObj.name != selectedObjectId) {
+    		runtimeObj = GameCreator.getSceneObjectById(selectedObjectId);
+    	}
+    	if (params.counterType === "set") {
+    		runtimeObj.counters[params.counterName].setValue(params.counterValue);
+    	} else {
+    		runtimeObj.counters[params.counterName].changeValue(params.counterValue);	
+    	}
+    	
+    },
+    
+
+
+    getClickedObject: function(x, y) {
+        for (var i = GameCreator.renderableObjects.length - 1;i >= 0;--i) {
+            var runtimeObj = GameCreator.renderableObjects[i];
+            // If in edit mode, this should look for displayWidth instead.
+            if(x >= runtimeObj.x &&
+                x <= runtimeObj.x + runtimeObj.width &&
+                y >= runtimeObj.y &&
+                y <= runtimeObj.y + runtimeObj.height)
+            {
+                runtimeObj.clickOffsetX = x - runtimeObj.x;
+                runtimeObj.clickOffsetY = y - runtimeObj.y;
+                return runtimeObj;
+            }
+        }
+        return null;
+    },
+
+    getRuntimeObject: function(instanceId) {
+        var collidableObj = GameCreator.getRuntimeObjectFromCollection(GameCreator.collidableObjects, instanceId);
+        if (collidableObj) {
+            return collidableObj;
+        }
+        var movableObj = GameCreator.getRuntimeObjectFromCollection(GameCreator.movableObjects, instanceId);
+        if (movableObj) {
+            return movableObj;
+        }
+        var renderableObj = GameCreator.getRuntimeObjectFromCollection(GameCreator.renderableObjects, instanceId);
+        if (renderableObj) {
+            return renderableObj;
+        }
+        var eventableObj = GameCreator.getRuntimeObjectFromCollection(GameCreator.eventableObjects, instanceId);
+        if (eventableObj) {
+            return eventableObj;
+        }
+        return null;
+    },
+
+
+    getRuntimeObjectFromCollection: function(collection, instanceId) {
+        for (var i = 0; i < collection.length; i++) {
+            if (collection[i].instanceId === instanceId) {
+                return collection[i];
+            }
+        }
+    },
+
     getUniqueId: function() {
         this.idCounter++;
         return this.idCounter;
-    },
-    
-    sceneStarted: function(){
-    	$(GameCreator.canvas).on("mousedown.runningScene", function(e){
-        	var obj = GameCreator.findClickedObject(e.pageX - $("#mainCanvas").offset().left , e.pageY - $("#mainCanvas").offset().top);
-        	if(obj && obj.parent.isClickable) {
-	        	if(obj.parent.onClickActions.length <= 0)
-	            {
-	                GameCreator.UI.openEditActionsWindow(
-	                    "Clicked on " + obj.parent.name,
-	                     $.extend(GameCreator.actions.commonSelectableActions, GameCreator.actions.generalSelectableActions),
-	                     obj.parent.onClickActions
-	                    );
-	            }
-	            else
-	            {
-	                for(var i = 0;i < obj.parent.onClickActions.length;++i)
-	                {
-	                    obj.parent.onClickActions[i].action.call(obj, obj.parent.onClickActions[i].parameters);
-	                }
-	            }
-	        }
-        });
-    },
+    }
     
 }

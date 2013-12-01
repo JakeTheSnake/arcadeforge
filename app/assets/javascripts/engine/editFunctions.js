@@ -1,4 +1,13 @@
 $.extend(GameCreator, {
+
+    directions: {
+        Default: "Default",
+        Up: "Up",
+        Down: "Down",
+        Left: "Left",
+        Right: "Right"
+    },
+    
     addActiveObject: function(args){
         var image = new Image();
         image.src = args.src;
@@ -53,10 +62,12 @@ $.extend(GameCreator, {
     
     directScene: function(scene){
         GameCreator.reset();
+        GameCreator.resetScene(scene);
         for (var i=0;i < scene.length;++i) {
             var obj = jQuery.extend({}, scene[i]);
             GameCreator.addToRuntime(obj);
             obj.parent.onGameStarted();
+            obj.setCounterParent();
         }
         
         $(".routeNodeContainer").remove();
@@ -117,7 +128,7 @@ $.extend(GameCreator, {
         });
         
         $(GameCreator.canvas).on("mousedown.editScene", function(e){
-            GameCreator.draggedObject = GameCreator.findClickedObject(e.pageX - $("#mainCanvas").offset().left , e.pageY - $("#mainCanvas").offset().top);
+            GameCreator.draggedObject = GameCreator.getClickedObjectEditing(e.pageX - $("#mainCanvas").offset().left , e.pageY - $("#mainCanvas").offset().top);
             if(GameCreator.draggedObject) {
                 GameCreator.selectedObject = GameCreator.draggedObject;
                 GameCreator.editSceneObject();
@@ -159,13 +170,13 @@ $.extend(GameCreator, {
             var y = e.pageY;
             var offsetX = $("#mainCanvas").offset().left;
             var offsetY = $("#mainCanvas").offset().top;
-            if (x > offsetX    && x < offsetX + GameCreator.width
-                && y > offsetY && y < offsetY + GameCreator.height) {
-                    var newInstance = GameCreator.createInstance(GameCreator.globalObjects[$(pic).attr("data-name")], GameCreator.scenes[0], {x:x-offsetX, y:y-offsetY});
-                    if(newInstance.parent.isRenderable) {
-                        GameCreator.renderableObjects.push(newInstance);
-                        GameCreator.render();
-                    }
+            if (x > offsetX    && x < offsetX + GameCreator.width && y > offsetY && y < offsetY + GameCreator.height) {
+            	var globalObj = GameCreator.globalObjects[$(pic).attr("data-name")];
+                var newInstance = GameCreator.createSceneObject(GameCreator.globalObjects[$(pic).attr("data-name")], GameCreator.scenes[0], {x:x-offsetX-globalObj.width/2, y:y-offsetY-globalObj.height/2});
+                if(newInstance.parent.isRenderable) {
+                    GameCreator.renderableObjects.push(newInstance);
+                    GameCreator.render();
+                }
             }
                 
             GameCreator.draggedGlobalElement = undefined;
@@ -180,7 +191,7 @@ $.extend(GameCreator, {
         //TODO: Put this array somewhere more "configy"
         
         //Save global objects
-        var attrsToCopy = ["accX", "accY", "speedX", "speedY", "collideBorderB", "collideBorderL", "collideBorderR", "collideBorderT", "collisionActions", "facing", "height", "width", "keyActions", "maxSpeed", "name", "objectType"];
+        var attrsToCopy = ["accX", "accY", "speedX", "speedY", "collideBorderB", "collideBorderL", "collideBorderR", "collideBorderT", "collisionActions", "facing", "height", "width", "keyActions", "maxSpeed", "name", "objectType", "maxX", "maxY", "minX", "minY", "movementType", "onClickActions", "onCreateActions", "onDestroyActions", "counters"];
         var objects = GameCreator.globalObjects;
         for (name in objects) {
             if (objects.hasOwnProperty(name)) {
@@ -202,9 +213,18 @@ $.extend(GameCreator, {
             var newScene = [];
             for(var n = 0; n < scene.length; n++){
                 var oldObject = scene[n];
+                //Need to reset counters before saving to make sure mappings to parentcounters are set up.
+                GameCreator.resetCounters(oldObject, oldObject.parent.counters);
                 var newObject = jQuery.extend({}, oldObject);
                 //Need to save the name of the global object parent rather than the reference so it can be JSONified.
-                newObject.parent = parent.name;
+                newObject.parent = oldObject.parent.name;
+                //Same for counters
+                for(var counterName in newObject.counters){
+                	if(newObject.counters.hasOwnProperty(counterName)){
+                		newObject.counters[counterName].parentCounter = counterName;
+                		newObject.counters[counterName].parentObject = newObject.counters[counterName].parentObject.name;
+                	}
+                }
                 newObject.instantiate = undefined;
                 newScene.push(newObject);
             }
@@ -243,6 +263,17 @@ $.extend(GameCreator, {
             for(var n = 0; n < savedScene.length; n++) {
                 var object = savedScene[n];
                 object.parent = GameCreator.globalObjects[object.name];
+                for(var counterName in object.counters){
+                	if(object.counters.hasOwnProperty(counterName)){
+                		var oldCounter = object.counters[counterName]
+                		//Set the reference to the parent object from the name currently saved in its place.
+                		object.counters[counterName] = GameCreator.sceneObjectCounter.New(GameCreator.globalObjects[oldCounter.parentObject], GameCreator.globalObjects[oldCounter.parentObject].counters[counterName]);
+                		object.counters[counterName].aboveValueStates = oldCounter.aboveValueStates;
+                		object.counters[counterName].belowValueStates = oldCounter.belowValueStates;
+                		object.counters[counterName].atValueStates = oldCounter.atValueStates;
+                		object.counters[counterName].value = oldCounter.value;
+                	}
+                }
                 newScene.push(object);
             }
             GameCreator.scenes.push(newScene);
@@ -289,6 +320,7 @@ $.extend(GameCreator, {
 
     saveSceneObject: function(formId, obj) {
         GameCreator.saveFormInputToObject(formId, obj);
+        GameCreator.hideRoute();
         obj.update();
         GameCreator.render();
     },
@@ -298,9 +330,13 @@ $.extend(GameCreator, {
         $("#editSceneObjectTitle").html("");
         $("#editSceneObjectContent").html("");
     },
+
+    hideRoute: function() {
+        $(".routeNodeContainer").remove();
+    },
     
     drawRoute: function(route) {
-        $(".routeNodeContainer").remove();
+        GameCreator.hideRoute();
         var node;
         for(var i = 0; i < route.length; i++) {
             node = route[i];
@@ -310,5 +346,18 @@ $.extend(GameCreator, {
             GameCreator.draggedNode = this;
             return false;
         });
-    }
+    },
+    
+    getClickedObjectEditing: function(x, y) {
+        for (var i=GameCreator.renderableObjects.length - 1;i >= 0;--i) {
+            var obj = GameCreator.renderableObjects[i];
+            if(x >= obj.x && x <= obj.x + obj.displayWidth && y >= obj.y && y <= obj.y + obj.displayHeight)
+            {
+                obj.clickOffsetX = x - obj.x;
+                obj.clickOffsetY = y - obj.y;
+                return obj;
+            }
+        }
+        return null;
+    },
 });

@@ -53,18 +53,20 @@ GameCreator.addObjFunctions.keyObjectFunctions = function(object)
                     {
                         GameCreator.UI.openEditActionsWindow(
                             "Pressed " + key + " actions for " + this.parent.name,
-                             $.extend(GameCreator.actions.commonSelectableActions, GameCreator.actions.generalSelectableActions),
+                             GameCreator.actionGroups.nonCollisionActions,
                              this.parent.keyActions,
-                             key
+                             key,
+                             this.parent.name
                             );
                     }
                     else
                     {
                         for(var i = 0;i < keyAction.length;++i)
                         {
-                            keyAction[i].action.call(this, keyAction[i].parameters);
+                            GameCreator.helperFunctions.runAction(this, keyAction[i], keyAction[i].parameters);
                             this.keyCooldown[key] = true;
-                            //This anonymous function should ensure that keyAction in the timeout callback has the state that it has when the timeout is declared.
+                            // This anonymous function should ensure that keyAction in the timeout callback
+                            // has the state that it has when the timeout is declared.
                             (function(keyCooldown, key){
                                 setTimeout(function(){keyCooldown[key] = false}, 300);
                             })(this.keyCooldown, key);
@@ -111,6 +113,6 @@ GameCreator.addObjFunctions.stoppableObjectFunctions = function(object)
 
 GameCreator.addObjFunctions.clickableObjectFunctions = function(object)
 {
-	object.onClickActions = [];
+	object.onClickActions = undefined;
 	object.isClickable = true;
 }

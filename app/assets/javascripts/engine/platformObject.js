@@ -19,6 +19,8 @@ GameCreator.platformObject = {
         obj.isRenderable = true;
         obj.isEventable = true;
         
+        obj.counters = {};
+        
         obj.objectType = "platformObject";
         
         GameCreator.globalObjects[obj.name] = obj;
@@ -32,11 +34,12 @@ GameCreator.platformObject = {
         image.src = savedObject.imageSrc;
         obj.image = image;
         
-        GameCreator.addObjFunctions.platformObjectFunctions(obj);
+        GameCreator.addObjFunctions.platformObjectFunctions(obj, savedObject);
         GameCreator.addObjFunctions.collidableObjectFunctions(obj);
         GameCreator.addObjFunctions.stoppableObjectFunctions(obj);
         GameCreator.addObjFunctions.bounceableObjectFunctions(obj);
         GameCreator.addObjFunctions.keyObjectFunctions(obj);
+        GameCreator.addObjFunctions.clickableObjectFunctions(obj);
         
         obj.isCollidable = true;
         obj.isMovable = true;
@@ -55,8 +58,6 @@ GameCreator.platformObject = {
         }
         
         GameCreator.globalObjects[obj.name] = obj;
-        
-        obj.instantiated();
         
         return obj;
     }
@@ -165,11 +166,57 @@ GameCreator.addObjFunctions.platformObjectFunctions = function(platformObject, a
         this.height = GameCreator.helperFunctions.getRandomFromRange(this.height);
         this.acceleration = GameCreator.helperFunctions.getRandomFromRange(this.acceleration);
         this.maxSpeed = GameCreator.helperFunctions.getRandomFromRange(this.maxSpeed);
+        this.x = GameCreator.helperFunctions.getRandomFromRange(this.x);
+        this.y = GameCreator.helperFunctions.getRandomFromRange(this.y);
     }
     
     platformObject.shoot = function(staticParameters){
         var projectileSpeed = GameCreator.helperFunctions.getRandomFromRange(staticParameters.projectileSpeed);
-        GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: this.x + (this.facingLeft ? 0 : this.width), y: this.y, speedX: this.facingLeft ? -projectileSpeed : projectileSpeed});
+        var x = 0, y = 0, speedX = 0, speedY = 0;
+        switch(staticParameters.projectileDirection){
+            case "Default":
+	            x = this.x + (this.facingLeft ? 0 : this.width);
+	            y = this.y;
+	            speedX = this.facingLeft ? -projectileSpeed : projectileSpeed;
+	            break;
+            
+            case "Up":
+	            x = this.x + this.width / 2;
+	            y = this.y;
+	            speedY = -projectileSpeed;
+	            break;
+            
+            case "Down":
+	            x = this.x + this.width / 2;
+	            y = this.y + this.height;
+	            speedY = projectileSpeed;
+	            break;
+            
+            case "Left":
+	            x = this.x;
+	            y = this.y + this.height / 2;
+	            speedX = -projectileSpeed;
+	            break;
+            
+            case "Right":
+	            x = this.x + this.width;
+	            y = this.y + this.height / 2;
+	            speedX = projectileSpeed;
+	            break;
+            
+            default:
+           		var target = GameCreator.getRuntimeObject(staticParameters.projectileDirection);
+                if (!target) {
+                    // We did not find the target, return without shooting anything.
+                    return;
+                }
+                x = this.x + (this.facingLeft ? 0 : this.width)
+                y = this.y;
+                var unitVector = GameCreator.helperFunctions.calcUnitVector(target.x - this.x - (this.facingLeft ? 0 : this.width), target.y - this.y);
+                speedX = unitVector.x * projectileSpeed;
+                speedY = unitVector.y * projectileSpeed;
+        }
+        GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: x, y: y, speedX: speedX, speedY: speedY});
     };
     
     platformObject.onDestroy = function(){

@@ -15,6 +15,8 @@ GameCreator.mouseObject = {
         obj.isRenderable = true;
         obj.isEventable = true;
         
+        obj.counters = {};
+        
         obj.objectType = "mouseObject";
         
         GameCreator.globalObjects[obj.name] = obj;
@@ -28,7 +30,7 @@ GameCreator.mouseObject = {
         image.src = savedObject.imageSrc;
         obj.image = image;
         
-        GameCreator.addObjFunctions.mouseObjectFunctions(obj);
+        GameCreator.addObjFunctions.mouseObjectFunctions(obj, savedObject);
         GameCreator.addObjFunctions.collidableObjectFunctions(obj);
         GameCreator.addObjFunctions.keyObjectFunctions(obj);
         
@@ -50,8 +52,6 @@ GameCreator.mouseObject = {
         
         GameCreator.globalObjects[obj.name] = obj;
         
-        obj.instantiated();
-        
         return obj;
     }
 }
@@ -67,7 +67,12 @@ GameCreator.addObjFunctions.mouseObjectFunctions = function(mouseObject, args)
     
     mouseObject.calculateSpeed = function(){};
 
-    mouseObject.initialize = function(){};
+    mouseObject.initialize = function(){
+        this.width = GameCreator.helperFunctions.getRandomFromRange(this.width);
+        this.height = GameCreator.helperFunctions.getRandomFromRange(this.height);
+        this.x = GameCreator.helperFunctions.getRandomFromRange(this.x);
+        this.y = GameCreator.helperFunctions.getRandomFromRange(this.y);
+    };
     
     mouseObject.move = function()
     {   
@@ -123,8 +128,46 @@ GameCreator.addObjFunctions.mouseObjectFunctions = function(mouseObject, args)
         });
     };
     
-    mouseObject.shoot = function() {
-        console.log("Mouse shoot!");
+    mouseObject.shoot = function(staticParameters) {
+        var x = 0, y = 0, speedX = 0, speedY = 0;
+        var projectileSpeed = GameCreator.helperFunctions.getRandomFromRange(staticParameters.projectileSpeed);
+        
+        switch(staticParameters.projectileDirection){
+            case "Default":
+            case "Up":
+                x = this.x + this.width / 2;
+                y = this.y;
+                speedY = -projectileSpeed;
+                break;
+            case "Down":
+                x = this.x + this.width / 2;
+                y = this.y + this.height;
+                speedY = projectileSpeed;
+                break;
+            case "Left":
+                x = this.x;
+                y = this.y + this.height / 2;
+                speedX = -projectileSpeed;
+                break;
+            case "Right":
+                x = this.x + this.width;
+                y = this.y + this.height / 2;
+                speedX = projectileSpeed;
+                break;
+            default:
+            	var target = GameCreator.getRuntimeObject(staticParameters.projectileDirection);
+                if (!target) {
+                    // We did not find the target, return without shooting anything.
+                    return;
+                }
+                x = this.x + this.width / 2;
+                y = this.y + this.height / 2;
+                var unitVector = GameCreator.helperFunctions.calcUnitVector(target.x - (this.x + this.width / 2), target.y - (this.y + this.height / 2));
+                speedX = unitVector.x * projectileSpeed;
+                speedY = unitVector.y * projectileSpeed;
+                break;
+        }
+        GameCreator.createRuntimeObject(GameCreator.globalObjects[staticParameters.objectToShoot], {x: x, y: y, speedX: speedX, speedY: speedY});
     };
     
     mouseObject.onDestroy = function()

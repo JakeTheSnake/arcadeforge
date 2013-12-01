@@ -3,13 +3,18 @@ GameCreator.timerHandler = {
 	timeSinceLastUpdate: 0,
 	fixed: {},
 	interval: {},
-
+	clear: function() {
+		GameCreator.timerHandler.fixed = {};
+		GameCreator.timerHandler.interval = {};
+		GameCreator.timerHandler.timeSinceLastUpdate = 0;
+		GameCreator.timerHandler.gameTime = 0;
+	},
 	update: function(deltaTime) {
 		var gameTime = GameCreator.timerHandler.gameTime += deltaTime;
 		var fixed = GameCreator.timerHandler.fixed;
 		var interval = GameCreator.timerHandler.interval;
 		GameCreator.timerHandler.timeSinceLastUpdate += deltaTime;
-		if (GameCreator.timerHandler.timeSinceLastUpdate >= 100) {
+		if (GameCreator.timerHandler.timeSinceLastUpdate > 100) {
 			GameCreator.timerHandler.timeSinceLastUpdate -= 100;
 			// Check for timeouts
 			var time;
@@ -28,7 +33,13 @@ GameCreator.timerHandler = {
 				if (interval.hasOwnProperty(time)) {
 					if (gameTime % parseInt(time) <= 100) {
 						for (var i = 0; i < interval[time].length; i++) {
-							interval[time][i]();
+							if(!interval[time][i]()) {
+								interval[time].splice(i, 1); 
+								i--;
+							}
+						}
+						if(interval[time].length === 0) {
+							delete interval[time];
 						}
 					}
 				}
