@@ -13,5 +13,5 @@
 	<p>We have three ways of adding game logic to your game. <b>Counters</b>: You can add counters to objects, and increase and decrease those through actions. You can also trigger actions to run whenever these counters reach a certain value. <b>Randomness</b>: If you see an orange field, this is a <b>range field</b>. This means that you can input a range of numbers, like "100-200". <b>Timing:</b> Whenever you create an action, you can choose whether it should happen instantaneously, periodically or at a fixed time.</p>
 	<p>Enough talking, try this shit out!</p>
 	<p>/Jonatan & Jakob</p>
-<center><%= button_to 'Go!', {controller: "games", action: "index"}, {:class => 'regularButton'} %></center>
+<center><%= link_to 'Go!', {controller: "games", action: "index"}, {:class => 'regularButton'} %></center>
 </div>
