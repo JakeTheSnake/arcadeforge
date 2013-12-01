@@ -1,0 +1,50 @@
+<%= form_for @game, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :author, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :author, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <div class="form_tooltip">Describe what your game is all about!</div>
+      <%= f.text_area :description, cols: 40, rows: 7 %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :feedback, :class => 'control-label' %>
+    <div class="controls">
+      <div class="form_tooltip">Please give some general feedback along with suggestions of improvements!</div>
+      <%= f.text_area :feedback, cols: 40, rows: 7 %>
+
+    
+    </div>
+  </div>
+
+  
+  <div class="control-group">
+    <%= f.label :limitations, :class => 'control-label' %>
+    
+    <div class="controls">
+      <div class="form_tooltip">Please describe any major limitations that kept
+      you from implementing the game the way you wanted.</div>
+      <%= f.text_area :limitations, cols: 40, rows: 7 %>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.hidden_field :saved_game %>
+    <%= f.submit nil, :class => 'regularButton' %>
+    <%= link_to_function "No wait I'm not EA, take me back to my game so I can actually finish it before releasing.",
+      'returnToGameCreator()',
+         :class => 'cancelButton' %>
+  </div>
+<% end %>
