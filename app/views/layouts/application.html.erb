@@ -20,8 +20,14 @@
                 </ul>
 
                 <div id="nav-user">
-                    <a href="login.html">Login</a>
-                    <button id="btn-signup" class="btn btn-success" type="button"><a href="signup.html">Sign up</a></button>
+                	<% if user_signed_in? %>
+	                    <%= link_to "Profile", edit_user_registration_path %>
+	                    <%= link_to "Log out", destroy_user_session_path, class: "btn btn-warning", method: :delete %>
+
+                    <% else %>
+	                    <%= link_to "Login", new_user_session_path %>
+                    	<%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
+                    <% end %>
                 </div>
             </nav>
         </header>
