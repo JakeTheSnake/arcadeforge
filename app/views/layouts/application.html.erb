@@ -1,12 +1,30 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Arcadeforge</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>Arcadeforge</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="nav-main">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../index.html">Create</a></li>
+                    <li><a href="textpage.html">Games</a></li>
+                    <li><a href="textpage.html">Blog</a></li>
+                </ul>
+
+                <div id="nav-user">
+                    <a href="login.html">Login</a>
+                    <button id="btn-signup" class="btn btn-success" type="button"><a href="signup.html">Sign up</a></button>
+                </div>
+            </nav>
+        </header>
 
 <%= yield %>
 

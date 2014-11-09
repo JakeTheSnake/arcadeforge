@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'df28459cc8c5889d77500a4962f71e33c03db5e37e827b8a68b5514f3723c7fe892c46606ea26ee6ab70f5a13d98669967749e4a8f2308c080d29977019b94a5'
+  # config.secret_key = '9e4c336d499a7c513ddc7221cc0a7e4c62cef0ea3fa2e8dc83ae7f94047fca2edb24570e9134207355187c874caf6765dbd62a7e7185efba6a9ed7c85a9e66a7'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -19,7 +19,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/mongoid'
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -61,7 +61,7 @@ Devise.setup do |config|
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
-  # If http headers should be returned for AJAX requests. True by default.
+  # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
@@ -97,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '4d3544647411c757ec13c352df3cb841432b0728b3e7f9b594cd6a427ebf3b7cf444d2a9f2e574801511aa0cdcf706bee18ff7abcd125f2b8a1fd497ca457b70'
+  # config.pepper = '7147987df136f336cc93b424dda9024b22e1f2f65f55dc02ec6083956d624d0a8b052c09e043ba7ea4ad1b958b1488e6cb90e8ec657dde0ac359f2835e986394'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -127,6 +127,9 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
+
+  # Invalidates all the remember me tokens when the user signs out.
+  config.expire_all_remember_me_on_sign_out = true
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -176,7 +179,7 @@ Devise.setup do |config|
   # config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = false
+  # config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
