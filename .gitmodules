@@ -1,0 +1,4 @@
+[submodule "app/assets/javascripts/doubleball"]
+	path = app/assets/javascripts/doubleball
+	url = git@github.com:JakeTheSnake/doubleball.git
+	branch = master
