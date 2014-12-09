@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profile/mypage'
+
   resources :games
 
   devise_for :users
