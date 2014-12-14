@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,26 +7,63 @@
         <meta name="description" content="">
         <title>Arcadeforge</title>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		<%= csrf_meta_tags %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
     </head>
     <body>
-        <header>
-            <nav>
+        <nav>
+            <div class="container">
+                <%= link_to image_tag("logo_arcadeforge_navbar.png"), root_path, :class => "navbar-logo" %>
                 <ul id="nav-main">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="../index.html">Create</a></li>
-                    <li><a href="textpage.html">Games</a></li>
-                    <li><a href="textpage.html">Blog</a></li>
+                    <li><a href="index.html">Create</a></li>
+                    <li><a href="play.html">Play</a></li>
+                    <li><a href="index.html">Features</a></li>
+                    <li><a href="index.html">Tutorials</a></li>
+                    <li><a href="index.html">Blog</a></li>
                 </ul>
 
-                <div id="nav-user">
-                	<%= account_nav %>
-                </div>
-            </nav>
-        </header>
+                <ul id="nav-user">
+                    <% account_nav.each do |nav_item| %>
+                        <li><%= nav_item %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </nav>
 
-<%= yield %>
+        <section class="container"> 
+            <%= yield %>
+        </section>
 
-</body>
+        <footer class="footer">
+            <div id="footer-container" class="container">
+                <ul>
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="index.html">Terms</a></li>
+                    <li><a href="index.html">Privacy</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="index.html">Login</a></li>
+                    <li><a href="index.html">Sign up</a></li>
+                    <li><a href="index.html">Forgot password</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="index.html">Features</a></li>
+                    <li><a href="index.html">Tutorials</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                </ul>
+
+                <ul id="footer-social">
+                    <li><a href="index.html"><%= image_tag "icon_social_facebook.png" %></a></li>
+                    <li><a href="index.html"><%= image_tag "icon_social_twitter.png" %></a></li>
+                    <li><a href="index.html"><%= image_tag "icon_social_youtube.png" %></a></li>
+                    <li><a href="index.html"><%= image_tag "icon_social_vimeo.png" %></a></li>
+                </ul>
+                <br />
+                <span id="footer-copyright">Copyright © 2014 ArcadeForge</span>
+            </div>
+        </footer>
+    </body>
 </html>

@@ -1,55 +1,7 @@
-<%= javascript_include_tag 'edit_game', 'data-turbolinks-track' => true %>
-
-<!-- Toolbar bottom -->
-<div id="toolbar-bottom" class="row">
-
-    <!-- Column Left -->
-    <div class="col left border-right">
-    </div>
-
-    <!-- Column middle -->
-    <div class="col middle">
-
-        <!-- Scenes -->
-        <div id="toolbar-scenes" class="row border-bottom">
-        </div>
-
-        <!-- Canvas -->
-        <div id="canvas-container" class="row" oncontextmenu="return false;">
-        </div>
-    </div>
-
-    <!-- Column right -->
-    <div class="col right border-left">
-        <!-- Panel: Properties -->
-        <div id ="properties" class="panel border-bottom">
-            <div class="panel-heading">
-                <span class="panel-title">Properties</span>
-            </div>
-            <div id="side-properties-form-container" class="panel-body">
-                
-            </div>
-        </div>
-
-        <!-- Panel: Library -->
-        <div id="library" class="panel">
-            <div class="panel-heading">
-                <span class="panel-title">Library</span>
-            </div>
-            <div id="library-preview" class="library-preview panel-paragraph"></div>
-            <div id="library-explorer" class="library-explorer">
-                <ul class="global-object-list">
-                </ul>
-            </div>
-            <div id="library-menu" class="library-menu">
-                <button id="add-global-object-button" type="button" class="btn btn-success">Add</button>
-                <button id="edit-global-object-button" type="button" class="btn btn-edit">Edit</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Dialogue -->
-<div id="dialogue-overlay"></div>
-<div id="dialogue-window">
-</div>
+<%= form_for @game, url: {action: 'update'} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :thumbnail %>
+  <%= f.text_field :thumbnail %>
+  <%= f.submit "Update" %>
+<% end %>

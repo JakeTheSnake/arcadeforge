@@ -1,15 +1,9 @@
 <h1>My page mother fucker</h1>
 <ul>
-  <% unless @games.nil? %>
-    <% @games.each do |game| %>
-      <% present game do |game_presenter| %>
-        <li><%= link_to "#{i+1}. #{game_presenter.name}", edit_game(game) %></li>
-      <% end %>
-    <% end %>
-  <% else %>
-    <li>No games :(</li>
+  <%= render :partial => 'game_thumbnail', :collection => @games %>
+  <% if @games.empty? %>
+    <li>No games :( <%= link_to "Create new!", :controller => 'games', :action => 'new' %></li>
   <% end %>
 </ul>
 
 <%= link_to "Create new game :D", new_game_path %>
-

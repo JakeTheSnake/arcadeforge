@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  layout "game", :except => :new
+  layout "game", :except => [:new, :index, :edit]
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :verify_game_owner, :except => [:show, :index, :create, :new]
   
@@ -11,14 +11,19 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user = current_user
     @game.save!
-    redirect_to action: 'edit', :id => @game.id
+    redirect_to action: 'editor', :id => @game.id
   end
 
   def update
+    @game.update!(game_params)
+    redirect_to controller: 'profile', action: 'mypage'
   end
 
-  
   def edit
+
+  end
+  
+  def editor
     gon.game = @game.data
   end
 
@@ -31,6 +36,8 @@ class GamesController < ApplicationController
   end
 
   def index
+    @popular_games = Game.order(votes: :desc).limit(5)
+    @newest_games = Game.order(created_at: :desc).limit(5)
   end
 
   def show
@@ -48,7 +55,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :data)
+    params.require(:game).permit(:name, :data, :thumbnail)
   end
   
 end
