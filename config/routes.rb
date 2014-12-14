@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'profile/mypage'
 
-  resources :games
+  resources :games do 
+    post 'savegame', on: :member
+  end
 
   devise_for :users
   get 'home/index'

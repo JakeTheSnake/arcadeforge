@@ -1,0 +1,5 @@
+<%= form_for @game, url: {action: 'create'} do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>

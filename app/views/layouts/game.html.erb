@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <title>Arcadeforge</title>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <%= include_gon %>
         <%= stylesheet_link_tag    'game', media: 'all', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
     </head>
@@ -22,6 +23,8 @@
                 <button type="button" id="run-game-button" class="btn btn-success btn-lg">Run Game</button>
                 <button type="button" id="edit-game-button" class="btn btn-success btn-lg">Edit Game</button>
                 <button type="button" id="direct-game-button" class="btn btn-success btn-lg">Direct Game</button>
+                <button type="button" id="save-game-button" class="btn btn-success btn-lg">Save Game</button>
+
                 <%= account_nav %>
             </div>
 

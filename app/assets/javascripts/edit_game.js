@@ -36,6 +36,7 @@
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterObjectImage
 //= require doubleball/engine/counterObjectText
+//= require doubleball/engine/textObject
 //= require doubleball/ui/debug
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events
@@ -46,4 +47,5 @@
 //= require doubleball/ui/views/platformObjectViews
 //= require doubleball/ui/views/counterObjectViews
 //= require doubleball/ui/views/commonObjectViews
+//= require doubleball/ui/views/textObjectViews
 //= require doubleball/ui/controllers/commonObjectControllers

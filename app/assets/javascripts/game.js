@@ -32,6 +32,7 @@
 //= require doubleball/engine/counter.js
 //= require doubleball/engine/counterObjectImage.js
 //= require doubleball/engine/counterObjectText.js
+//= require doubleball/engine/textObject
 
 //= require doubleball/engine/objectEffects.js
 //= require doubleball/engine/events.js
