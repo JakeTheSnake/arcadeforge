@@ -146,7 +146,7 @@ h1, h2, h3 {
   color: #FFE373;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
-  background-image: url(<%= asset_path "game/title_underline.png" %>);
+  background-image: url("<%= asset_path "game/title_underline.png" %>");
   background-repeat: repeat-x;
   background-position: left bottom;
   margin-bottom: 15px;
@@ -293,25 +293,25 @@ input {
    ========================================================================== */
 
 .border-top {
-  background-image: url(<%= asset_path 'game/border_top.png' %>);
+  background-image: url("<%= asset_path 'game/border_top.png' %>");
   background-repeat: repeat-x;
   background-position: left top;
 }
 
 .border-bottom {
-  background-image: url(<%= asset_path 'game/border_bottom.png' %>);
+  background-image: url("<%= asset_path 'game/border_bottom.png' %>");
   background-repeat: repeat-x;
   background-position: left bottom;
 }
 
 .border-right {
-  background-image: url(<%= asset_path 'game/border_right.png' %>);
+  background-image: url("<%= asset_path 'game/border_right.png' %>");
   background-repeat: repeat-y;
   background-position: top right;
 }
 
 .border-left {
-  background-image: url(<%= asset_path 'game/border_left.png' %>);
+  background-image: url("<%= asset_path 'game/border_left.png' %>");
   background-repeat: repeat-y;
   background-position: top left;
 }
@@ -352,7 +352,7 @@ input {
   right: 330px;
   bottom: 0;
   left: 50px;
-  background-image: url(<%= asset_path 'game/canvas_grid.gif' %>);
+  background-image: url("<%= asset_path 'game/canvas_grid.gif' %>");
   background-position: top center;
   background-repeat: repeat;
 }
@@ -488,7 +488,13 @@ input {
 
 
 
-
+.remove-item-button {
+  cursor: pointer;
+    color: red;
+    float: right;
+    margin-right: 15px;
+    font-weight: bold;
+}
 
 
 
@@ -521,7 +527,7 @@ input {
   display:block;
   width: 170px;
   height: 110px;
-  background: url(<%= asset_path 'game/library_preview_grid.gif' %>);
+  background: url("<%= asset_path 'game/library_preview_grid.gif' %>");
   float: left;
 }
 
@@ -773,7 +779,7 @@ input {
 
 #logo {
     float: left;
-    background-image: url(<%= asset_path 'game/logo_arcadeforge.png' %>);
+    background-image: url("<%= asset_path 'game/logo_arcadeforge.png' %>");
     width: 178px;
     height: 22px;
     margin: 24px 22px 0 22px;
@@ -791,7 +797,7 @@ input {
 .library-preview {
   margin-bottom: 2px;
   height: 110px;
-  background: url(<%= asset_path 'game/library_preview_grid.gif' %>);
+  background: url("<%= asset_path 'game/library_preview_grid.gif' %>");
 }
 
 .library-preview > img {
@@ -822,7 +828,7 @@ input {
   font-color: #242424;
   font-family: 'Droid Sans', sans-serif;
   text-decoration: none;
-  background: url(<%= asset_path 'game/library_explorer_icon_object.png' %>) no-repeat 5px center;
+  background: url("<%= asset_path 'game/library_explorer_icon_object.png' %>") no-repeat 5px center;
   cursor: pointer;
 
     -webkit-user-select: none;
@@ -954,6 +960,14 @@ input {
    Custom button classes
    ==================================================================================================================================================== */
 
+.remove-item-button {
+  cursor: pointer;
+    color: red;
+    float: right;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
 .btn {
   background-color: #505050;
   border: 0;
@@ -1053,11 +1067,11 @@ input {
 
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?99267613');
-  src: url('../font/icons.eot?99267613#iefix') format('embedded-opentype'),
-       url('../font/icons.woff?99267613') format('woff'),
-       url('../font/icons.ttf?99267613') format('truetype'),
-       url('../font/icons.svg?99267613#icons') format('svg');
+  src: url("<%= asset_path 'icons.eot' %>");
+  src: url("<%= asset_path 'icons.eot#iefix' %>") format('embedded-opentype'),
+       url("<%= asset_path 'icons.woff' %>") format('woff'),
+       url("<%= asset_path 'icons.ttf' %>") format('truetype'),
+       url("<%= asset_path 'icons.svg#icons' %>") format('svg');
   font-weight: normal;
   font-style: normal;
 }
