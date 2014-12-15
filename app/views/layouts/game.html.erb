@@ -18,14 +18,25 @@
         <div class="container-fluid">
 
             <!-- Toolbar top -->
-            <div id="toolbar-top" class="row border-bottom">
-                <a href="http://arcadeforge.com/" target="_self" id="logo"></a>
-                <button type="button" id="run-game-button" class="btn btn-success btn-lg">Run Game</button>
-                <button type="button" id="edit-game-button" class="btn btn-success btn-lg">Edit Game</button>
-                <button type="button" id="direct-game-button" class="btn btn-success btn-lg">Direct Game</button>
-                <button type="button" id="save-game-button" class="btn btn-success btn-lg">Save Game</button>
+            <div id="toolbar-top" class="border-bottom">
+                <%= link_to image_tag("logo_arcadeforge_navbar.png"), root_path, :class => "navbar-logo" %>
+                <div id="edit-mode" class="btn-group">
+                    <div id="edit-mode-buttons">
+                        <input type="radio" id="edit-game-button" name="edit-mode" data-name="EDIT GAME" checked="checked" />
+                        <label for="edit-game-button"></label>
+                        <input type="radio" id="direct-game-button" data-name="DIRECT GAME"name="edit-mode" />
+                        <label for="direct-game-button"></label>
+                        <input type="radio" id="run-game-button" data-name="RUN GAME" name="edit-mode" />
+                        <label for="run-game-button"></label>
+                    </div>
+                    <span id="edit-mode-label"></span>
 
-                <%= account_nav %>
+                    <ul id="nav-user">
+                        <% account_nav.each do |nav_item| %>
+                            <li><%= nav_item %></li>
+                        <% end %>
+                    </ul>
+                </div>
             </div>
 
             <%= yield %>

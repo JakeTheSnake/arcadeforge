@@ -487,6 +487,86 @@ input {
 
 
 
+.navbar-logo {
+  margin: 7px 30px 0 30px;
+  float: left;
+}
+
+.nav-user {
+  margin: 30px 30px 0 0;
+  float: right;
+}
+ 
+/*
+ * Added: 141215
+ * Button groups
+ */
+
+#edit-mode {
+  display: inline-block;
+  width: 148px;
+  height: 72px;
+  margin-top: 14px;
+}
+
+#edit-mode-buttons {
+  display: block;
+  width: 148px;
+  height: 48px;
+  border-bottom: 1px solid #474747;
+}
+
+#edit-mode span {
+  width: 148px;
+  height: 48px;
+  margin: 0 auto 0 auto;
+  color: #ADADAD;
+  font-size: 0.7em;
+  font-family: 'Droid Sans', sans-serif;
+  text-align: center;
+}
+
+.btn-group input[type="radio"] {
+  display: none;
+}
+
+.btn-group input[type="radio"] + label {
+  display: block;
+  margin: 0 2px 0 0;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  background: #2E2E2E url("<%= asset_path 'game/icon_small_disabled.png' %>");
+  cursor: pointer;
+  float: left;
+}
+
+.btn-group input[type="radio"]:checked + label {
+  background-image: url("<%= asset_path 'game/icon_small.png' %>");
+}
+
+.btn-group input[type="radio"] + label:last-of-type {
+  margin: 0 0 4px 0;
+  clear: right;
+}
+
+.btn-group span {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .remove-item-button {
   cursor: pointer;
@@ -495,6 +575,20 @@ input {
     margin-right: 15px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
