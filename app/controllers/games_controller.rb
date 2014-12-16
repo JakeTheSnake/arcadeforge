@@ -37,7 +37,7 @@ class GamesController < ApplicationController
 
   def index
     @popular_games = Game.order(votes: :desc).limit(5)
-    @newest_games = Game.order(created_at: :desc).limit(5)
+    @recent_games = Game.order(created_at: :desc).limit(5)
   end
 
   def show

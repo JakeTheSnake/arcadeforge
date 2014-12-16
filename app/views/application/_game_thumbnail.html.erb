@@ -1,0 +1,7 @@
+<% present game_thumbnail do |game_presenter| %>
+<div class="game-item">
+  <a href="play.html">
+      <%= image_tag game_thumbnail.thumbnail, :width => 152, :height => 152 %></a>
+      <%= link_to game_thumbnail.name, game_thumbnail, :class => "game-item-title" %>
+</div>
+<% end %>

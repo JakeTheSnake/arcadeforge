@@ -1,2 +1,20 @@
-<h1>Game#index</h1>
-<p>Find me in app/views/game/index.html.erb</p>
+<!-- Toolbar bottom -->
+<div id="toolbar-bottom" class="row">
+
+    <!-- Column Left -->
+    <div class="col left border-right">
+
+    </div>
+
+    <!-- Column middle -->
+    <div class="col middle">
+        <div class="game-category">
+            <h2>Recent games</h2>
+            <%= render :partial => 'game_thumbnail', :collection => @recent_games %>
+        </div>
+        <div class="game-category">
+            <h2>Popular games</h2>
+            <%= render :partial => 'game_thumbnail', :collection => @popular_games %>
+        </div>
+    </div>
+</div>

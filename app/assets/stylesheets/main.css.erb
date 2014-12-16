@@ -138,9 +138,11 @@ h1, h2, h3 {
   color: #FFE373;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
+  background-image: url("<%= asset_path 'title_underline.gif' %>");
   background-repeat: repeat-x;
   background-position: left bottom;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  width: 830px;
 }
 
 h1 {
@@ -225,6 +227,34 @@ input {
   display: block;
   text-align: center;
   text-shadow: 1px 1px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   Borders
+   ========================================================================== */
+
+.border-top {
+  background-image: url("<%= asset_path 'border_top.png' %>");
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+.border-bottom {
+  background-image: url("<%= asset_path 'border_bottom.png' %>");
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+.border-right {
+  background-image: url("<%= asset_path 'border_right.png' %>");
+  background-repeat: repeat-y;
+  background-position: top right;
+}
+
+.border-left {
+  background-image: url("<%= asset_path 'border_left.png' %>");
+  background-repeat: repeat-y;
+  background-position: top left;
 }
 
 /* ==========================================================================
@@ -320,6 +350,76 @@ nav {
    Content: Play
    ========================================================================== */
 
+#toolbar-bottom {
+  position: absolute;
+  top: 86px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#toolbar-bottom > .left {
+  position: absolute;
+  background-color: #323232;
+  width: 227px;
+  height: 100%;
+}
+
+#toolbar-bottom > .middle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 227px;
+  background-color: #2B2B2B;
+  padding: 33px 0 0 30px;
+}
+
+/* ==========================================================================
+   Content: Game category and item
+   ========================================================================== */
+
+.game-category {
+  margin-bottom: 27px;
+}
+
+.game-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.game-item:last-child {
+  margin-right: 0;
+}
+
+.game-item img {
+  border: 1px solid #404040;
+  margin-bottom: 7px;
+}
+
+.game-item-title {
+  font-size: 0.9em;
+  color: #FFE373;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.game-item-rating {
+  margin-bottom: 0;
+}
+
+.game-item-rating input {
+  display: inline-block;
+  padding: 0;
+  width: 14px;
+  height: 14px;
+}
+
+
+/* ==========================================================================
+   Content: Play
+   ========================================================================== */
+
 
 /* ==========================================================================
    Footer
@@ -331,6 +431,7 @@ footer {
   bottom: 0;
   background-color: #323232;
   height: 100px;
+  padding-top: 20px;
 }
 
 footer a {
@@ -348,10 +449,6 @@ footer ul:first-child {
 
 footer li {
   height: 18px
-}
-
-.footer {
-  padding-top: 20px;
 }
 
 #footer-social {

@@ -21,7 +21,7 @@
     <div id="list-recent">
         <h1>10 Recent games</h1>
         <ul>
-            <% @newest_games.each_with_index do |game, i| %>
+            <% @recent_games.each_with_index do |game, i| %>
                 <% present game do |game_presenter| %>
                     <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", edit_game_path(game) %></li>
                 <% end %>

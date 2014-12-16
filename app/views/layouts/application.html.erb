@@ -11,16 +11,13 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <nav>
+        <nav class="border-bottom">
             <div class="container">
                 <%= link_to image_tag("logo_arcadeforge_navbar.png"), root_path, :class => "navbar-logo" %>
                 <ul id="nav-main">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Create</a></li>
-                    <li><a href="play.html">Play</a></li>
-                    <li><a href="index.html">Features</a></li>
-                    <li><a href="index.html">Tutorials</a></li>
-                    <li><a href="index.html">Blog</a></li>
+                    <li><%= link_to "Home", root_path %></li>
+                    <li><%= link_to "Create", new_game_path %></li>
+                    <li><%= link_to "Play", games_path %></li>
                 </ul>
 
                 <ul id="nav-user">
@@ -35,7 +32,7 @@
             <%= yield %>
         </section>
 
-        <footer class="footer">
+        <footer class="border-top">
             <div id="footer-container" class="container">
                 <ul>
                     <li><a href="index.html">About</a></li>
