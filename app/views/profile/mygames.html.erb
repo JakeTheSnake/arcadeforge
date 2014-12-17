@@ -1,0 +1,16 @@
+<!-- Toolbar bottom -->
+<div id="toolbar-bottom" class="row">
+
+    <!-- Column Left -->
+    <div class="col left border-right">
+      <%= link_to "Create new game :D", new_game_path %>
+    </div>
+
+    <!-- Column middle -->
+    <div class="col middle">
+        <div class="game-category">
+            <h2>My games</h2>
+            <%= render :partial => 'game_thumbnail', :collection => @games %>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'profile/mypage'
+  get 'profile/mygames'
 
   resources :games do 
     post 'savegame', on: :member
