@@ -121,7 +121,8 @@ h1, h2, h3, p {
 }
 
 button:focus {
-    outline: 0;
+  border: 0;
+  outline: 0;
 }
 
 .btn {
@@ -140,6 +141,8 @@ canvas {
   position: absolute;
   border-right: 2px solid;
   border-bottom: 2px solid;
+  margin-left: 50%;
+  left: -512px;
 }
 
 h1, h2, h3 {
@@ -191,11 +194,6 @@ p + img {
   margin-top: -5px;
 }
 
-/*img {
-  border: 2px solid #505050;
-  margin-bottom: 20px;
-}*/
-
 label {
   display: inline-block;
   color: #F5F5F5;
@@ -224,6 +222,10 @@ input {
   pointer-events: none;
 }
 
+#canvas-container {
+  width: 1024px;
+}
+
 .container-fluid {
   padding: 0;
   margin-right: auto;
@@ -241,6 +243,8 @@ input {
   min-height: 1px;
   height: 100%;
   float: left;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ==========================================================================
@@ -270,7 +274,7 @@ input {
 }
 
 .panel-body {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0;
   padding: 18px 30px 30px 28px;
 }
@@ -328,12 +332,12 @@ input {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  height: 72px;
+  height: 86px;
 }
 
 #toolbar-bottom {
   position: absolute;
-  top: 72px;
+  top: 86px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -352,9 +356,7 @@ input {
   right: 330px;
   bottom: 0;
   left: 50px;
-  background-image: url("<%= asset_path 'game/canvas_grid.gif' %>");
-  background-position: top center;
-  background-repeat: repeat;
+  background-color: #1B1B1B;
 }
 
 #toolbar-bottom > .right {
@@ -455,11 +457,16 @@ input {
   margin-bottom: 2px;
 }
 
-#object-manager .col {
+#object-manager .col,
+#add-global-object-window .col {
   min-width: 160px;
   padding-right: 2px;
 }
 
+#add-global-object-form-content.col {
+  min-width: 0;
+  padding-right: 0;
+}
 #dialogue-window .content {
   height: 100%;
 }
@@ -487,6 +494,51 @@ input {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Added: 141216
+ * Scene proprties styles
+ */
+
+#side-properties-form-container {
+  padding: 0;
+}
+
+#side-properties-form-container ul {
+  margin-bottom: 10px;
+}
+
+#side-properties-form-container li {
+  width: 100%;
+}
+
+#side-properties-form-container tr td:first-child {
+  width: 130px;
+}
+
+#properties .form-container > li {
+  padding: 0;
+  background-color: #323232;
+  height: auto;
+  cursor: default;
+}
+
+
 .navbar-logo {
   margin: 7px 30px 0 30px;
   float: left;
@@ -499,7 +551,7 @@ input {
  
 /*
  * Added: 141215
- * Button groups
+ * Button groups and top bar icons
  */
 
 #edit-mode {
@@ -554,27 +606,35 @@ input {
   display: block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .remove-item-button {
   cursor: pointer;
-    color: red;
-    float: right;
-    margin-right: 15px;
-    font-weight: bold;
+  color: red;
+  float: right;
+  margin-right: 15px;
+  font-weight: bold;
+  outline: none;
 }
+
+.toolbar-icon {
+  margin-top: 14px;
+  margin-right: 2px;
+  display: block;
+  width: 68px;
+  height: 68px;
+  background-color: #2E2E2E;
+  float: left;
+}
+
+.toolbar-icon:hover {
+  background-color: #3C3C3C;
+}
+
+.toolbar-icon-save { background-image: url("<%= asset_path 'game/icon_save.png' %>"); }
+
+
+
+
+
 
 
 
@@ -615,25 +675,40 @@ input {
   height: 250px;
   background-color: #323232;
   margin-bottom: 2px;
+  padding: 30px;
 }
 
 #select-action-window .image-preview {
-  display:block;
-  width: 170px;
-  height: 110px;
-  background: url("<%= asset_path 'game/library_preview_grid.gif' %>");
+  margin-top: 62px;
+  display: block;
   float: left;
+  margin-right: 10px;
+  width: 175px;
+  height: 125px;
+  background: url("<%= asset_path 'game/library_preview_grid.gif' %>");
 }
 
 #select-action-window .image-preview:last-child {
-  float: right;
+  margin-right: 0;
+}
+
+#select-action-window .image-preview-large {
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #select-action-window .image-preview img {
-  height: 90px;
+  height: 100px;
   border: none;
-  display:block;
-  margin: 10px auto 0 auto;
+  display: block;
+  margin: 12px auto 0 auto;
+  vertical-align: middle;
+}
+
+#select-action-window .image-preview-large img {
+  height: 180px;
+  margin-top: 35px;
 }
 
 #dialogue-events-content .col,
@@ -653,12 +728,12 @@ input {
   - Rename conditions-group
 */
 .conditions-group {
-  border: 1px solid #239D58;
+  border: 1px solid #F5A818;
 }
 
 .conditions-group > span {
   display: block;
-  background-color: #239D58;
+  background-color: #F5A818;
   padding: 4px 0 0 7px;
   height: 29px;
   margin-bottom: 2px;
@@ -885,7 +960,7 @@ input {
 }
 
 #properties .panel-body {
-  height: 295px;
+  overflow-y: auto;
 }
 
 .library-preview {
@@ -1007,7 +1082,7 @@ input {
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
   text-align: left;
-  text-shadow: 1px 1px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
   vertical-align: middle;
   padding: 7px 0 0 13px;
   float: left;
@@ -1023,12 +1098,12 @@ input {
 }
 
 .nav-tabs > li.active {
-  background-color: #2574A9;
+  background-color: #F5A818;
   cursor: default;
 }
 
 .nav-tabs-success > li.active {
-  background-color: #239D58;
+  background-color: #F5A818;
 }
 
 .nav-tabs-edit > li.active {
@@ -1076,7 +1151,7 @@ input {
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
   text-align: center;
-  text-shadow: 1px 1px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
   white-space: nowrap;
   vertical-align: middle;
   padding: 8px 0;
@@ -1097,14 +1172,6 @@ input {
 
 .btn-wide {
   width: 155px;
-}
-
-/**
- * Button: Active
- */
-
-.btn-active {
-  border: 1px solid #ffff00;
 }
 
 /*

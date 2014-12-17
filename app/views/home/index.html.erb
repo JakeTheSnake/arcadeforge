@@ -1,36 +1,34 @@
-<%= link_to image_tag("logo_arcadeforge_environment.png"), root_path, :class => "environment-logo" %>
+<section id="home" class="container"> 
+    <%= link_to image_tag("logo_arcadeforge_environment.png"), root_path, :class => "environment-logo" %>
 
+    <div id="environment-cta">
+        <%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn" %>
+        <a href="index.html" id="btn-watchvideo" class="btn">Watch Video</a>
+    </div>
 
-<div id="environment-cta">
-    <%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn" %>
-    <a href="index.html" id="btn-watchvideo" class="btn">Watch Video</a>
-</div>
-
-<div id="lists">
-    <div id="list-top">
-        <h1>Top 10 games</h1>
-        <ul>
-            <% @popular_games.each_with_index do |game, i| %>
-                <% present game do |game_presenter| %>
-                    <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.votes}", game %></li>
+    <div id="lists">
+        <div id="list-top">
+            <h1>Top 10 games</h1>
+            <ul>
+                <% @popular_games.each_with_index do |game, i| %>
+                    <% present game do |game_presenter| %>
+                        <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.votes}", game %></li>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </ul>
-    </div>
+            </ul>
+        </div>
 
-    <div id="list-recent">
-        <h1>10 Recent games</h1>
-        <ul>
-            <% @newest_games.each_with_index do |game, i| %>
-                <% present game do |game_presenter| %>
-                    <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", edit_game_path(game) %></li>
+        <div id="list-recent">
+            <h1>10 Recent games</h1>
+            <ul>
+                <% @newest_games.each_with_index do |game, i| %>
+                    <% present game do |game_presenter| %>
+                        <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", edit_game_path(game) %></li>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </ul>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div id="environment">
-    <div id="environment-base">
-    </div>
-</div>
+    <div id="environment-base"></div>
+</section>
