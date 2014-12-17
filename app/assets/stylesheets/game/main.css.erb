@@ -129,6 +129,12 @@ button:focus {
     border-radius: 0;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Droid Sans', sans-serif;
+}
+
 a:last-child, button:last-child, img:last-child, p:last-child {
   margin-bottom: 0;
 }
@@ -477,6 +483,7 @@ input {
 
 #object-manager-library {
   width: 248px;
+  overflow-y: hidden;
 }
 
 /*
@@ -544,9 +551,25 @@ input {
   float: left;
 }
 
-.nav-user {
-  margin: 30px 30px 0 0;
+#nav-user {
+  margin-top: 30px;
+  margin-right: 30px;
   float: right;
+}
+
+#nav-user li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+#nav-user li:last-child {
+  margin-right: 0;
+}
+
+#btn-signup {
+  background-color: #239D58;
+  padding: 6px 0;
+  width: 88px;
 }
  
 /*
@@ -618,11 +641,10 @@ input {
 .toolbar-icon {
   margin-top: 14px;
   margin-right: 2px;
-  display: block;
+  display: inline-block;
   width: 68px;
   height: 68px;
   background-color: #2E2E2E;
-  float: left;
 }
 
 .toolbar-icon:hover {
@@ -982,6 +1004,10 @@ input {
   margin-bottom: 2px;
   height: 220px;
   background-color: #F5F5F5;
+}
+
+#object-manager-library-explorer.library-explorer {
+  height: 100%;
 }
 
 .library-menu > button {

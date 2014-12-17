@@ -9,10 +9,10 @@ module ApplicationHelper
 	def account_nav
 		if user_signed_in?
             [link_to("Profile", edit_user_registration_path), 
-            link_to("Log out", destroy_user_session_path, class: "btn btn-warning", method: :delete)]
+            button_to("Log out", destroy_user_session_path, class: "btn btn-warning", method: :delete)]
         else
             [link_to("Login", new_user_session_path),
-        	  link_to("Sign up", new_user_registration_path, class: "btn", id: "btn-signup")]
+        	button_to("Sign up", new_user_registration_path, class: "btn", id: "btn-signup", :method => :get)]
         end
     end
 end

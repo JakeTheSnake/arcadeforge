@@ -342,6 +342,7 @@ nav {
 
 #environment-base {
   position: absolute;
+  top: 0;
   background: url("<%= asset_path 'environment_ground.gif' %>") 5px 6px;
   width: 100%;
   height: 100%;
@@ -502,6 +503,98 @@ footer li {
   padding-right: 40px;
   float: right;
   font-family: 'Droid Sans', sans-serif;
+}
+
+.btn {
+  background-color: #505050;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 2px;
+  margin-bottom: 0;
+  width: 86px;
+  height: 34px;
+  font-size: 0.9em;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 8px 0;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-lg {
+  width: 160px;
+  height: 48px;
+  padding: 10px 0;
+  font-size: 1em;
+}
+
+.btn.disabled,
+.btn[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #808080;
+  background-color: #505050;
+}
+
+.btn-wide {
+  width: 155px;
+}
+
+/*
+ * Button: Success
+ */
+
+.btn-success {
+  background-color: #239D58;
+}
+
+.btn-success:hover {
+  background-color: #27AE60;
+}
+
+.btn-success:active {
+  background-color: #1C8047;
+}
+
+/*
+ * Button: Edit
+ */
+
+.btn-edit {
+  background-color: #E5A52E;
+} 
+
+.btn-edit:hover {
+  background-color: #F5B031;
+}
+
+.btn-edit:active {
+  background-color: #C78F28;
+}
+
+/*
+ * Button: Warning
+ */
+
+.btn-warning {
+  background-color: #CE5144;
+}
+
+.btn-warning:hover {
+  background-color: #DE5849;
+}
+
+.btn-warning:active {
+  background-color: #B0463A;
 }
 
 /* ==========================================================================

@@ -21,6 +21,11 @@
             <div id="toolbar-top" class="border-bottom">
                 <%= link_to image_tag("logo_arcadeforge_navbar.png"), root_path, :class => "navbar-logo" %>
                 <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
                 <div id="edit-mode" class="btn-group">
                     <div id="edit-mode-buttons">
                         <input type="radio" id="edit-game-button" name="edit-mode" data-name="EDIT GAME" checked="checked" />
@@ -29,16 +34,17 @@
                         <label for="direct-game-button"></label>
                         <input type="radio" id="run-game-button" data-name="RUN GAME" name="edit-mode" />
                         <label for="run-game-button"></label>
-                        <button type="button" id="save-game-button" class="btn btn-success btn-lg">Save Game</button>
                     </div>
                     <span id="edit-mode-label"></span>
-
-                    <ul id="nav-user">
-                        <% account_nav.each do |nav_item| %>
-                            <li><%= nav_item %></li>
-                        <% end %>
-                    </ul>
                 </div>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                <button id="save-button" class="toolbar-icon toolbar-icon-save" type="button" ></button>
+                 <ul id="nav-user">
+                    <% account_nav.each do |nav_item| %>
+                        <li><%= nav_item %></li>
+                    <% end %>
+                </ul>
             </div>
 
             <%= yield %>

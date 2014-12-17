@@ -1,14 +1,8 @@
 <section id="home" class="container">
 	<%= link_to image_tag("logo_arcadeforge_environment.png"), root_path, :class => "environment-logo" %>
 
-		<div id="environment-cta">
-		    <%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn" %>
-		    <a href="index.html" id="btn-watchvideo" class="btn">Watch Video</a>
-		</div>
-
 	<div id="environment-cta">
-		<%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn" %>
-		<a href="index.html" id="btn-watchvideo" class="btn">Watch Video</a>
+		<%= button_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn btn-lg", :method => :get %>
 	</div>
 
 	<div id="lists">
