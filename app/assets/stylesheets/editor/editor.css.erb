@@ -587,6 +587,7 @@ input {
  */
 
 .btn-group {
+  margin-right: 10px;
   margin-top: 14px;
   display: block;
   width: 148px;
@@ -599,6 +600,12 @@ input {
   width: 148px;
   height: 48px;
   border-bottom: 1px solid #474747;
+}
+
+#published-buttons,
+#published-label,
+#published-container {
+  width: 98px;
 }
 
 
@@ -628,17 +635,29 @@ input {
   float: left;
 }
 
+.btn-group input[type="radio"] + label:hover {
+  background-color: #3C3C3C;
+}
+
 .btn-group input[type="radio"] + label:last-of-type {
   margin: 0 0 4px 0;
   clear: right;
 }
 
 .i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game_disabled.png' %>"); }
-.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game_disabled.png' %>"); }
-.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game_disabled.png' %>"); }
 .btn-group input[type="radio"]:checked + label.i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game.png' %>"); }
+
+.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game_disabled.png' %>"); }
 .btn-group input[type="radio"]:checked + label.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game.png' %>"); }
+
+.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game_disabled.png' %>"); }
 .btn-group input[type="radio"]:checked + label.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game.png' %>"); }
+
+.i-private-button { background-image: url("<%= asset_path 'game/icon_private_disabled.png' %>"); }
+.btn-group input[type="radio"]:checked + label.i-private-button { background-image: url("<%= asset_path 'game/icon_private.png' %>"); }
+
+.i-publish-button { background-image: url("<%= asset_path 'game/icon_published_disabled.png' %>"); }
+.btn-group input[type="radio"]:checked + label.i-publish-button { background-image: url("<%= asset_path 'game/icon_published.png' %>"); }
 
 
 .btn-group span {

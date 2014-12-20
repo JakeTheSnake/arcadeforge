@@ -1,7 +1,21 @@
-<%= form_for @game, url: {action: 'update'} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :thumbnail %>
-  <%= f.text_field :thumbnail %>
-  <%= f.submit "Update" %>
-<% end %>
+<section id="signup" class="container"> 
+  <div class="panel panel-center">
+    <h2>Edit game details</h2>
+
+	<%= form_for @game, url: {action: 'update'} do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :thumbnail %>
+		<%= f.text_field :thumbnail %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update", :class => "btn btn-success" %>
+	</div>
+	<br>
+	<% end %>
+
+	</div>
+</section>
