@@ -25,6 +25,7 @@ class GamesController < ApplicationController
   
   def editor
     gon.game = @game.data
+    gon.published = @game.published
   end
 
   def savegame
@@ -45,6 +46,15 @@ class GamesController < ApplicationController
     gon.game = @game.data
   end
 
+  def publish
+    @game.published = !@game.published
+    if @game.save! then
+      render :text => @game.published.to_s
+    else
+      render :text => "failed"
+    end
+  end
+
   private
 
   def verify_game_owner
@@ -55,7 +65,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :data, :thumbnail)
+    params.require(:game).permit(:name, :data, :thumbnail, :published)
   end
   
 end

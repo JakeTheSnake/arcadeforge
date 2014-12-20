@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :games do 
     post 'savegame', on: :member
     get 'editor', on: :member
+    post 'publish', on: :member
   end
 
   devise_for :users
