@@ -37,12 +37,14 @@ class GamesController < ApplicationController
   end
 
   def index
-    @popular_games = Game.where(:published => true).order(votes: :desc).limit(5)
+    @popular_games = Game.where(:published => true).order(played_count: :desc).limit(5)
     @recent_games = Game.where(:published => true).order(created_at: :desc).limit(5)
   end
 
   def show
     @game = Game.find_by_id(params[:id])
+    @game.played_count += 1
+    @game.save!
     gon.game = @game.data
   end
 

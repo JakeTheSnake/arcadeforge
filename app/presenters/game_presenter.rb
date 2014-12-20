@@ -3,6 +3,7 @@ class GamePresenter < BasePresenter
 
 	delegate :name, :to => :game
 	delegate :votes, :to => :game
+	delegate :played_count, :to => :game
 
 
 	def age
