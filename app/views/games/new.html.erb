@@ -1,5 +1,13 @@
-<%= form_for @game, url: {action: 'create'} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create" %>
-<% end %>
+<section id="signup" class="container"> 
+	<div class="panel panel-center">
+		<h2>Create New Game</h2>
+		<%= form_for @game, url: {action: 'create'} do |f| %>
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</div>
+		<%= f.submit "Create" , :class => "btn btn-success" %>
+		<% end %>
+		<br>
+	</div>
+</section>
