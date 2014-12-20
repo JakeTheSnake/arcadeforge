@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post 'publish', on: :member
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
   get 'home/index'
 
   get 'home/about'

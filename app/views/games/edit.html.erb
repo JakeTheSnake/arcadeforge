@@ -11,6 +11,10 @@
 		<%= f.label :thumbnail %>
 		<%= f.text_field :thumbnail %>
 	</div>
+  <div class="field">
+    <%= f.label :published %>
+    <%= f.check_box :published %>
+  </div>
 	<div class="actions">
 		<%= f.submit "Update", :class => "btn btn-success" %>
 	</div>
@@ -19,3 +23,4 @@
 
 	</div>
 </section>
+

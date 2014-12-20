@@ -16,7 +16,7 @@ class GamesController < ApplicationController
 
   def update
     @game.update!(game_params)
-    redirect_to controller: 'profile', action: 'mypage'
+    redirect_to controller: 'profile', action: 'mygames'
   end
 
   def edit
@@ -37,8 +37,8 @@ class GamesController < ApplicationController
   end
 
   def index
-    @popular_games = Game.order(votes: :desc).limit(5)
-    @recent_games = Game.order(created_at: :desc).limit(5)
+    @popular_games = Game.where(:published => true).order(votes: :desc).limit(5)
+    @recent_games = Game.where(:published => true).order(created_at: :desc).limit(5)
   end
 
   def show
