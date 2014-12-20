@@ -101,7 +101,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background-color: #000000;
+  background-color: #1B1B1B;
   overflow: hidden;
 }
 
@@ -400,8 +400,7 @@ input {
   overflow: hidden;
   z-index: 1;
 
-  -webkit-transition: all ease-out 0.2s;
-  transition: all ease-out 0.2s;
+  
 }
 
 .dialogue {
@@ -409,9 +408,6 @@ input {
   position: absolute;
   overflow: hidden;
   z-index: 1;
-
-  -webkit-transition: all ease-out 0.2s;
-  transition: all ease-out 0.2s;
 }
 
 .dialogue > .panel {
@@ -426,12 +422,38 @@ input {
 
 #dialogue-window > .right {
   height: 100%;
-  right: 0;
+  right: -500px;
+}
+
+.slide-in-from-right {
+  -webkit-animation: slide-in-from-right 0.5s forwards;
+  -animation: slide-in-from-right 0.5s forwards;
+}
+
+@-webkit-keyframes slide-in-from-right {
+  100% { right: 0; }
+}
+
+@keyframes slide-in-from-right {
+  100% { right: 0; }
 }
 
 #dialogue-window > .bottom {
   width: 100%;
-  bottom: 0;
+  bottom: -700px;
+}
+
+.slide-in-from-bottom {
+  -webkit-animation: slide-in-from-bottom 0.5s forwards;
+  -animation: slide-in-from-bottom 0.5s forwards;
+}
+
+@-webkit-keyframes slide-in-from-bottom {
+  100% { bottom: 0; }
+}
+
+@keyframes slide-in-from-bottom {
+  100% { bottom: 0; }
 }
 
 #dialogue-window > .left {

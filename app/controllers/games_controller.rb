@@ -42,11 +42,9 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find_by_id(params[:id
-    if current_user.id != @game.user_id then
-      @game.played_count += 1
-      @game.save!
-    end
+    @game = Game.find_by_id(params[:id])
+    @game.played_count += 1
+    @game.save!
     gon.game = @game.data
   end
 
