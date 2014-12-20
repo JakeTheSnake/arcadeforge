@@ -21,4 +21,8 @@ class GamePresenter < BasePresenter
 			h.image_tag game.thumbnail, :width => 152, :height => 152
 		end
 	end
+
+	def username
+		game.user.username
+	end
 end

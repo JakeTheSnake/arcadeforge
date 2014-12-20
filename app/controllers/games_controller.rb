@@ -37,8 +37,8 @@ class GamesController < ApplicationController
   end
 
   def index
-    @popular_games = Game.where(:published => true).order(played_count: :desc).limit(5)
-    @recent_games = Game.where(:published => true).order(created_at: :desc).limit(5)
+    @popular_games = Game.includes(:user).where(:published => true).order(played_count: :desc).limit(5)
+    @recent_games = Game.includes(:user).where(:published => true).order(created_at: :desc).limit(5)
   end
 
   def show
