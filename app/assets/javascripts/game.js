@@ -16,9 +16,10 @@
 
 //= require doubleball/engine/gameCreator
 //= require doubleball/engine/borderObjects
+//= require doubleball/engine/timerHandler
 //= require doubleball/engine/componentFunctions
 //= require doubleball/engine/scene
-//= require doubleball/startup_engine_only
+//= require doubleball/engine/events
 //= require doubleball/engine/helpers
 //= require doubleball/ui/htmlStrings
 //= require doubleball/engine/baseObject
@@ -29,12 +30,12 @@
 //= require doubleball/engine/platformObject
 //= require doubleball/engine/sceneObject
 //= require doubleball/engine/topDownObject
-//= require doubleball/engine/timerHandler
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterObjectImage
 //= require doubleball/engine/counterObjectText
 //= require doubleball/engine/textObject
 
 //= require doubleball/engine/objectEffects
-//= require doubleball/engine/events
+
+//= require doubleball/startup_engine_only
 
