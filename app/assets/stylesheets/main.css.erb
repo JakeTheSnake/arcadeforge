@@ -23,6 +23,13 @@ html {
     line-height: 1.4;
 }
 
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
@@ -141,6 +148,14 @@ a:hover {
    Custom base layout, classes and conditions
    ==================================================================================================================================================== */
 
+canvas {
+  position: absolute;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  margin-left: 50%;
+  left: -512px;
+}
+
 h1, h2, h3 {
   color: #FFE373;
   font-family: 'Droid Sans', sans-serif;
@@ -220,9 +235,20 @@ input {
    Container, rows and columns
    ========================================================================== */
 
+#canvas-container {
+  width: 1024px;
+}
+
 .container {
   width: 100%;
   margin: 0 auto 0 auto;
+}
+
+.container-fluid {
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
 }
 
 .navbar-logo {

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  layout "game", :except => [:new, :index, :edit]
+  layout "game", :except => [:new, :index, :edit, :show]
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :verify_game_owner, :except => [:show, :index, :create, :new]
   

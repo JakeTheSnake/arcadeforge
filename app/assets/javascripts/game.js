@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into application, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -14,26 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 
-//= require doubleball/engine/gameCreator.js
-//= require doubleball/engine/componentFunctions.js
-//= require doubleball/engine/scene.js
-//= require doubleball/startup_engine_only.js
-//= require doubleball/engine/helpers.js
-//= require doubleball/ui/htmlStrings.js
-//= require doubleball/engine/baseObject.js
-//= require doubleball/engine/actions.js
-//= require doubleball/engine/freeObject.js
-//= require doubleball/engine/routeObject.js
-//= require doubleball/engine/mouseObject.js
-//= require doubleball/engine/platformObject.js
-//= require doubleball/engine/sceneObject.js
-//= require doubleball/engine/topDownObject.js
-//= require doubleball/engine/timerHandler.js
-//= require doubleball/engine/counter.js
-//= require doubleball/engine/counterObjectImage.js
-//= require doubleball/engine/counterObjectText.js
+//= require doubleball/engine/gameCreator
+//= require doubleball/engine/borderObjects
+//= require doubleball/engine/componentFunctions
+//= require doubleball/engine/scene
+//= require doubleball/startup_engine_only
+//= require doubleball/engine/helpers
+//= require doubleball/ui/htmlStrings
+//= require doubleball/engine/baseObject
+//= require doubleball/engine/actions
+//= require doubleball/engine/freeObject
+//= require doubleball/engine/routeObject
+//= require doubleball/engine/mouseObject
+//= require doubleball/engine/platformObject
+//= require doubleball/engine/sceneObject
+//= require doubleball/engine/topDownObject
+//= require doubleball/engine/timerHandler
+//= require doubleball/engine/counter
+//= require doubleball/engine/counterObjectImage
+//= require doubleball/engine/counterObjectText
 //= require doubleball/engine/textObject
 
-//= require doubleball/engine/objectEffects.js
-//= require doubleball/engine/events.js
+//= require doubleball/engine/objectEffects
+//= require doubleball/engine/events
 
