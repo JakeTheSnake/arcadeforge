@@ -155,7 +155,7 @@ h1, h2, h3 {
   color: #FFE373;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
-  background-image: url("<%= asset_path "game/title_underline.png" %>");
+  background-image: url("<%= asset_path 'game/title_underline.png' %>");
   background-repeat: repeat-x;
   background-position: left bottom;
   margin-bottom: 15px;
@@ -587,10 +587,11 @@ input {
  */
 
 #edit-mode {
-  display: inline-block;
+  margin-top: 14px;
+  display: block;
   width: 148px;
   height: 72px;
-  margin-top: 14px;
+  float: left;
 }
 
 #edit-mode-buttons {
@@ -620,19 +621,23 @@ input {
   padding: 0;
   width: 48px;
   height: 48px;
-  background: #2E2E2E url("<%= asset_path 'game/icon_small_disabled.png' %>");
+  background-color: #2E2E2E;
   cursor: pointer;
   float: left;
-}
-
-.btn-group input[type="radio"]:checked + label {
-  background-image: url("<%= asset_path 'game/icon_small.png' %>");
 }
 
 .btn-group input[type="radio"] + label:last-of-type {
   margin: 0 0 4px 0;
   clear: right;
 }
+
+.i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game_disabled.png' %>"); }
+.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game_disabled.png' %>"); }
+.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game_disabled.png' %>"); }
+.btn-group input[type="radio"]:checked + label.i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game.png' %>"); }
+.btn-group input[type="radio"]:checked + label.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game.png' %>"); }
+.btn-group input[type="radio"]:checked + label.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game.png' %>"); }
+
 
 .btn-group span {
   display: block;
@@ -650,10 +655,11 @@ input {
 .toolbar-icon {
   margin-top: 14px;
   margin-right: 2px;
-  display: inline-block;
+  display: block;
   width: 68px;
   height: 68px;
   background-color: #2E2E2E;
+  float: left;
 }
 
 .toolbar-icon:hover {
