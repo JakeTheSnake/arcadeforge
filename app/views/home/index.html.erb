@@ -7,22 +7,22 @@
 
 	<div id="lists">
 		<div id="list-top">
-		    <h1>Top 10 games</h1>
+		    <h1>Top games</h1>
 		    <ul>
 		        <% @popular_games.each_with_index do |game, i| %>
 		            <% present game do |game_presenter| %>
-		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.votes}", game %></li>
+		                <li><%= link_to "#{i+1}. #{game_presenter.name}", game %></li>
 		            <% end %>
 		        <% end %>
 		    </ul>
 		</div>
 
 		<div id="list-recent">
-		    <h1>10 Recent games</h1>
+		    <h1>Recent games</h1>
 		    <ul>
 		        <% @recent_games.each_with_index do |game, i| %>
 		            <% present game do |game_presenter| %>
-		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", game %></li>
+		                <li><%= link_to "#{i+1}. #{game_presenter.name}", game %></li>
 		            <% end %>
 		        <% end %>
 		    </ul>
