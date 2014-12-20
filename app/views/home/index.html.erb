@@ -22,7 +22,7 @@
 		    <ul>
 		        <% @recent_games.each_with_index do |game, i| %>
 		            <% present game do |game_presenter| %>
-		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", edit_game_path(game) %></li>
+		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.age}", game %></li>
 		            <% end %>
 		        <% end %>
 		    </ul>
