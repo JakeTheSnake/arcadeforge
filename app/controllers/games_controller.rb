@@ -43,8 +43,12 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by_id(params[:id])
-    @game.played_count += 1
-    @game.save!
+    render_error_message(:heading => "Sorry!", :message => "Game is not published yet.", :status => 403) unless @game.published
+    if should_increase_played_count? then
+      session[:shown_games].push(@game.id)
+      @game.played_count += 1
+      @game.save!
+    end
     gon.game = @game.data
   end
 
@@ -62,12 +66,17 @@ class GamesController < ApplicationController
   def verify_game_owner
     @game = Game.find_by_id(params[:id])
     if @game.user_id != current_user.id
-      render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      render_error_message(:heading => "Nope!", :message => "This is not your game. Make your own game!", :status => 403) unless @game.published
     end
   end
 
   def game_params
     params.require(:game).permit(:name, :data, :thumbnail, :published)
+  end
+
+  def should_increase_played_count?
+    session[:shown_games] = [] unless session[:shown_games]
+    !session[:shown_games].include?(@game.id)
   end
   
 end
