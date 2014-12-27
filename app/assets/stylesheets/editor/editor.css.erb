@@ -406,7 +406,7 @@ input {
 .dialogue {
   background-color: #1E1E1E;
   position: absolute;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1;
 }
 
@@ -475,7 +475,6 @@ input {
 
 #dialogue-window .nav-tabs > li {
   width: auto;
-  padding-right: 30px;
 }
 
 /*
@@ -505,6 +504,32 @@ input {
   height: 100%;
 }
 
+.close-dialogue-button {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.close-dialogue-button.arrow-down {
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #CE5144;
+  left: 50%;
+  top: -15px;
+  margin-left: -12px;
+}
+
+.close-dialogue-button.arrow-right {
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #CE5144;
+  top: 50%;
+  left: -15px;
+  margin-top: -12px;
+}
+
 /*
  * Object manager: Library;
  */
@@ -522,27 +547,6 @@ input {
   width: 650px;
   height: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #object-property-image-container {
   margin-bottom: 10px;
