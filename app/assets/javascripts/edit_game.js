@@ -35,8 +35,8 @@
 //= require doubleball/engine/topDownObject
 //= require doubleball/engine/timerHandler
 //= require doubleball/engine/counter
-//= require doubleball/engine/counterObjectImage
-//= require doubleball/engine/counterObjectText
+//= require doubleball/engine/counterDisplayImage
+//= require doubleball/engine/counterDisplayText
 //= require doubleball/engine/textObject
 //= require doubleball/ui/debug
 //= require doubleball/engine/objectEffects
@@ -46,7 +46,7 @@
 //= require doubleball/ui/views/topDownObjectViews
 //= require doubleball/ui/views/mouseObjectViews
 //= require doubleball/ui/views/platformObjectViews
-//= require doubleball/ui/views/counterObjectViews
+//= require doubleball/ui/views/counterDisplayViews
 //= require doubleball/ui/views/commonObjectViews
 //= require doubleball/ui/views/textObjectViews
 //= require doubleball/ui/controllers/commonObjectControllers

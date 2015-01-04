@@ -31,8 +31,8 @@
 //= require doubleball/engine/sceneObject
 //= require doubleball/engine/topDownObject
 //= require doubleball/engine/counter
-//= require doubleball/engine/counterObjectImage
-//= require doubleball/engine/counterObjectText
+//= require doubleball/engine/counterDisplayImage
+//= require doubleball/engine/counterDisplayText
 //= require doubleball/engine/textObject
 
 //= require doubleball/engine/objectEffects
