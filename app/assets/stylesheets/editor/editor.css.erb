@@ -1120,6 +1120,51 @@ input {
   color: white;
 }
 
+.route-node-container {
+  background-color: grey;
+  border-radius: 4px;
+  width: 80px;
+  padding: 5px;
+}
+
+.route-node-container.dragging {
+  pointer-events: none;
+}
+
+.route-node-container .route-node {
+  height: 21px;
+}
+
+.route-node-actions .add-node-button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.route-node-actions .remove-node-button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.route-node-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: #CE5144 transparent transparent transparent;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  cursor: pointer;
+}
+
+.route-node-label {
+  float: right;
+}
+
+.toggle-bounce-node-button {
+  cursor: pointer;
+}
+
 
 
 
