@@ -33,28 +33,27 @@
         <footer class="border-top">
             <div id="footer-container" class="container">
                 <ul>
-                    <li><a href="index.html">About</a></li>
-                    <li><a href="index.html">Terms</a></li>
-                    <li><a href="index.html">Privacy</a></li>
+                    <li>About</li>
+                    <li>Terms</li>
+                    <li>Privacy</li>
                 </ul>
 
                 <ul>
-                    <li><a href="index.html">Login</a></li>
-                    <li><a href="index.html">Sign up</a></li>
-                    <li><a href="index.html">Forgot password</a></li>
+                    <li><%= link_to "Login", new_user_session_path %></li>
+                    <li><%= link_to "Sign up", new_user_registration_path %></li>
+                    <li>Forgot password</li>
                 </ul>
 
                 <ul>
-                    <li><a href="index.html">Features</a></li>
-                    <li><a href="index.html">Tutorials</a></li>
-                    <li><a href="index.html">Blog</a></li>
+                    <li>Features</li>
+                    <li>Tutorials</li>
+                    <li>Blog</li>
                 </ul>
 
                 <ul id="footer-social">
-                    <li><a href="index.html"><%= image_tag "icon_social_facebook.png" %></a></li>
-                    <li><a href="index.html"><%= image_tag "icon_social_twitter.png" %></a></li>
-                    <li><a href="index.html"><%= image_tag "icon_social_youtube.png" %></a></li>
-                    <li><a href="index.html"><%= image_tag "icon_social_vimeo.png" %></a></li>
+                    <li><a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "icon_social_facebook.png" %></a></li>
+                    <li><a href="https://twitter.com/arcadeforge"><%= image_tag "icon_social_twitter.png" %></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "icon_social_youtube.png" %></a></li>
                 </ul>
                 <br />
                 <span id="footer-copyright">Copyright © 2014 ArcadeForge</span>
