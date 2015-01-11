@@ -33,11 +33,11 @@
 //= require doubleball/engine/platformObject
 //= require doubleball/engine/sceneObject
 //= require doubleball/engine/topDownObject
+//= require doubleball/engine/textObject
 //= require doubleball/engine/timerHandler
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterDisplayImage
 //= require doubleball/engine/counterDisplayText
-//= require doubleball/engine/textObject
 //= require doubleball/ui/debug
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events

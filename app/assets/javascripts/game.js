@@ -16,7 +16,6 @@
 
 //= require doubleball/engine/gameCreator
 //= require doubleball/engine/borderObjects
-//= require doubleball/engine/timerHandler
 //= require doubleball/engine/componentFunctions
 //= require doubleball/engine/scene
 //= require doubleball/engine/events
@@ -30,10 +29,11 @@
 //= require doubleball/engine/platformObject
 //= require doubleball/engine/sceneObject
 //= require doubleball/engine/topDownObject
+//= require doubleball/engine/textObject
+//= require doubleball/engine/timerHandler
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterDisplayImage
 //= require doubleball/engine/counterDisplayText
-//= require doubleball/engine/textObject
 
 //= require doubleball/engine/objectEffects
 
