@@ -10,6 +10,23 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require normalize
- *= require main
+ * RESETS
+ *= require ./resets/normalize
+ *= require ./resets/reset
+ *
+ * FOUNDATION
+ *= require ./foundation/typography
+ *= require ./foundation/layout
+ *= require ./foundation/elements
+ *= require ./foundation/buttons
+ *= require ./foundation/forms
+ *= require ./foundation/panels
+ *= require ./foundation/helpers
+ *
+ * GENERIC
+ *= require ./generic/generic
+ *
+ * APPLICATION
+ *= require ./application/application
+ *= require ./application/dev
  */

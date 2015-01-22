@@ -1,0 +1,124 @@
+/*! forms.css | http://arcadeforge.io */
+
+/*
+ * input labels: http://codepen.io/anon/pen/pveBrg
+ */
+
+input,
+select {
+  display: block;
+  margin-bottom: 15px;
+  padding: 0 6px;
+  width: 186px;
+  height: 32px;
+  font-size: .875em;
+  background-color: #ffffff;
+  border: 1px solid #a1a6ae;
+
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+      -ms-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+input:last-child,
+select:last-child {
+  margin-bottom: 0px;
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #27ae60;
+}
+
+input[type="checkbox"] {
+  width: 35px;
+  height: 35px;
+}
+
+label {
+  color: #ffffff;
+  font-size: .875em;
+}
+
+/* ==========================================================================
+   Form: Groups
+   ========================================================================== */
+
+fieldset {
+  margin-bottom: 15px;
+}
+
+fieldset:last-child {
+  margin-bottom: 0;
+}
+
+fieldset:only-child {
+  margin-bottom: 15px;
+}
+
+fieldset div {
+  position: relative;
+  width: 200px;
+  margin-bottom: 15px;
+}
+
+fieldset div:last-child,
+fieldset div:last-child input {
+  margin-bottom: 0;
+}
+
+fieldset.sequenced div {
+  margin-right: 15px;
+  margin-bottom: 0px;
+  float: left;
+}
+
+fieldset.sequenced input,
+fieldset.sequenced select {
+  margin-right: 15px;
+  margin-bottom: 0px;
+  float: left;
+}
+
+fieldset.sequenced input:last-child,
+fieldset.sequenced select:last-child {
+  margin-right: 0px;
+}
+
+/* ==========================================================================
+   Form: Labels
+   ========================================================================== */
+div:nth-child(2) input[type="text"] + label {
+  position: absolute;
+  top: 10px;
+  right: 67px;
+  color: #999999;
+  transition: .15s all ease-out;
+  opacity: 0;
+  cursor: text;
+  pointer-events: none;
+}
+
+div:nth-child(2) input[type="text"]:focus + label {
+  right: 7px;
+  opacity: 1;
+}
+
+input[type="checkbox"] {
+  background-color: #ffffff;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+}

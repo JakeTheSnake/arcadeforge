@@ -1,0 +1,11 @@
+/*! application.css | http://arcadeforge.io */
+
+nav {
+	display: inline-block;
+  margin: 40px 0 0 30px;
+}
+
+nav a {
+	margin-right: 30px;
+  font-size: 1em;
+}

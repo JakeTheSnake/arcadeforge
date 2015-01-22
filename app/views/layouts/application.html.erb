@@ -1,63 +1,72 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <title>Arcadeforge</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-        <nav class="border-bottom">
-            <div class="container">
-                <%= link_to image_tag("logo_arcadeforge_navbar.png"), root_path, :class => "navbar-logo" %>
-                <ul id="nav-main">
-                    <li><%= link_to "Home", root_path %></li>
-                    <li><%= link_to "Create", profile_mygames_path %></li>
-                    <li><%= link_to "Play", games_path %></li>
-                </ul>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Arcadeforge</title>
+    <!--<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>-->
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-                <ul id="nav-user">
-                    <% account_nav.each do |nav_item| %>
-                        <li><%= nav_item %></li>
-                    <% end %>
-                </ul>
-            </div>
-        </nav>
-        
+    <%= javascript_include_tag 'edit_game', 'data-turbolinks-track' => true %>
+  </head>
+  <body>
+      <div class="container">
+        <header class="border-bottom">
+          <hgroup class="logo">
+            <%= link_to image_tag("generic/header_logo.png"), root_path, :class => "" %>
+          </hgroup>
+          <nav>
+              <%= link_to "Home", root_path %>
+              <%= link_to "Create", profile_mygames_path %>
+              <%= link_to "Play", games_path %>
+            </ul>
+          </nav>
+
+          <hgroup class="user">
+            <% account_nav.each do |nav_item| %>
+              <%= nav_item %>
+            <% end %>
+          </hgroup>
+        </header>
+
+        <!-- Main content -->
         <%= yield %>
         
+        <!--
         <footer class="border-top">
-            <div id="footer-container" class="container">
-                <ul>
-                    <li>About</li>
-                    <li>Terms</li>
-                    <li>Privacy</li>
-                </ul>
+          <div id="footer-container" class="container">
+            <ul>
+              <li>About</li>
+              <li>Terms</li>
+              <li>Privacy</li>
+            </ul>
 
-                <ul>
-                    <li><%= link_to "Login", new_user_session_path %></li>
-                    <li><%= link_to "Sign up", new_user_registration_path %></li>
-                    <li>Forgot password</li>
-                </ul>
+            <ul>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li>Forgot password</li>
+            </ul>
 
-                <ul>
-                    <li>Features</li>
-                    <li>Tutorials</li>
-                    <li>Blog</li>
-                </ul>
+            <ul>
+              <li>Features</li>
+              <li>Tutorials</li>
+              <li>Blog</li>
+            </ul>
 
-                <ul id="footer-social">
-                    <li><a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "icon_social_facebook.png" %></a></li>
-                    <li><a href="https://twitter.com/arcadeforge"><%= image_tag "icon_social_twitter.png" %></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "icon_social_youtube.png" %></a></li>
-                </ul>
-                <br />
-                <span id="footer-copyright">Copyright © 2014 ArcadeForge</span>
-            </div>
+            <ul id="footer-social">
+              <li><a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "icon_social_facebook.png" %></a></li>
+              <li><a href="https://twitter.com/arcadeforge"><%= image_tag "icon_social_twitter.png" %></a></li>
+              <li><a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "icon_social_youtube.png" %></a></li>
+            </ul>
+            <br />
+            <span id="footer-copyright">Copyright © 2014 ArcadeForge</span>
+          </div>
         </footer>
-    </body>
+        -->
+      </div>
+  </body>
 </html>

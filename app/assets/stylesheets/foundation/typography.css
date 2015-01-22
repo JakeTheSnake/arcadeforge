@@ -1,0 +1,84 @@
+/*! typography.css | http://arcadeforge.io */
+
+html,
+body,
+input,
+label {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p,
+span {
+  font-family: 'Droid Serif', sans-serif;
+  line-height: 20px;
+}
+
+/* ==========================================================================
+   Typography: Headlines
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 15px;
+  padding-bottom: 4px;
+  color: #ffe373;
+  font-weight: 400;
+
+  box-shadow: 0 1px 0 0 rgba(64,64,64,1),
+              0 2px 0 0 rgba(36, 36, 36, 1);
+}
+
+h1 {
+  font-size: 1.625em;
+}
+
+h2 {
+  font-size: 1.375em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+/* ==========================================================================
+   Typography: Text
+   ========================================================================== */
+
+p,
+span,
+a {
+  color: #ffffff;
+  font-size: .875em;
+}
+
+p,
+span {
+  margin-bottom: 15px;
+}
+
+p > a {
+  color: #ffe373;
+  font-family: 'Droid Serif', sans-serif;
+  font-size: 1em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p:last-child,
+span:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: bold;
+}

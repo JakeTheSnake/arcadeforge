@@ -1,0 +1,202 @@
+/*! temp.css | http://arcadeforge.io */
+
+header .btn-group {
+  margin-right: 10px;
+  margin-top: 14px;
+  display: block;
+  width: 148px;
+  height: 72px;
+  float: left;
+}
+
+header #edit-mode-buttons, #published-buttons {
+  display: block;
+  width: 148px;
+  height: 48px;
+  border-bottom: 1px solid #474747;
+}
+
+header #published-buttons,
+header #published-label,
+header #published-container {
+  width: 98px;
+}
+
+header .btn-group span {
+  width: 148px;
+  height: 48px;
+  margin: 0 auto 0 auto;
+  color: #ADADAD;
+  font-size: 0.7em;
+  font-family: 'Droid Sans', sans-serif;
+  text-align: center;
+}
+
+header .btn-group input[type="radio"] {
+  display: none;
+}
+
+header .btn-group input[type="radio"] + label {
+  display: block;
+  margin: 0 2px 0 0;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  background-color: #2E2E2E;
+  cursor: pointer;
+  float: left;
+}
+
+header .btn-group input[type="radio"] + label:hover {
+  background-color: #3C3C3C;
+}
+
+header .btn-group input[type="radio"] + label:last-of-type {
+  margin: 0 0 4px 0;
+  clear: right;
+}
+
+header .i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-edit-game-button { background-image: url("<%= asset_path 'game/icon_edit-game.png' %>"); }
+
+header .i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-direct-game-button { background-image: url("<%= asset_path 'game/icon_direct-game.png' %>"); }
+
+header .i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-run-game-button { background-image: url("<%= asset_path 'game/icon_run-game.png' %>"); }
+
+header .i-private-button { background-image: url("<%= asset_path 'game/icon_private_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-private-button { background-image: url("<%= asset_path 'game/icon_private.png' %>"); }
+
+header .i-publish-button { background-image: url("<%= asset_path 'game/icon_published_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-publish-button { background-image: url("<%= asset_path 'game/icon_published.png' %>"); }
+
+
+header .btn-group span {
+  display: block;
+}
+
+header .toolbar-icon {
+  margin-top: 14px;
+  margin-right: 2px;
+  display: block;
+  width: 68px;
+  height: 68px;
+  background-color: #2E2E2E;
+  float: left;
+}
+
+header .toolbar-icon:hover {
+  background-color: #3C3C3C;
+}
+
+header .toolbar-icon-save { background-image: url("<%= asset_path 'game/icon_save.png' %>"); }
+
+/* ====================================================================================================================================================
+   Custom icon classes
+   ==================================================================================================================================================== */
+
+@font-face {
+  font-family: 'icons';
+  src: url("<%= asset_path 'icons.eot' %>");
+  src: url("<%= asset_path 'icons.eot#iefix' %>") format('embedded-opentype'),
+       url("<%= asset_path 'icons.woff' %>") format('woff'),
+       url("<%= asset_path 'icons.ttf' %>") format('truetype'),
+       url("<%= asset_path 'icons.svg#icons' %>") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #FFFFFF;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+ 
+.icon-down-open:before { content: '\e800'; font-size: 60%; margin-right: 7px; }
+.icon-cancel:before { content: '\e801'; } /* '' */
+.icon-right-open:before { content: '\e802'; font-size: 60%; margin-right: 6px; }
+.icon-down-dir:before { content: '\e803'; font-size: 110%; margin-right: 6px; } /* '' */
+.icon-right-dir:before { content: '\e804'; font-size: 110%; margin-right: 6px; } /* '' */
+.icon-plus:before { content: '\e805'; font-size: 80%; margin-right: 9px; } /* '' */
+.icon-minus:before { content: '\e806'; } /* '' */
+.icon-cog:before { content: '\e807'; } /* '' */
+.icon-menu:before { content: '\e808'; } /* '' */
+.icon-up-dir:before { content: '\e809'; } /* '' */
+.icon-left-dir:before { content: '\e80a'; } /* '' */
+.icon-left-open:before { content: '\e80b';  font-size: 60%; } /* '' */
+.icon-up-open:before { content: '\e80c';  font-size: 60%; } /* '' */
+.icon-angle-left:before { content: '\e80d'; } /* '' */
+.icon-angle-right:before { content: '\e80e'; } /* '' */
+.icon-angle-up:before { content: '\e80f'; } /* '' */
+.icon-angle-down:before { content: '\e810'; } /* '' */
+.icon-eye:before { content: '\e811'; } /* '' */
+.icon-eye-off:before { content: '\e812'; } /* '' */
+.icon-ok:before { content: '\e813'; } /* '' */
+.icon-help:before { content: '\e814'; } /* '' */
+.icon-info:before { content: '\e815'; } /* '' */
+.icon-attention-alt:before { content: '\e816'; } /* '' */
+.icon-codeopen:before { content: '\e817';  font-size: 100%; margin-right: 13px; } /* '' */
+
+
+
+#select-action-window {
+  width: 420px;
+  height: 100%;
+}
+
+#select-action-window .col {
+  min-width: 208px;
+  padding-right: 2px;
+}
+
+#select-action-window .panel-body {
+  overflow-y: hidden;
+  height: 250px;
+  background-color: #323232;
+  margin-bottom: 2px;
+  padding: 30px;
+}
+
+#select-action-window .image-preview {
+  margin-top: 62px;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  width: 175px;
+  height: 125px;
+  background: url("<%= asset_path 'game/library_preview_grid.gif' %>");
+}
+
+#select-action-window .image-preview:last-child {
+  margin-right: 0;
+}
+
+#select-action-window .image-preview-large {
+  margin-top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#select-action-window .image-preview img {
+  height: 100px;
+  border: none;
+  display: block;
+  margin: 12px auto 0 auto;
+  vertical-align: middle;
+}
+
+#select-action-window .image-preview-large img {
+  height: 180px;
+  margin-top: 35px;
+}

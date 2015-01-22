@@ -1,0 +1,73 @@
+/*! object-manager.css | http://arcadeforge.io */
+
+#object-manager > .panel {
+  background-color: #222222;
+  height: 100%;
+}
+
+#object-manager .panel.large {
+  width: 650px;
+}
+
+/* ==========================================================================
+   Editor: Properties
+   ========================================================================== */
+
+#object-manager-properties {
+  width: 650px;
+}
+
+.create-new-tab {
+  margin-bottom: 2px;
+}
+
+.create-new-tab input {
+  width: 138px;
+  margin-bottom: 2px;
+}
+
+.create-new-tab a {
+  width: 55px;
+  padding-top: 5px;
+  height: 10px;
+}
+
+#dialogue-panel-states.btn-group,
+#dialogue-panel-counters.btn-group {
+  margin-bottom: 2px;
+}
+
+
+#create-state-form input,
+#create-counter-form input {
+  margin-bottom: 2px;
+}
+
+#create-state-form a.btn,
+#create-counter-form a.btn {
+  width: 79px;
+}
+
+#image-upload-controls {
+  float: left;
+  margin-right: 15px;
+}
+
+#global-object-image {
+  display: block;
+  width: 530px;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+#global-object-image.player {
+  background: url('../editor/globalobject_type_player.jpg');
+}
+
+#global-object-image.game {
+  background: url('../editor/globalobject_type_game.jpg');
+}
+
+#global-object-image.counter {
+  background: url('../editor/globalobject_type_counter.jpg');
+}

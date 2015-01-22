@@ -1,0 +1,116 @@
+/*! panels.css | http://arcadeforge.io */
+
+.panel {
+  display: table;
+  margin-bottom: 15px;
+  min-width: 200px;
+}
+
+.panel:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Panel: Sizes
+   ========================================================================== */
+
+.panel.wide {
+  display: block;
+}
+
+/* ==========================================================================
+   Panel: Header
+   ========================================================================== */
+
+.panel-header {
+  margin-bottom: 2px;
+  padding-left: 9px;
+  height: 30px;
+}
+
+.panel-header span {
+  display: inline-block;
+  padding-top: 6px;
+  font-family: 'Droid Sans', sans-serif;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.panel-header a.btn {
+  width: 30px;
+  padding: 7px 0 0 0;
+  height: 23px;
+  float: right;
+}
+
+/* ==========================================================================
+   Panel: Header color-codes
+   ========================================================================== */
+
+/* Default */
+.panel-header {
+  background-color: #2574a9;
+}
+
+/* Success */
+.panel-header.success {
+  background-color: #239d58;
+}
+
+/* Edit */
+.panel-header.edit {
+  background-color: #e5a52e;
+}
+
+/* Warning */
+.panel-header.warning {
+  background-color: #ce5144;
+}
+
+/* ==========================================================================
+   Panel: Body
+   ========================================================================== */
+
+.panel-body {
+  padding: 20px 30px 40px 20px;
+}
+
+.panel-header + .panel-body {
+  padding-top: 18px;
+} 
+
+.panel-paragraph {
+  margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   Panel: Positions
+   ========================================================================== */
+
+.panel.sequenced {
+  float: left;
+  margin-bottom: 0;
+}
+
+.panel.centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   Panel: Group
+   ========================================================================== */
+
+.panel-group.sequenced {
+  margin-bottom: 15px;
+}
+
+.panel-group.sequenced .panel {
+  margin-right: 2px;
+  margin-bottom: 0px;
+  float: left;
+}
+
+.panel-group.sequenced .panel:last-child {
+  margin-right: 0;
+}
+
