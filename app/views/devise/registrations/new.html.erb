@@ -1,45 +1,45 @@
-<section id="signup" class="container"> 
-  <div class="panel panel-center">
-    <h2>Sign up</h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <p><%= devise_error_messages! %></p>
-      <p><%= flash[:notice] %></p>
-
-      <div class="field">
-        <%= label_tag :betakey %><br />
-        <%= text_field_tag :betakey %>
-      </div>
-
-      <div class="field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username, autofocus: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email%>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up", :class => "btn btn-success" %>
-      </div>
-    <% end %>
-
-    <h2>Already a member?</h2>
-    <%= render "devise/shared/links" %>
+<section id="signup"> 
+  <div class="panel centered">
+    <div class="panel-body">
+      <article>
+        <h2>Sign up</h2>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <p><%= devise_error_messages! %></p>
+          <p><%= flash[:notice] %></p>
+          <fieldset>
+            <div>
+              <%= text_field_tag :betakey %>
+              <%= label_tag :betakey %>
+            </div>
+            <div>
+              <%= f.text_field :username, autofocus: true %>
+              <%= f.label :username %>
+            </div>
+            <div>
+              <%= f.email_field :email%>
+              <%= f.label :email %>
+            </div>
+            <div>
+              <!-- Need to make design for this!
+              <% if @validatable %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>-->
+              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.label :password%>
+            </div>
+            <div>
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.label :password_confirmation %>
+            </div>
+          </fieldset>
+          <!-- Can we change this to a link insted of a button? -->
+          <%= f.submit "Sign up", :class => "btn success wide" %>
+        <% end %>
+      </article>
+      <article>
+        <h2>Already a member?</h2>
+        <%= render "devise/shared/links" %>
+      </article>
+    </div>
   </div>
 </section>

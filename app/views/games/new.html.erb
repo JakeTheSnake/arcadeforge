@@ -1,13 +1,18 @@
-<section id="signup" class="container"> 
-	<div class="panel panel-center">
-		<h2>Create New Game</h2>
-		<%= form_for @game, url: {action: 'create'} do |f| %>
-		<div class="field">
-			<%= f.label :name %>
-			<%= f.text_field :name %>
+<section id="signup"> 
+	<div class="panel centered">
+		<div class="panel-body">
+			<article>
+				<h2>Create New Game</h2>
+				<%= form_for @game, url: {action: 'create'} do |f| %>
+					<fieldset>
+						<div>
+							<%= f.text_field :name %>
+							<%= f.label :name %>
+						</div>
+					</fieldset>
+					<%= f.submit "Create" , :class => "btn success wide" %>
+				<% end %>
+			</article>
 		</div>
-		<%= f.submit "Create" , :class => "btn btn-success" %>
-		<% end %>
-		<br>
 	</div>
 </section>

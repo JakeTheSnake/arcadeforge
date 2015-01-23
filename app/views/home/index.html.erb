@@ -1,36 +1,40 @@
-<main>
-	<section id="home">
-		<!--
-		<%= link_to image_tag("logo_arcadeforge_environment.png"), root_path, :class => "environment-logo" %>
+<section id="home">
+	<%= link_to image_tag("application/logo.png"), root_path, :class => "logo" %>
+	<div class="cta">
+		<%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn success large" %>
+	</div>
+	<div id="environment">
 
-		<div id="environment-cta">
-			<%= button_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn btn-lg", :method => :get %>
+		<div class="background"></div>
+		<div class="pattern"></div>
+		
+	</div>
+
+	
+	<!--
+	<div id="lists">
+		<div id="list-top">
+		    <h1>Top games</h1>
+		    <ul>
+		        <% @popular_games.each_with_index do |game, i| %>
+		            <% present game do |game_presenter| %>
+		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.played_count}", game %></li>
+		            <% end %>
+		        <% end %>
+		    </ul>
 		</div>
 
-		<div id="lists">
-			<div id="list-top">
-			    <h1>Top games</h1>
-			    <ul>
-			        <% @popular_games.each_with_index do |game, i| %>
-			            <% present game do |game_presenter| %>
-			                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.played_count}", game %></li>
-			            <% end %>
-			        <% end %>
-			    </ul>
-			</div>
-
-			<div id="list-recent">
-			    <h1>Recent games</h1>
-			    <ul>
-			        <% @recent_games.each_with_index do |game, i| %>
-			            <% present game do |game_presenter| %>
-			                <li><%= link_to "#{i+1}. #{game_presenter.name}", game %></li>
-			            <% end %>
-			        <% end %>
-			    </ul>
-			</div>
+		<div id="list-recent">
+		    <h1>Recent games</h1>
+		    <ul>
+		        <% @recent_games.each_with_index do |game, i| %>
+		            <% present game do |game_presenter| %>
+		                <li><%= link_to "#{i+1}. #{game_presenter.name}", game %></li>
+		            <% end %>
+		        <% end %>
+		    </ul>
 		</div>
-		<div id="environment-base"></div>
-		-->
-	</section>
-</main>
+	</div>
+	<div id="environment-base"></div>
+	-->
+</section>

@@ -1,19 +1,20 @@
-<section id="signup" class="container"> 
-  <div class="panel panel-center">
-    <h2>Forgot your password?</h2>
-		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-		  <%= devise_error_messages! %>
-
-		  <div class="field">
-		    <%= f.label :email %><br />
-		    <%= f.email_field :email, autofocus: true %>
-		  </div>
-
-		  <div class="actions">
-		    <%= f.submit "Reset password", :class => "btn btn-success" %>
-		  </div>
-		<% end %>
-		<%= button_to "Back", :back, :class => "btn btn-warning"  %>
-		<br>
-  </div>
+<section id="signup"> 
+	<div class="panel centered">
+		<div class="panel-body">
+			<article>
+				<h2>Forgot your password?</h2>
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+					<p><%= devise_error_messages! %></p>
+					<fieldset>
+						<div>
+							<%= f.email_field :email, autofocus: true %>
+							<%= f.label :email %>
+						</div>
+					</fieldset>
+					<%= f.submit "Reset password", :class => "btn success wide" %>
+				<% end %>
+				<%= button_to "Back", :back, :class => "btn warning wide" %>
+			</article>
+		</div>
+	</div>
 </section>

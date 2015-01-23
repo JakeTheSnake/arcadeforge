@@ -59,7 +59,7 @@ fieldset:last-child {
   margin-bottom: 0;
 }
 
-fieldset:only-child {
+fieldset:only-of-type {
   margin-bottom: 15px;
 }
 
@@ -95,7 +95,9 @@ fieldset.sequenced select:last-child {
 /* ==========================================================================
    Form: Labels
    ========================================================================== */
-div:nth-child(2) input[type="text"] + label {
+fieldset div input[type="text"] + label,
+fieldset div input[type="email"] + label,
+fieldset div input[type="password"] + label {
   position: absolute;
   top: 10px;
   right: 67px;
@@ -106,7 +108,9 @@ div:nth-child(2) input[type="text"] + label {
   pointer-events: none;
 }
 
-div:nth-child(2) input[type="text"]:focus + label {
+fieldset div input[type="text"]:focus + label,
+fieldset div input[type="email"]:focus + label,
+fieldset div input[type="password"]:focus + label {
   right: 7px;
   opacity: 1;
 }

@@ -1,26 +1,27 @@
-<section id="signup" class="container"> 
-  <div class="panel panel-center">
-    <h2>Edit game details</h2>
-
-	<%= form_for @game, url: {action: 'update'} do |f| %>
-	<div class="field">
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</div>
-	<div class="field">
-		<%= f.label :thumbnail %>
-		<%= f.text_field :thumbnail %>
-	</div>
-  <div class="field">
-    <%= f.label :published %>
-    <%= f.check_box :published %>
-  </div>
-	<div class="actions">
-		<%= f.submit "Update", :class => "btn btn-success" %>
-	</div>
-	<br>
-	<% end %>
-
+<section id="signup"> 
+	<div class="panel centered">
+		<div class="panel-body">
+			<article>
+				<h2>Edit game details</h2>
+				<%= form_for @game, url: {action: 'update'} do |f| %>
+					<fieldset>
+						<div>
+							<%= f.label :name %>
+							<%= f.text_field :name %>
+						</div>
+						<div>
+							<%= f.label :thumbnail %>
+							<%= f.text_field :thumbnail %>
+						</div>
+						<div>
+							<%= f.label :published %>
+							<%= f.check_box :published %>
+						</div>
+					</fieldset>
+					<%= f.submit "Update", :class => "btn success wide" %>
+				<% end %>
+			</article>
+		</div>
 	</div>
 </section>
 

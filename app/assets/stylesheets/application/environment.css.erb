@@ -1,0 +1,22 @@
+/*! environment.css | http://arcadeforge.io */
+
+#environment {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	height: 100%;
+	overflow: hidden;
+}
+
+#environment .pattern {
+	background: url("<%= asset_path 'application/environment_ground.gif' %>");
+	height: 100%;
+}
+
+#environment .background {
+	width: 100%;
+	height: 587px;
+	background: url("<%= asset_path 'application/environment.gif' %>");
+}

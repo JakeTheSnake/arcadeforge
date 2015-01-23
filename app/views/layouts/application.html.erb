@@ -34,39 +34,37 @@
         </header>
 
         <!-- Main content -->
-        <%= yield %>
-        
-        <!--
+        <main>
+          <%= yield %>
+        </main>
+
         <footer class="border-top">
-          <div id="footer-container" class="container">
-            <ul>
-              <li>About</li>
-              <li>Terms</li>
-              <li>Privacy</li>
-            </ul>
+          <fgroup>
+            <a class="disabled">About</a>
+            <a class="disabled">Terms</a>
+            <a class="disabled">Privacy</a>
+          </fgroup>
 
-            <ul>
-              <li><%= link_to "Login", new_user_session_path %></li>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <li>Forgot password</li>
-            </ul>
+          <fgroup>
+            <%= link_to "Login", new_user_session_path %>
+            <%= link_to "Sign up", new_user_registration_path %>
+            <a class="disabled">Forgot password</a>
+          </fgroup>
 
-            <ul>
-              <li>Features</li>
-              <li>Tutorials</li>
-              <li>Blog</li>
-            </ul>
+          <fgroup>
+            <a class="disabled">Features</a>
+            <a class="disabled">Tutorials</a>
+            <a class="disabled">Blog</a>
+          </fgroup>
 
-            <ul id="footer-social">
-              <li><a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "icon_social_facebook.png" %></a></li>
-              <li><a href="https://twitter.com/arcadeforge"><%= image_tag "icon_social_twitter.png" %></a></li>
-              <li><a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "icon_social_youtube.png" %></a></li>
-            </ul>
-            <br />
-            <span id="footer-copyright">Copyright © 2014 ArcadeForge</span>
-          </div>
+          <fgroup class="social">
+            <a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "application/icon_social_facebook.png" %></a>
+            <a href="https://twitter.com/arcadeforge"><%= image_tag "application/icon_social_twitter.png" %></a>
+            <a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "application/icon_social_youtube.png" %></a>
+          </fgroup>
+          <br />
+          <span>Copyright © 2014 ArcadeForge</span>
         </footer>
-        -->
       </div>
   </body>
 </html>

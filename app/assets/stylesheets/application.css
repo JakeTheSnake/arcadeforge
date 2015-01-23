@@ -28,5 +28,7 @@
  *
  * APPLICATION
  *= require ./application/application
+ *= require ./application/sections
+ *= require ./application/environment
  *= require ./application/dev
  */

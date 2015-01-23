@@ -1,19 +1,17 @@
-<!-- Toolbar bottom -->
-<div id="toolbar-bottom" class="row">
+<aside class="border-right">
+  <article>
+  	<%= link_to "Create new game", new_game_path, :class => "btn success wide" %>
+  </article>
+</aside>
 
-    <!-- Column Left -->
-    <div class="col left border-right">
-      <%= button_to "Create new game", new_game_path, :class => "btn btn-success btn-wide", :method => :get %>
-    </div>
-
-    <!-- Column middle -->
-    <div class="col middle">
-        <div class="game-category">
-            <h2>My games</h2>
-            <% if @games.empty? then %>
-                <p>You have no games. <%= link_to "Forge one now!", new_game_path %></p>
-            <% end %>
-            <%= render :partial => 'mygame_thumbnail', :collection => @games %>
-        </div>
-    </div>
-</div>
+<section id="my-games">
+  <article>
+  	<div class="game-category">
+		  <h2>My games</h2>
+		  <% if @games.empty? then %>
+		    <p>You have no games. <%= link_to "Forge one now!", new_game_path %></p>
+		  <% end %>
+		  <%= render :partial => 'mygame_thumbnail', :collection => @games %>
+		</div>
+  </article>
+</section>
