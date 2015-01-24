@@ -1,63 +1,63 @@
 /*! parameters.css | http://arcadeforge.io */
 
-.parameters li {
+.parameter-groups li {
   margin-bottom: 2px;
 }
 
-.parameters li.active {
+.parameter-groups li.active {
   border-left: 1px solid #e5a52e;
   border-right: 1px solid #e5a52e;
   border-bottom: 1px solid #e5a52e;
 }
 
-.parameters li table {
+.parameter-groups li table {
   margin-bottom: 2px;
   width: 100%;
   background-color: #383838;
 }
 
-.parameters li tr {
+.parameter-groups li tr {
   border-bottom: 1px solid #323232;
 }
 
-.parameters li tr:first-child {
+.parameter-groups li tr:first-child {
   height: 26px;
 }
 
-.parameters li tr:last-child {
+.parameter-groups li tr:last-child {
   border-bottom: none;
 }
 
-.parameters li td {
+.parameter-groups li td {
   height: 27px;
   padding: 0 20px 0 20px;
 }
 
-.parameters li td:first-child {
+.parameter-groups li td:first-child {
   padding-left: 20px;
   padding-right: 0;
   width: 120px;
 }
 
-.parameters span {
+.parameter-groups span {
   line-height: 1;
 }
 
 /* ==========================================================================
    Parameters: Table content
    ========================================================================== */
-.parameters li table label {
+.parameter-groups li table label {
   color: #fdff9a;
   font-size: .75em;
 }
 
-.parameters li table span {
+.parameter-groups li table span {
   color: #65ffff;
   font-size: .75em;
 }
 
-.parameters li table input,
-.parameters li table select {
+.parameter-groups li table input,
+.parameter-groups li table select {
   padding: 0 0 0 4px;
   height: 17px;
   background-color: #505050;
@@ -67,7 +67,7 @@
   border: 1px solid #595959;
 }
 
-.parameters li span {
+.parameter-groups li span {
   font-family: 'Droid Sans', sans-serif;
 }
 
@@ -75,7 +75,7 @@
    Parameters: Group title
    Info: Title for a group of parameters
    ========================================================================== */
-.parameters li > span {
+.parameter-groups li > span {
   display: block;
   margin-bottom: 2px;
   padding: 10px 0 5px 21px;
@@ -84,11 +84,11 @@
   background-color: #424242;
 }
 
-.parameters li.active > a {
+.parameter-groups li.active > a {
   margin-bottom: 0;
 }
 
-.parameters li.active > span {
+.parameter-groups li.active > span {
   background-color: #e5a52e;
 }
 
@@ -97,7 +97,7 @@
    Info: Title for a specific set of parameters
    ========================================================================== */
    
-.parameter-title {
+.parameter-group-title {
   display: block;
   height: 26px;
   margin-bottom: 1px;
@@ -105,12 +105,12 @@
   background-color: #424242;
 }
 
-.parameter-title span {
+.parameter-group-title span {
   display: inline-block;
   padding-top: 6px;
 }
 
-.parameter-title a.btn {
+.parameter-group-title a.btn {
   width: 30px;
   padding: 5px 0 0 0;
   height: 21px;
