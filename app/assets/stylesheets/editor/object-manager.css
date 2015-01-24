@@ -9,6 +9,23 @@
   width: 650px;
 }
 
+#object-manager .btn-group {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Editor: Parameters
+   ========================================================================== */
+
+#object-manager .parameter-groups li td:first-child {
+  width: 60px;
+}
+
+#object-manager .parameter-groups li table input,
+#object-manager .parameter-groups li table select {
+  width: 72px;
+}
+
 /* ==========================================================================
    Editor: Properties
    ========================================================================== */

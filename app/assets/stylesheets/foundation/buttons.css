@@ -143,15 +143,11 @@
   margin-bottom: 15px;
 }
 
-.btn-group .btn:last-child {
-  margin-bottom: 0px;
-}
-
 .btn-group:last-child {
   margin-bottom: 0;
 }
 
-.btn-group:only-child {
+.btn-group:only-of-type {
   margin-bottom: 15px;
 }
 
@@ -160,7 +156,11 @@
   width: auto;
 }
 
-.btn-group.wide .btn {
+.btn-group .btn:last-child {
+  margin-bottom: 0px;
+}
+
+.btn-group.wide > .btn {
   width: auto;
 }
 
