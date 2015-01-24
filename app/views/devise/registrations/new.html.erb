@@ -7,19 +7,19 @@
           <p><%= devise_error_messages! %></p>
           <p><%= flash[:notice] %></p>
           <fieldset>
-            <div>
+            <div class="input-container">
               <%= text_field_tag :betakey %>
               <%= label_tag :betakey %>
             </div>
-            <div>
+            <div class="input-container">
               <%= f.text_field :username, autofocus: true %>
               <%= f.label :username %>
             </div>
-            <div>
+            <div class="input-container">
               <%= f.email_field :email%>
               <%= f.label :email %>
             </div>
-            <div>
+            <div class="input-container">
               <!-- Need to make design for this!
               <% if @validatable %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -27,12 +27,11 @@
               <%= f.password_field :password, autocomplete: "off" %>
               <%= f.label :password%>
             </div>
-            <div>
+            <div class="input-container">
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
               <%= f.label :password_confirmation %>
             </div>
           </fieldset>
-          <!-- Can we change this to a link insted of a button? -->
           <%= f.submit "Sign up", :class => "btn success wide" %>
         <% end %>
       </article>

@@ -6,7 +6,7 @@
 				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 					<p><%= devise_error_messages! %></p>
 					<fieldset>
-						<div>
+						<div class="input-container">
 							<%= f.email_field :email, autofocus: true %>
 							<%= f.label :email %>
 						</div>

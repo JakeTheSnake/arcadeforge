@@ -95,9 +95,10 @@ fieldset.sequenced select:last-child {
 /* ==========================================================================
    Form: Labels
    ========================================================================== */
-fieldset div input[type="text"] + label,
-fieldset div input[type="email"] + label,
-fieldset div input[type="password"] + label {
+
+.input-container input[type="text"] + label,
+.input-container input[type="email"] + label,
+.input-container input[type="password"] + label {
   position: absolute;
   top: 10px;
   right: 67px;
@@ -108,21 +109,26 @@ fieldset div input[type="password"] + label {
   pointer-events: none;
 }
 
-fieldset div input[type="text"]:focus + label,
-fieldset div input[type="email"]:focus + label,
-fieldset div input[type="password"]:focus + label {
+.input-container input[type="text"]:focus + label,
+.input-container input[type="email"]:focus + label,
+.input-container input[type="password"]:focus + label {
   right: 7px;
   opacity: 1;
 }
 
-input[type="checkbox"] {
-  background-color: #ffffff;
-  margin-right: 3px;
-  cursor: pointer;
+.checkbox-container {
+  margin: 0;
 }
 
-input[type="checkbox"] + label {
+.checkbox-container input[type="checkbox"] {
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 10px;
+  float: left;
+}
+
+.checkbox-container input[type="checkbox"] + label {
   display: inline-block;
-  margin-top: 10px;
-  cursor: pointer;
+  padding-top: 3px;
+  height: 24px;
 }

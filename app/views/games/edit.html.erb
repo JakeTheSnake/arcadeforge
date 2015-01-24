@@ -5,17 +5,17 @@
 				<h2>Edit game details</h2>
 				<%= form_for @game, url: {action: 'update'} do |f| %>
 					<fieldset>
-						<div>
-							<%= f.label :name %>
+						<div class="input-container">
 							<%= f.text_field :name %>
+							<%= f.label :name %>
 						</div>
-						<div>
-							<%= f.label :thumbnail %>
+						<div class="input-container">
 							<%= f.text_field :thumbnail %>
+							<%= f.label :thumbnail %>
 						</div>
-						<div>
-							<%= f.label :published %>
+						<div class="checkbox-container clearfix">
 							<%= f.check_box :published %>
+							<%= f.label :published %>
 						</div>
 					</fieldset>
 					<%= f.submit "Update", :class => "btn success wide" %>
@@ -24,4 +24,3 @@
 		</div>
 	</div>
 </section>
-

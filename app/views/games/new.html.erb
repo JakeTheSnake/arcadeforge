@@ -5,7 +5,7 @@
 				<h2>Create New Game</h2>
 				<%= form_for @game, url: {action: 'create'} do |f| %>
 					<fieldset>
-						<div>
+						<div class="input-container">
 							<%= f.text_field :name %>
 							<%= f.label :name %>
 						</div>

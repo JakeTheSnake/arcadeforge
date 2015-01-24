@@ -28,8 +28,9 @@
 
 .game-item img {
 	display: block;
+	margin-bottom: 4px;
 }
 
-.game-item a {
-	display: block;
+.game-item p {
+	margin-bottom: 1px;
 }

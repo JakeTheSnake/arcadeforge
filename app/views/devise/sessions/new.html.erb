@@ -5,20 +5,19 @@
         <h2>Log in</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <fieldset>
-            <div>
+            <div class="input-container">
               <%= f.email_field :email, autofocus: true, :class => "wide" %>
               <%= f.label :email %>
             </div>
-            <div>
+            <div class="input-container">
               <%= f.password_field :password, autocomplete: "off" %>
               <%= f.label :password %>
             </div>
             <% if devise_mapping.rememberable? -%>
-                <!-- I need to find a good way to style the checkbox label!
-                <div>
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
-                </div> --> 
+            <div class="checkbox-container clearfix">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
             <% end -%>
           </fieldset>
           <!-- Can we change this to a link insted of a button? -->

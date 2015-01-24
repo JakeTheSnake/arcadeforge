@@ -1,7 +1,7 @@
 <% present mygame_thumbnail do |game_presenter| %>
 	<div class="game-item">
 		<%= link_to game_presenter.thumbnail, editor_game_path(mygame_thumbnail) %>
-		<%= link_to game_presenter.name, editor_game_path(mygame_thumbnail) %>
+		<p><%= link_to game_presenter.name, editor_game_path(mygame_thumbnail) %></p>
 		<%= link_to "Properties", edit_game_path(mygame_thumbnail) %>
 	</div>
 <% end %>
