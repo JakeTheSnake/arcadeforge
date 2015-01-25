@@ -109,9 +109,9 @@ fieldset.sequenced select:last-child {
   pointer-events: none;
 }
 
-.input-container input[type="text"]:focus + label,
-.input-container input[type="email"]:focus + label,
-.input-container input[type="password"]:focus + label {
+.input-container-active input[type="text"] + label,
+.input-container-active input[type="email"] + label,
+.input-container-active input[type="password"] + label {
   right: 7px;
   opacity: 1;
 }
