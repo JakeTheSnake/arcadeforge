@@ -42,3 +42,8 @@
     border-width: 13px;
     margin-left: -13px;
 }
+
+/* Style fix for action-window in direct mode 2014-02-02 */
+#select-action-window .btn-group {
+  margin-bottom: 0;
+}
