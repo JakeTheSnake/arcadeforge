@@ -74,15 +74,15 @@
 
 /* Edit */
 .btn.edit {
-  background-color: #e5a52e;
+  background-color: #f5a818;
 }
 
 .btn.edit:hover {
-  background-color: #f5b031;
+  background-color: #ffb833;
 }
 
 .btn.edit:active {
-  background-color: #c78f28;
+  background-color: #e0a22d;
 }
 
 /* Warning */

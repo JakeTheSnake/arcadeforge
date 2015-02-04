@@ -97,7 +97,7 @@
    Info: Title for a specific set of parameters
    ========================================================================== */
    
-.parameter-group-title {
+.parameter-header {
   display: block;
   height: 26px;
   margin-bottom: 1px;
@@ -105,12 +105,12 @@
   background-color: #424242;
 }
 
-.parameter-group-title span {
+.parameter-header span {
   display: inline-block;
   padding-top: 6px;
 }
 
-.parameter-group-title a.btn {
+.parameter-header a.btn {
   width: 30px;
   padding: 5px 0 0 0;
   height: 21px;
