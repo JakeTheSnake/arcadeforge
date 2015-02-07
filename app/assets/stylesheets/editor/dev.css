@@ -43,7 +43,51 @@
     margin-left: -13px;
 }
 
-/* Style fix for action-window in direct mode 2014-02-02 */
+/* Style fix for action-window in direct mode 2015-02-02 */
 #select-action-window .btn-group {
   margin-bottom: 0;
+}
+
+/* Image uploading. 2015-02-07 */
+
+.uploaded-image-preview, .popup-uploaded-image-preview {
+  width: 100px;
+  height: 100px;
+}
+
+#image-select-popup {
+  height: 400px;
+  width: 550px;
+  position: absolute;
+  left: calc(50% - 275px);
+  top: calc(50% - 200px);
+  display: none;
+  z-index: 3;
+  background: #505050;
+}
+
+#image-select-popup .image-select-content {
+  display: none;
+}
+
+#image-select-tab-row {
+  position: absolute;
+  top: -26px;
+}
+
+#image-select-tab-row .image-select-tab{
+  float: left;
+  background-color: #505050;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+#image-select-tab-row .image-select-tab.active{
+  cursor: default;
+  background-color: #e5a52e;
+}
+
+#image-select-overlay {
+  z-index: 2;
 }
