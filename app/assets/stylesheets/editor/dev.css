@@ -91,3 +91,29 @@
 #image-select-overlay {
   z-index: 2;
 }
+
+#image-select-library-categories {
+  width: 100px;
+  height: 400px;
+  float: left;
+}
+
+.image-select-library-category {
+  padding: 2px 4px 2px 4px;
+  cursor: pointer;
+}
+
+.image-select-library-category.active {
+  background-color: #e5a52e;
+  cursor: default;
+}
+
+.image-select-library-image {
+  float: left;
+  cursor: pointer;
+}
+
+.image-select-library-image img {
+  width: 100px;
+  height: 100px;
+}
