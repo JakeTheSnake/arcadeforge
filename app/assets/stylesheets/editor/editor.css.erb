@@ -100,7 +100,12 @@ main > .col.right {
   background-color: #F5F5F5;
 }
 
-.global-object-list > li {
+#scene-object-library {
+  display: none;
+}
+
+.global-object-list > li,
+.scene-object-list > li {
   margin: 0 5px 0 5px;
   padding: 4px 0 0 27px;
   height: 18px;
@@ -118,14 +123,12 @@ main > .col.right {
   user-select: none;
 }
 
-.global-object-list > li:hover {
+.global-object-list > li:hover,
+.scene-object-list > li:hover {
   background-color: #E0EEE6;
 }
 
-.global-object-list > li:active {
-  background-color: #CCE7D7;
-}
-
-.global-object-list > li.active {
+.global-object-list > li:active,
+.scene-object-list > li:active {
   background-color: #CCE7D7;
 }
