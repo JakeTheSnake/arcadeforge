@@ -50,7 +50,7 @@
 
 /* Image uploading. 2015-02-07 */
 
-.uploaded-image-preview, .popup-uploaded-image-preview {
+.selected-image-preview, .popup-selected-image-preview {
   width: 100px;
   height: 100px;
 }
