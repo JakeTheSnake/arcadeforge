@@ -1,10 +1,12 @@
-/*! dev.css | http://arcadeforge.io */
+/*! dev.css | http://arcadeforge.P */
 
 /* ==========================================================================
-   Made by: Terry Strongheart
-   Desc: Style for deleting state button
+   Made by: Jake the FUCKING SNAKE
+   Desc: Style for game category in "Play"
    Date: 2015-01-24
    ========================================================================== */
-.terrys-class {
-  /**/
+.game-category {
+  display: block;
+  width: 800px;
+  overflow: hidden;
 }
