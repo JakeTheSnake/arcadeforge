@@ -50,3 +50,4 @@
 //= require doubleball/ui/views/commonObjectViews
 //= require doubleball/ui/views/textObjectViews
 //= require doubleball/ui/controllers/commonObjectControllers
+//= require doubleball/ui/imageLibrary
