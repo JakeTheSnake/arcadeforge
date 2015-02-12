@@ -117,3 +117,11 @@
   width: 100px;
   height: 100px;
 }
+
+/* Image uploading for states 2015-02-12 */
+
+#global-object-image-upload-controls.fade-disable {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
