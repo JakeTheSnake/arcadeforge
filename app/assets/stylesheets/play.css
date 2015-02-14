@@ -25,6 +25,7 @@
  *
  * GENERIC
  *= require ./generic/generic
+ *= require ./generic/canvas
  *
  * PLAY
  *= require ./play/play

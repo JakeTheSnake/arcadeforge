@@ -1,0 +1,11 @@
+/*! canvas.css | http://arcadeforge.io */
+
+canvas {
+  position: absolute;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+#ui-canvas {
+  pointer-events: none;
+}
