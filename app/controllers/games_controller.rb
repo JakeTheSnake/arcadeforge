@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   layout "editor", :except => [:new, :index, :edit, :show]
-  layout "play", :only => :show
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :verify_game_owner, :except => [:show, :index, :create, :new]
   
@@ -51,6 +50,7 @@ class GamesController < ApplicationController
       @game.save!
     end
     gon.game = @game.data
+    render layout: "play" if @game.published
   end
 
   def publish
