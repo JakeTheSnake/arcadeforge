@@ -31,6 +31,7 @@
  *= require ./editor/dialogue
  *= require ./editor/parameters
  *= require ./editor/object-manager
+ *= require ./editor/scene-object
  *= require ./editor/dev
  *= require ./editor/temp
  */

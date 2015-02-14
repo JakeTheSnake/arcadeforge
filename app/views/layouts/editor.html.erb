@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <title>Arcadeforge</title>
-    <!--<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= include_gon %>
-    <%= stylesheet_link_tag 'game', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'editor', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'editor', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= javascript_include_tag 'edit_game', 'data-turbolinks-track' => true %>
   </head>
   <body>
     <div class="container">

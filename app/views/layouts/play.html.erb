@@ -1,0 +1,29 @@
+<!--<!DOCTYPE html>-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Arcadeforge</title>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'play', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'editor', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <header class="border-bottom">
+        <hgroup class="logo">
+          <%= link_to image_tag("generic/header_logo.png"), root_path, :class => "" %>
+        </hgroup>
+
+      <!-- Main content -->
+      <main>
+        <%= yield %>
+      </main>
+      
+    </div>
+  </body>
+</html>

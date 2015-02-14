@@ -1,0 +1,122 @@
+/*! application.css | http://arcadeforge.io */
+
+nav {
+	display: inline-block;
+  margin: 40px 0 0 30px;
+}
+
+nav a {
+	margin-right: 30px;
+  font-size: 1em;
+}
+
+main {
+	margin-bottom: 133px;
+	overflow-y: auto;
+}
+
+section {
+	padding: 50px 40px 0 40px;
+}
+
+aside {
+	width: 155px;
+	overflow-y: auto;
+	padding: 0 40px 0 40px !important;
+	background-color: #323232;
+  height: 100%;
+  float: left;
+}
+
+aside article:first-child {
+	margin-top: 50px;
+}
+
+aside + section {
+	width: 900px;
+	padding-bottom: 50px;
+	padding-left: 50px;
+	float: left;
+}
+
+/* ==========================================================================
+   Main: Footer
+   ========================================================================== */
+
+footer {
+	background-color: #323232;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px 40px 30px 40px;
+  overflow: hidden;
+}
+
+footer fgroup {
+	display: inline-block;
+	margin-right: 135px;
+}
+
+footer fgroup a {
+	display: block;
+	margin-bottom: 7px;
+}
+
+footer fgroup a.disabled {
+	color: #808080;
+	pointer-events: none;
+}
+
+footer fgroup.social {
+  display: block;
+  margin-right: 0;
+  float: right;
+}
+
+footer fgroup.social a {
+	margin-right: 5px;
+	margin-bottom: 0;
+	float: left;
+}
+
+footer span {
+	position: relative;
+	font-size: 0.75em;
+	display: block;
+	float: right;
+}
+
+/* ==========================================================================
+   Main: Panels
+   ========================================================================== */
+
+.panel {
+	background-color: #323232;
+}
+
+.panel .panel-body {
+	padding: 30px 30px 40px 30px;
+}
+
+.panel.centered {
+	width: 400px;
+}
+
+.panel.centered fieldset div,
+.panel.centered input {
+	width: 326px;
+}
+
+/* ==========================================================================
+   Main: Buttons
+   ========================================================================== */
+
+input.btn {
+	color: #ffffff;
+	padding: 0;
+	width: 340px !important;
+	height: 34px !important;
+	outline: 0;
+	border: 0;
+}
