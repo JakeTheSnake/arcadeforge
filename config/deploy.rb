@@ -11,7 +11,7 @@ set :branch, 'master'
 set :user, 'ubuntu'
 set :forward_agent, true  
 set :port, '22'
-set :identity_file, '/home/jake/.ssh/Jake.pem'
+set :identity_file, "/home/#{ENV['USER']}/.ssh/Jake.pem"
 
 set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
 
@@ -41,7 +41,9 @@ desc "Deploys the current version to the server."
 task :deploy => :environment do  
   deploy do
     invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
+    queue "git submodule init"
+    queue "git submodule update"
+
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
