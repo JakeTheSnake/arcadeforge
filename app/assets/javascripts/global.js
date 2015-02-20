@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".input-container input[type=text]").each(function() {
+    $(".input-container input").each(function() {
         var textInput = $(this);
         textInput.on('focus', function() {
             $(this).parent().addClass('input-container-active');
