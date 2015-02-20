@@ -166,3 +166,15 @@
   height: 21px;
   float: right;
 }
+
+/* Fix pointer for save button */
+
+#save-game-button {
+  cursor: pointer;
+}
+
+#save-game-button.disabled {
+  cursor: default;
+}
+
+
