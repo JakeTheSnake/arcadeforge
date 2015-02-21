@@ -12,7 +12,7 @@ module ApplicationHelper
         	link_to("Log out", destroy_user_session_path, class: "btn warning", method: :delete)]
         else
         	[link_to("Login", new_user_session_path),
-        	link_to("Sign up", new_user_registration_path, class: "btn success", id: "btn-signup", :method => :get)]
+        	link_to("Sign up", new_user_registration_path, class: "btn success", id: "btn-signup")]
         end
     end
 end

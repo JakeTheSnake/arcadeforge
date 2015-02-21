@@ -41,8 +41,6 @@ desc "Deploys the current version to the server."
 task :deploy => :environment do  
   deploy do
     invoke :'git:clone'
-    queue "git submodule init"
-    queue "git submodule update"
 
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
