@@ -175,6 +175,5 @@
 
 #save-game-button.disabled {
   cursor: default;
+  pointer-events: none;
 }
-
-
