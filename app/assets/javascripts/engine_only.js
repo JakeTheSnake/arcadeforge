@@ -34,6 +34,7 @@
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterDisplayImage
 //= require doubleball/engine/counterDisplayText
+//= require doubleball/engine/errors
 
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events

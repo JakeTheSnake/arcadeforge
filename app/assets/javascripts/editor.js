@@ -38,6 +38,7 @@
 //= require doubleball/engine/counter
 //= require doubleball/engine/counterDisplayImage
 //= require doubleball/engine/counterDisplayText
+//= require doubleball/engine/errors
 //= require doubleball/ui/debug
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events
