@@ -62,3 +62,29 @@ namespace :passenger do
     queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
   end
 end 
+
+RYAML = <<-BASH
+function ryaml {
+  ruby -ryaml -e 'puts ARGV[1..-1].inject(YAML.load(File.read(ARGV[0]))) {|acc, key| acc[key] }' "$@"
+};
+BASH
+namespace :sync do
+  task :db => :environment do
+    isolate do
+      queue RYAML
+      queue "USERNAME=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} username)"
+      queue "DATABASE=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} database)"
+      queue "PGPASSWORD=$ARCADEFORGE_DB_PASS pg_dump -U $USERNAME -h localhost $DATABASE -c --no-owner -f dump.sql"
+      queue "gzip -f dump.sql"
+
+      mina_cleanup!
+    end
+
+    %x[scp -i #{identity_file} #{user}@#{domain}:dump.sql.gz .]
+    %x[gunzip -f dump.sql.gz]
+    %x[PGPASSWORD=archonforge -h localhost dropdb -U arcadeforge arcadeforge_development]
+    %x[PGPASSWORD=archonforge -h localhost createdb -U arcadeforge arcadeforge_development]
+    %x[PGPASSWORD=archonforge psql -d arcadeforge_development -U arcadeforge -h localhost -f dump.sql]
+    %x[rm dump.sql]
+  end
+end
