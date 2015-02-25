@@ -29,8 +29,11 @@ class GamesController < ApplicationController
   end
 
   def savegame
-    @game.update!(game_params)
-    render :text => "ok"
+    if @game.update!(game_params)
+      render :text => "ok"
+    else
+      render :text => "nok"
+    end
   end
 
   def destroy
