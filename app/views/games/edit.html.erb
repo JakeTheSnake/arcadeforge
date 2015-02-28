@@ -1,26 +1,33 @@
 <section id="signup"> 
-	<div class="panel centered">
-		<div class="panel-body">
-			<article>
-				<h2>Edit game details</h2>
-				<%= form_for @game, url: {action: 'update'} do |f| %>
-					<fieldset>
-						<div class="input-container">
-							<%= f.text_field :name %>
-							<%= f.label :name %>
-						</div>
-						<div class="input-container">
-							<%= f.text_field :thumbnail %>
-							<%= f.label :thumbnail %>
-						</div>
-						<div class="checkbox-container clearfix">
-							<%= f.check_box :published %>
-							<%= f.label :published %>
-						</div>
-					</fieldset>
-					<%= f.submit "Update", :class => "btn success wide" %>
-				<% end %>
-			</article>
-		</div>
-	</div>
+    <div class="panel centered">
+        <div class="panel-body">
+            <article>
+                <h2>Edit game details</h2>
+                <%= form_for @game, url: {action: 'update'} do |f| %>
+                    <fieldset>
+                        <div class="input-container">
+                            <%= f.text_field :name %>
+                            <%= f.label :name %>
+                        </div>
+                        <%= f.fields_for :image do |image_form| %>
+	                        <div class="input-container">
+	                            <%= image_form.file_field :url %>
+	                            <%= image_form.label :url %>
+	                        </div>
+                        <% end %>
+
+                        <div class="checkbox-container clearfix">
+                            <%= f.check_box :published %>
+                            <%= f.label :published %>
+                        </div>
+                        <div class="checkbox-container clearfix">
+                            <%= f.check_box :delete_image %>
+                            <%= f.label :delete_image %>
+                        </div>  
+                    </fieldset>
+                    <%= f.submit "Update", :class => "btn success wide" %>
+                <% end %>
+            </article>
+        </div>
+    </div>
 </section>

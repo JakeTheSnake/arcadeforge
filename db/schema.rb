@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220190450) do
+ActiveRecord::Schema.define(version: 20150228140015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,26 @@ ActiveRecord::Schema.define(version: 20141220190450) do
     t.datetime "updated_at"
     t.integer  "user_id",                  null: false
     t.integer  "votes"
-    t.string   "thumbnail"
     t.boolean  "published"
     t.integer  "played_count", default: 0
+    t.integer  "image_id"
   end
 
+  add_index "games", ["image_id"], name: "index_games_on_image_id", using: :btree
   add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "tags",             default: [], array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "url_file_name"
+    t.string   "url_content_type"
+    t.integer  "url_file_size"
+    t.datetime "url_updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

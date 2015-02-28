@@ -15,10 +15,10 @@ class GamePresenter < BasePresenter
 	end
 
 	def thumbnail
-		if game.thumbnail.nil? or game.thumbnail.empty?
+		if game.image.nil?
 			h.image_tag "cog.png", :width => 152, :height => 152
 		else
-			h.image_tag game.thumbnail, :width => 152, :height => 152
+			h.image_tag game.image.url, :width => 152, :height => 152
 		end
 	end
 

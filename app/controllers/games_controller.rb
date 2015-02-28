@@ -15,12 +15,16 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game.update!(game_params)
+    if params[:game][:image_attributes][:url].nil?
+      @game.update!(game_params_do_not_update_image)
+    else
+      @game.update!(game_params)
+    end
     redirect_to controller: 'profile', action: 'mygames'
   end
 
   def edit
-
+    @game.image = Image.new if @game.image.nil?
   end
   
   def editor
@@ -75,7 +79,11 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :data, :thumbnail, :published)
+    params.require(:game).permit(:name, :data, :published, :delete_image, image_attributes: [:url])
+  end
+
+  def game_params_do_not_update_image
+    params.require(:game).permit(:name, :data, :delete_image, :published)
   end
 
   def should_increase_played_count?

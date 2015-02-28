@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :games
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, :email, presence: true, uniqueness: true
+  
 end
