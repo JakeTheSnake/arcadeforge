@@ -26,6 +26,7 @@
 //= require doubleball/ui/htmlStrings
 //= require doubleball/ui/parameters
 //= require doubleball/ui/eventViewModels
+
 //= require doubleball/engine/actions
 //= require doubleball/engine/freeObject
 //= require doubleball/engine/routeObject
@@ -39,9 +40,11 @@
 //= require doubleball/engine/counterDisplayImage
 //= require doubleball/engine/counterDisplayText
 //= require doubleball/engine/errors
-//= require doubleball/ui/debug
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events
+//= require doubleball/engine/version
+
+//= require doubleball/ui/debug
 //= require doubleball/ui/views/freeObjectViews
 //= require doubleball/ui/views/routeObjectViews
 //= require doubleball/ui/views/topDownObjectViews
