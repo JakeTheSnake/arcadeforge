@@ -15,11 +15,7 @@ class GamePresenter < BasePresenter
 	end
 
 	def thumbnail
-		if game.image.nil?
-			h.image_tag "cog.png", :width => 152, :height => 152
-		else
-			h.image_tag game.image.url, :width => 152, :height => 152
-		end
+			h.image_tag game.thumbnail, :width => 152, :height => 152
 	end
 
 	def username

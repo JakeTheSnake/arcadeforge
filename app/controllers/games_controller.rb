@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    if params[:game][:image_attributes][:url].nil?
+    if params[:game][:thumbnail].nil?
       @game.update!(game_params_do_not_update_image)
     else
       @game.update!(game_params)
@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game.image = Image.new if @game.image.nil?
+    
   end
   
   def editor
@@ -69,6 +69,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def upload_image
+    
+  end
+
   private
 
   def verify_game_owner
@@ -79,7 +83,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :data, :published, :delete_image, image_attributes: [:url])
+    params.require(:game).permit(:name, :data, :published, :delete_image, :thumbnail)
   end
 
   def game_params_do_not_update_image

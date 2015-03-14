@@ -9,12 +9,11 @@
                             <%= f.text_field :name %>
                             <%= f.label :name %>
                         </div>
-                        <%= f.fields_for :image do |image_form| %>
-	                        <div class="input-container">
-	                            <%= image_form.file_field :url %>
-	                            <%= image_form.label :url %>
-	                        </div>
-                        <% end %>
+
+                        <div class="input-container">
+                            <%= f.file_field :thumbnail %>
+                            <%= f.label :thumbnail %>
+                        </div>
 
                         <div class="checkbox-container clearfix">
                             <%= f.check_box :published %>
