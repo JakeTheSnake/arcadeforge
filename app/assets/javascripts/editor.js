@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 
 //= require doubleball/engine/gameCreator
 //= require doubleball/engine/borderObjects
@@ -55,3 +58,4 @@
 //= require doubleball/ui/views/textObjectViews
 //= require doubleball/ui/controllers/commonObjectControllers
 //= require doubleball/ui/imageLibrary
+

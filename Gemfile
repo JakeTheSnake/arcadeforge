@@ -31,6 +31,8 @@ gem 'gon'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
 group :development do
   gem 'spring'
 end
