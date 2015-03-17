@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   post 'images/upload_image'
-  get 'images/upload_image_form'
   get 'images/all_images'
   post 'images/destroy_image'
 

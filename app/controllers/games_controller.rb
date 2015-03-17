@@ -30,6 +30,7 @@ class GamesController < ApplicationController
   def editor
     gon.game = @game.data
     gon.published = @game.published
+    gon.auth_key = form_authenticity_token if protect_against_forgery?
   end
 
   def savegame
@@ -67,10 +68,6 @@ class GamesController < ApplicationController
     else
       render :text => "failed"
     end
-  end
-
-  def upload_image
-    
   end
 
   private

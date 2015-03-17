@@ -3,17 +3,17 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     @image.user_id = current_user.id
     @image.save
-    render :json => @image
-  end
-
-  def upload_image_form
-    @image = Image.new
-    render layout: false
+    render :plain => @image.url
   end
 
   def destroy_image
-    @image = Image.find_by_id(params[:id])
-    @image.destroy! if not image.nil? && @image.user_id == current_user.id
+    @image = Image.find_by_id(params[:image][:id])
+    if @image.user_id == current_user.id
+      @image.destroy! if not @image.nil?
+      render :plain => 'OK'
+    else
+      render :plain => 'NOK'
+    end
   end
 
   def all_images
