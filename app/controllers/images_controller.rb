@@ -1,4 +1,7 @@
 class ImagesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def upload_image
     @image = Image.new(image_params)
     @image.user_id = current_user.id
@@ -8,8 +11,8 @@ class ImagesController < ApplicationController
 
   def destroy_image
     @image = Image.find_by_id(params[:image][:id])
-    if @image.user_id == current_user.id
-      @image.destroy! if not @image.nil?
+    if not @image.nil? && @image.user_id == current_user.id
+      @image.destroy!
       render :plain => 'OK'
     else
       render :plain => 'NOK'
@@ -17,7 +20,7 @@ class ImagesController < ApplicationController
   end
 
   def all_images
-    @images = Image.where(:user_id => 3)
+    @images = Image.where(:user_id => current_user.id)
   end
 
   private

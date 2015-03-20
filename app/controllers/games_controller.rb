@@ -42,11 +42,12 @@ class GamesController < ApplicationController
   end
 
   def destroy
+
   end
 
   def index
-    @popular_games = Game.includes(:user).where(:published => true).order(played_count: :desc).limit(5)
-    @all_games = Game.includes(:user).where(:published => true).order(created_at: :desc)
+    @popular_games = Game.includes(:user).published.order(played_count: :desc).limit(5).select_without_game
+    @all_games = Game.includes(:user).published.order(created_at: :desc).select_without_game
   end
 
   def show

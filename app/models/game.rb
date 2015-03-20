@@ -10,6 +10,9 @@ class Game < ActiveRecord::Base
 
     attr_accessor :delete_image
 
+    scope :published, -> { where(published: true) }
+    scope :select_without_game, -> { select(column_names - [:game]) }
+
     def sanitize_votes
         if self.votes.nil?
             self.votes = 0
