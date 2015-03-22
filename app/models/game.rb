@@ -10,7 +10,9 @@ class Game < ActiveRecord::Base
 
     attr_accessor :delete_image
 
-    scope :published, -> { where(published: true) }
+    scope :not_private, -> { where.not(published: 0) }
+    scope :unlisted, -> { where(published: 1)}
+    scope :published, -> { where(published: 2) }
     scope :select_without_game, -> { select(column_names - [:game]) }
 
     def sanitize_votes

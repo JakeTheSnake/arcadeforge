@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314121101) do
+ActiveRecord::Schema.define(version: 20150321084342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150314121101) do
     t.datetime "updated_at"
     t.integer  "user_id",                            null: false
     t.integer  "votes"
-    t.boolean  "published"
+    t.integer  "published"
     t.integer  "played_count",           default: 0
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"

@@ -35,10 +35,17 @@
         </div>
         <div id="published-container" class="btn-group">
           <div id="published-buttons">
-            <input type="radio" id="private-button" name="publish-group" data-name="PRIVATE">
-            <label class="i-private-button" for="private-button"></label>
-            <input type="radio" id="publish-button" name="publish-group" data-name="PUBLISHED">
-            <label class="i-publish-button" for="publish-button"></label>
+            <form accept-charset='UTF-8' enctype='multipart/form-data' id='published_form' method='post'>
+              <div style="display: none">
+                  <input name='utf8' type='hidden' value='✓'/>
+              </div>
+              <input type="radio" id="private-button" name="game[published]" value="0" data-name="PRIVATE">
+              <label class="i-private-button" for="private-button"></label>
+              <input type="radio" id="unlist-button" name="game[published]" value="1" data-name="UNLISTED">
+              <label class="i-unlist-button" for="unlist-button"></label>
+              <input type="radio" id="publish-button" name="game[published]" value="2" data-name="PUBLISHED">
+              <label class="i-publish-button" for="publish-button"></label>
+            </form>
           </div>
           <span id="published-label">PRIVATE</span>
         </div>

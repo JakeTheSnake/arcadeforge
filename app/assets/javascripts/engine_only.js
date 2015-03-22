@@ -38,4 +38,5 @@
 
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events
+//= require doubleball/engine/version
 //= require doubleball/startup_engine_only

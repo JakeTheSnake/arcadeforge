@@ -19,7 +19,7 @@ header #edit-mode-buttons, #published-buttons {
 header #published-buttons,
 header #published-label,
 header #published-container {
-  width: 98px;
+  width: 148px;
 }
 
 header .btn-group span {
@@ -67,6 +67,9 @@ header .btn-group input[type="radio"]:checked + label.i-run-game-button { backgr
 
 header .i-private-button { background-image: url("<%= asset_path 'game/icon_private_disabled.png' %>"); }
 header .btn-group input[type="radio"]:checked + label.i-private-button { background-image: url("<%= asset_path 'game/icon_private.png' %>"); }
+
+header .i-unlist-button { background-image: url("<%= asset_path 'game/icon_unlist_disabled.png' %>"); }
+header .btn-group input[type="radio"]:checked + label.i-unlist-button { background-image: url("<%= asset_path 'game/icon_unlist.png' %>"); }
 
 header .i-publish-button { background-image: url("<%= asset_path 'game/icon_published_disabled.png' %>"); }
 header .btn-group input[type="radio"]:checked + label.i-publish-button { background-image: url("<%= asset_path 'game/icon_published.png' %>"); }

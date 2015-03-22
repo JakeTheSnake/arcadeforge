@@ -52,22 +52,21 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by_id(params[:id])
-    render_error_message(:heading => "Sorry!", :message => "Game is not published yet.", :status => 403) unless @game.published
+    render_error_message(:heading => "Sorry!", :message => "Game is not available yet.", :status => 403) unless @game.published != 0
     if should_increase_played_count? then
       session[:shown_games].push(@game.id)
       @game.played_count += 1
       @game.save!
     end
     gon.game = @game.data
-    render layout: "play" if @game.published
+    render layout: "play" if @game.published > 0
   end
 
   def publish
-    @game.published = !@game.published
-    if @game.save! then
-      render :text => @game.published.to_s
+    if @game.update!(game_params_publish)
+      render :plain => "OK"
     else
-      render :text => "failed"
+      render :plain => "NOK"
     end
   end
 
@@ -86,6 +85,10 @@ class GamesController < ApplicationController
 
   def game_params_do_not_update_image
     params.require(:game).permit(:name, :data, :delete_image, :published)
+  end
+
+  def game_params_publish
+    params.require(:game).permit(:published)
   end
 
   def should_increase_played_count?
