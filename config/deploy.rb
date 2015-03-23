@@ -61,7 +61,13 @@ namespace :passenger do
   task :restart do
     queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
   end
-end 
+end
+
+desc "Invokes a raketask"
+task :invoke => :environment do
+  queue! "cd #{current}"
+  queue! "bundle exec rake #{ENV['task']} RAILS_ENV=production"
+end
 
 RYAML = <<-BASH
 function ryaml {
