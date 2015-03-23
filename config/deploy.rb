@@ -65,7 +65,7 @@ end
 
 desc "Invokes a raketask"
 task :invoke => :environment do
-  queue! "cd #{current}"
+  queue! "cd git/arcadeforge"
   queue! "bundle exec rake #{ENV['task']} RAILS_ENV=production"
 end
 
