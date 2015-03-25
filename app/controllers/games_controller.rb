@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.user = current_user
+    @game.published = 0
     @game.save!
     redirect_to action: 'editor', :id => @game.id
   end
@@ -46,13 +47,13 @@ class GamesController < ApplicationController
   end
 
   def index
-    @popular_games = Game.includes(:user).published.order(played_count: :desc).limit(5).select_without_game
-    @all_games = Game.includes(:user).published.order(created_at: :desc).select_without_game
+    @popular_games = Game.includes(:user).published.order(played_count: :desc).limit(5).select_without_data
+    @all_games = Game.includes(:user).published.order(created_at: :desc).select_without_data
   end
 
   def show
     @game = Game.find_by_id(params[:id])
-    render_error_message(:heading => "Sorry!", :message => "Game is not available yet.", :status => 403) unless @game.published != 0
+    render_error_message(:heading => "Sorry!", :message => "Game is not available yet.", :status => 403) unless @game.published > 0
     if should_increase_played_count? then
       session[:shown_games].push(@game.id)
       @game.played_count += 1
@@ -80,11 +81,11 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :data, :published, :delete_image, :thumbnail)
+    params.require(:game).permit(:name, :data, :delete_image, :thumbnail)
   end
 
   def game_params_do_not_update_image
-    params.require(:game).permit(:name, :data, :delete_image, :published)
+    params.require(:game).permit(:name, :data, :delete_image)
   end
 
   def game_params_publish

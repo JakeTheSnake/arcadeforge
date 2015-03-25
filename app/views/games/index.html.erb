@@ -1,12 +1,12 @@
 <section id="my-games">
   <article>
     <div class="game-category">
-      <h2>All Games</h2>
-      <%= render :partial => 'game_thumbnail', :collection => @all_games %>
-    </div>
-    <div class="game-category">
       <h2>Popular Games</h2>
       <%= render :partial => 'game_thumbnail', :collection => @popular_games %>
+    </div>
+    <div class="game-category">
+      <h2>All Games</h2>
+      <%= render :partial => 'game_thumbnail', :collection => @all_games %>
     </div>
   </article>
 </section>
