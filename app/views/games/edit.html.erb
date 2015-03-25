@@ -25,4 +25,11 @@
             </article>
         </div>
     </div>
+    <div class="panel centered">
+        <div class="panel-body">
+            <%= form_for @game, url: {action: 'destroy'}, method: :delete do |d| %>
+                <%= d.submit "Delete Game", :data => {:confirm => "Are you sure you want to delete this game?"}, :class => "btn warning wide" %>
+            <% end %>
+        </div>
+    </div>
 </section>

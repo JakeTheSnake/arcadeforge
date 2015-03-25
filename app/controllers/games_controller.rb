@@ -43,7 +43,8 @@ class GamesController < ApplicationController
   end
 
   def destroy
-
+    @game.destroy!
+    redirect_to controller: 'profile', action: 'mygames'
   end
 
   def index
