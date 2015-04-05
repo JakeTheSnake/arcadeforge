@@ -1,37 +1,34 @@
-<section id="home">
+<div id="super">
 	<%= link_to image_tag("application/logo.png"), root_path, :class => "logo" %>
 	<div class="cta">
 		<%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn success large" %>
 	</div>
 	<div id="environment">
-		<div class="background"></div>
-	</div>
-
-	
-	<!--
-	<div id="lists">
-		<div id="list-top">
-		    <h1>Top games</h1>
-		    <ul>
-		        <% @popular_games.each_with_index do |game, i| %>
-		            <% present game do |game_presenter| %>
-		                <li><%= link_to "#{i+1}. #{game_presenter.name} - #{game_presenter.played_count}", game %></li>
-		            <% end %>
-		        <% end %>
-		    </ul>
-		</div>
-
-		<div id="list-recent">
-		    <h1>Recent games</h1>
-		    <ul>
-		        <% @recent_games.each_with_index do |game, i| %>
-		            <% present game do |game_presenter| %>
-		                <li><%= link_to "#{i+1}. #{game_presenter.name}", game %></li>
-		            <% end %>
-		        <% end %>
-		    </ul>
+		<div class="background">
 		</div>
 	</div>
-	<div id="environment-base"></div>
-	-->
+</div>
+<section id="home" class="border-top">
+	<div id="presentation">
+		<h2>What is Arcade Forge?</h2>
+
+		<iframe class="embed-vimeo" src="https://player.vimeo.com/video/63120555?color=ffffff&title=0&byline=0&portrait=0" width="565" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum erat in lobortis lacinia. Nulla dapibus malesuada nisl, sed rhoncus risus fermentum et. Cras id vulputate neque, non pretium sapien.</p>
+	</div>
+	<div id="featured-games">
+		<h2>Featured Games</h2>
+		<ul class="game-category">
+			<li class="game-item">
+				<a href="#"><img src="/assets/cog-c11aa1d0d3d67244bc18571da7080b51.png"></a>
+				<a href="#">Carrier of Fortune</a>
+				<span>by Captain Ossanloo</span>
+			</li>
+			<li class="game-item">
+				<a href="#"><img src="/assets/cog-c11aa1d0d3d67244bc18571da7080b51.png"></a>
+				<a href="#">Carrier of Fortune</a>
+				<a>Properties</a>
+			</li>
+		</ul>
+	</div>
 </section>

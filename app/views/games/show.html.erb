@@ -1,20 +1,26 @@
-<!-- Container -->
-<div class="container-fluid">
-
-
-    <!-- Toolbar bottom -->
-    <div id="toolbar-bottom" class="row">
-
-        <!-- Column Left -->
-        <div class="col left border-right">
-        </div>
-
-        <!-- Column middle -->
-        <div class="col middle">
-            <!-- Canvas -->
-            <div id="canvas-container" class="row" oncontextmenu="return false;">
-            </div>
-        </div>
-
+<aside class="border-right">
+    <div class="logo">
+        <%= link_to image_tag("generic/header_logo.png"), root_path %>
     </div>
-</div>
+
+    <article>
+    
+    <%= link_to "Create your game", new_game_path, :class => "btn success wide" %>
+
+    <p>Create your own web games and share them with your friends!</p>
+
+    <div class="social">
+      <a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "application/icon_social_facebook.png" %></a>
+      <a href="https://twitter.com/arcadeforge"><%= image_tag "application/icon_social_twitter.png" %></a>
+      <a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "application/icon_social_youtube.png" %></a>
+    </div>
+    </article>
+</aside>
+
+<section id="play">
+  <article>
+    <div id="canvas-container" oncontextmenu="return false;">
+    </div>
+  </article>
+</section>
+

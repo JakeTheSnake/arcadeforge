@@ -3,22 +3,34 @@
 /* ==========================================================================
    Sections: Home
    ========================================================================== */
-
-#home .logo {
-	display: block;
-	width: 404px;
-	height: 181px;
-	margin: 0 auto 20px auto;
+#home {
+	margin-top: 500px;
+	height: 200px;
 }
 
-#home .cta {
-	display: table;
-	margin: 0 auto 0 auto;
+#presentation {
+	width: 565px;
+	margin-right: 60px;
+	float: left;
+}
+
+#featured-games {
+	width: calc(100% - 565px - 60px);
+	float: left;
+}
+
+.embed-vimeo {
+	margin-bottom: 15px;
 }
 
 /* ==========================================================================
    Sections: Game
    ========================================================================== */
+
+.game-category {
+  display: block;
+  clear: both;
+}
 
 .game-item {
 	margin-right: 20px;
@@ -28,9 +40,29 @@
 
 .game-item img {
 	display: block;
-	margin-bottom: 4px;
+	margin-bottom: 9px;
+	border: 1px solid #3b3b3b;
 }
 
-.game-item p {
-	margin-bottom: 1px;
+.game-item a {
+	display: block;
 }
+
+.game-item a:nth-child(2) {
+	color: #ffe373;
+}
+
+.game-item a:nth-child(2) + a {
+	margin-top: 5px;
+}
+
+.game-item a:nth-child(2) + span {
+	margin-top: 2px;
+}
+
+.game-item span {
+	display: block;
+	margin-bottom: 1px;
+	font-size: 0.75em;
+}
+

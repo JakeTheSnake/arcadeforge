@@ -1,22 +1,44 @@
 /*! environment.css | http://arcadeforge.io */
 
+#super {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	height: 470px;
+	padding-top: 30px;
+}
+
+#super .logo {
+	display: block;
+	width: 404px;
+	height: 181px;
+	margin: 0 auto 20px auto;
+}
+
+#super .cta {
+	display: table;
+	margin: 0 auto 0 auto;
+}
+
 #environment {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: -1;
-	height: 100%;
-	overflow: hidden;
-	background: url("<%= asset_path 'application/environment_ground.gif' %>");
 }
 
 #environment .background {
-	width: 100%;
-	height: 587px;
-	margin: 0 auto 0 auto;
-	background-color: transparent;
-	background-image: url("<%= asset_path 'application/environment.jpg' %>");
-	background-repeat: no-repeat;
-	background-position: top center;
+	height: 500px;
+	background: url("<%= asset_path 'application/environment.jpg' %>") top center no-repeat;
+	background-size: 100% 500px;
+}
+
+@media (max-width: 1920px) {
+	#environment .background {
+		height: 500px;
+		background: url("<%= asset_path 'application/environment.jpg' %>") top center no-repeat;
+	}
 }

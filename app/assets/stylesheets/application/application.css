@@ -2,12 +2,12 @@
 
 nav {
 	display: inline-block;
-  margin: 40px 0 0 30px;
+  	margin: 40px 0 0 30px;
 }
 
 nav a {
 	margin-right: 30px;
-  font-size: 1em;
+  	font-size: 1em;
 }
 
 main {
@@ -16,6 +16,7 @@ main {
 }
 
 section {
+	width: calc(100% - 80px);
 	padding: 50px 40px 0 40px;
 }
 
@@ -24,8 +25,8 @@ aside {
 	overflow-y: auto;
 	padding: 0 40px 0 40px !important;
 	background-color: #323232;
-  height: 100%;
-  float: left;
+	height: 100%;
+	float: left;
 }
 
 aside article:first-child {
@@ -33,7 +34,7 @@ aside article:first-child {
 }
 
 aside + section {
-	width: 900px;
+	width: calc(100% - 325px);
 	padding-bottom: 50px;
 	padding-left: 50px;
 	float: left;
@@ -45,36 +46,36 @@ aside + section {
 
 footer {
 	background-color: #323232;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 20px 40px 30px 40px;
-  overflow: hidden;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 20px 40px 30px 40px;
+	overflow: hidden;
 }
 
-footer fgroup {
+footer div {
 	display: inline-block;
 	margin-right: 135px;
 }
 
-footer fgroup a {
+footer div a {
 	display: block;
 	margin-bottom: 7px;
 }
 
-footer fgroup a.disabled {
+footer div a.disabled {
 	color: #808080;
 	pointer-events: none;
 }
 
-footer fgroup.social {
-  display: block;
-  margin-right: 0;
-  float: right;
+footer div.social {
+	display: block;
+	margin-right: 0;
+	float: right;
 }
 
-footer fgroup.social a {
+footer div.social a {
 	margin-right: 5px;
 	margin-bottom: 0;
 	float: left;

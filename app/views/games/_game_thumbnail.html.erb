@@ -1,6 +1,6 @@
 <% present game_thumbnail do |game_presenter| %>
-  <div class="game-item">
+  <li class="game-item">
         <%= link_to game_presenter.thumbnail, game_thumbnail %>
-        <%= link_to game_presenter.name, game_thumbnail, :class => "game-item-title" %> <p>by <%= game_presenter.username %></p>
-  </div>
+        <%= link_to game_presenter.name, game_thumbnail %> <span>by <%= game_presenter.username %></span>
+  </li>
 <% end %>

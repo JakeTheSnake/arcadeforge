@@ -16,9 +16,9 @@
   <body>
     <div class="container">
       <header class="border-bottom">
-        <hgroup class="logo">
-          <%= link_to image_tag("generic/header_logo.png"), root_path, :class => "" %>
-        </hgroup>
+        <div class="logo">
+          <%= link_to image_tag("generic/header_logo.png"), root_path %>
+        </div>
         
         <!-- START: Needs to be re-written -->
         <a id="save-game-button" class="toolbar-icon toolbar-icon-save"></a>
@@ -54,11 +54,11 @@
         </div>
         <!-- END: Needs to be re-written -->
 
-        <hgroup class="user">
+        <div class="user">
           <% account_nav.each do |nav_item| %>
             <%= nav_item %>
           <% end %>
-        </hgroup>
+        </div>
       </header>
 
       <!-- Main content -->

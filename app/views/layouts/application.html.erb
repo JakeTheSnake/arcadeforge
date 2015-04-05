@@ -16,9 +16,9 @@
   <body>
       <div class="container">
         <header class="border-bottom">
-          <hgroup class="logo">
-            <%= link_to image_tag("generic/header_logo.png"), root_path, :class => "" %>
-          </hgroup>
+          <div class="logo">
+            <%= link_to image_tag("generic/header_logo.png"), root_path %>
+          </div>
           <nav>
               <%= link_to "Home", root_path %>
               <%= link_to "Create", profile_mygames_path %>
@@ -26,11 +26,11 @@
             </ul>
           </nav>
 
-          <hgroup class="user">
+          <div class="user">
             <% account_nav.each do |nav_item| %>
               <%= nav_item %>
             <% end %>
-          </hgroup>
+          </div>
         </header>
 
         <!-- Main content -->
@@ -39,29 +39,29 @@
         </main>
 
         <footer class="border-top">
-          <fgroup>
+          <div>
             <a class="disabled">About</a>
             <a class="disabled">Terms</a>
             <a class="disabled">Privacy</a>
-          </fgroup>
+          </div>
 
-          <fgroup>
+          <div>
             <%= link_to "Login", new_user_session_path %>
             <%= link_to "Sign up", new_user_registration_path %>
             <a class="disabled">Forgot password</a>
-          </fgroup>
+          </div>
 
-          <fgroup>
+          <div>
             <a class="disabled">Features</a>
             <a class="disabled">Tutorials</a>
             <a class="disabled">Blog</a>
-          </fgroup>
+          </div>
 
-          <fgroup class="social">
+          <div class="social">
             <a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "application/icon_social_facebook.png" %></a>
             <a href="https://twitter.com/arcadeforge"><%= image_tag "application/icon_social_twitter.png" %></a>
             <a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "application/icon_social_youtube.png" %></a>
-          </fgroup>
+          </div>
           <br />
           <span>Copyright © 2014 ArcadeForge</span>
         </footer>
