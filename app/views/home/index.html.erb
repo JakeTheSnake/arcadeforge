@@ -19,16 +19,7 @@
 	<div id="featured-games">
 		<h2>Featured Games</h2>
 		<ul class="game-category">
-			<li class="game-item">
-				<a href="#"><img src="/assets/cog-c11aa1d0d3d67244bc18571da7080b51.png"></a>
-				<a href="#">Carrier of Fortune</a>
-				<span>by Captain Ossanloo</span>
-			</li>
-			<li class="game-item">
-				<a href="#"><img src="/assets/cog-c11aa1d0d3d67244bc18571da7080b51.png"></a>
-				<a href="#">Carrier of Fortune</a>
-				<a>Properties</a>
-			</li>
+			<%= render :partial => 'game_thumbnail', :collection => @featured_games %>
 		</ul>
 	</div>
 </section>

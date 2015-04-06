@@ -13,6 +13,7 @@ class Game < ActiveRecord::Base
     scope :not_private, -> { where.not(published: 0) }
     scope :unlisted, -> { where(published: 1)}
     scope :published, -> { where(published: 2) }
+    scope :featured, -> { where(featured: true) }
     scope :select_without_data, -> { select(column_names - ['data']) }
 
     def sanitize_votes

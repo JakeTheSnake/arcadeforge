@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@popular_games = Game.where(:published => true).order(played_count: :desc).limit(7)
-  	@recent_games = Game.where(:published => true).order(created_at: :desc).limit(7)
+    @featured_games = Game.includes(:user).not_private.featured.limit(5).select_without_data
   end
 
   def about
