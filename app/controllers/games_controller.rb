@@ -77,7 +77,7 @@ class GamesController < ApplicationController
   def verify_game_owner
     @game = Game.find_by_id(params[:id])
     if @game.user_id != current_user.id
-      render_error_message(:heading => "Nope!", :message => "This is not your game. Make your own game!", :status => 403) unless @game.published
+      render_error_message(:heading => "Nope!", :message => "This is not your game. Make your own game!", :status => 403)
     end
   end
 
