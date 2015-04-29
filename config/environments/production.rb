@@ -76,6 +76,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.default_url_options = { host: 'arcadeforge.io', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'email-smtp.eu-west-1.amazonaws.com',
+    :authentication => :login,
+    :user_name => ENV['AWS_SES_USER'],
+    :password => ENV['AWS_SES_PASSWORD'],
+    :enable_starttls_auto => true,
+    :port => 465
+  }
+
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {

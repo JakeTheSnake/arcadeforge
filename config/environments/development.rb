@@ -13,8 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -33,6 +32,16 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'email-smtp.eu-west-1.amazonaws.com',
+    :authentication => :login,
+    :user_name => ENV['AWS_SES_USER'],
+    :password => ENV['AWS_SES_PASSWORD'],
+    :enable_starttls_auto => true,
+    :port => 465
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
