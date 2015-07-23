@@ -13,12 +13,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 
 
-gem 'mina'
-
-gem 'therubyracer',  platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -33,13 +27,18 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
-group :development do
-  gem 'spring'
-end
 
 group :development, :test do
+  #gem 'spring-commands-rspec'
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+end
+
+group :test do 
+  gem 'faker' 
+  gem 'capybara' 
+  gem 'guard-rspec' 
+  gem 'launchy' 
 end
 
 # Use ActiveModel has_secure_password
