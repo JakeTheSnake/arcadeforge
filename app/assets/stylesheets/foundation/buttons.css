@@ -38,7 +38,6 @@
 .btn.tab.active {
   background-color: #e5a52e;
   cursor: default;
-  pointer-events: none;
 }
 
 .btn.tab.active-toggleable {

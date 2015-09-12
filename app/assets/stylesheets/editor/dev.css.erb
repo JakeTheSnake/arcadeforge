@@ -174,3 +174,30 @@
   cursor: default;
   pointer-events: none;
 }
+
+
+/* ============================================================================
+    Left toolbar classes, copied from edit mode buttons style
+   =========================================================================== */
+
+#toolbar-left {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-bottom: 1px solid #474747;
+}
+
+#toolbar-left div:hover {
+  background-color: #3C3C3C;
+}
+
+#toolbar-left div {
+  margin: 0 0 4px 0;
+  width: 48px;
+  height: 48px;
+  clear: right;
+}
+
+#toolbar-global-counters { background-image: url("<%= asset_path 'game/icon_edit-game_disabled.png' %>"); }
+#toolbar-global-counters:hover { background-image: url("<%= asset_path 'game/icon_edit-game.png' %>"); }
+

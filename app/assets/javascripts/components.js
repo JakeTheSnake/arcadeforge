@@ -1,2 +1,2 @@
 //= require_tree ./components
-//= require doubleball/ui/components/imagePicker
+//= require_tree ./doubleball/ui/components

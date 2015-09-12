@@ -27,8 +27,6 @@
 //= require doubleball/engine/baseObject
 //= require doubleball/ui/editFunctions
 //= require doubleball/ui/htmlStrings
-//= require doubleball/ui/parameters
-//= require doubleball/ui/eventViewModels
 
 //= require doubleball/engine/actions
 //= require doubleball/engine/freeObject
