@@ -66,8 +66,21 @@
 }
 
 #dialogue-window .left {
-  left: 0;
+  left: -500;
   height: 100%;
+}
+
+.slide-in-from-left {
+  -webkit-animation: slide-in-from-left 0.5s forwards;
+  -animation: slide-in-from-left 0.5s forwards;
+}
+
+@-webkit-keyframes slide-in-from-left {
+  100% { left: 0; }
+}
+
+@keyframes slide-in-from-left {
+  100% { left: 0; }
 }
 
 #dialogue-window .panel-group {
