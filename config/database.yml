@@ -84,7 +84,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: arcadeforge_production
-  username: arcadeforge
-  password: <%= ENV['ARCADEFORGE_DATABASE_PASSWORD'] %>
+  username: prod
+  password: <%= ENV['ARCADEFORGE_DB_PASS'] %>
+  host: localhost
+
