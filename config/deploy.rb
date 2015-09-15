@@ -5,7 +5,7 @@ require 'mina/rvm'
 
 set :rails_env, 'production'  
 set :domain, '54.93.41.116'  
-set :deploy_to, '/home/ubuntu/git/arcadeforge'
+set :deploy_to, '/home/ubuntu/webapp/'
 set :repository, 'git@github.com:JakeTheSnake/arcadeforge.git'  
 set :branch, 'master'  
 set :user, 'ubuntu'
@@ -24,17 +24,7 @@ echo "-----> Loading environment"
 end
 
 task :setup => :environment do  
-  queue! %[mkdir -p "#{deploy_to}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
 
-  queue! %[mkdir -p "#{deploy_to}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
-
-  queue! %[touch "#{deploy_to}/shared/config/database.yml"]
-  queue %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
-
-  queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
-  queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
 end
 
 desc "Deploys the current version to the server."  
