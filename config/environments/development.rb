@@ -54,4 +54,7 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  # We need React TestingUtils for our unit tests:
+  config.react.addons = true
 end
