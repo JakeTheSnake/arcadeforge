@@ -18,6 +18,7 @@
 //= require components
 
 //= require doubleball/engine/gameCreator
+//= require doubleball/engine/restore
 //= require doubleball/engine/borderObjects
 //= require doubleball/engine/componentFunctions
 //= require doubleball/engine/scene
