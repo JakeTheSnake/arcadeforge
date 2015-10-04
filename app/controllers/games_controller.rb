@@ -31,6 +31,7 @@ class GamesController < ApplicationController
   def editor
     gon.game = @game.data
     gon.published = @game.published
+    gon.gameId = @game.id
     gon.auth_key = form_authenticity_token if protect_against_forgery?
   end
 
