@@ -5,18 +5,13 @@
         <h2>Sign up</h2>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <p><%= devise_error_messages! %></p>
-          <p><%= flash[:notice] %></p>
           <fieldset>
-            <div class="input-container">
-              <%= text_field_tag :betakey %>
-              <%= label_tag :betakey %>
-            </div>
             <div class="input-container">
               <%= f.text_field :username %>
               <%= f.label :username %>
             </div>
             <div class="input-container">
-              <%= f.email_field :email%>
+              <%= f.email_field :email %>
               <%= f.label :email %>
             </div>
             <div class="input-container">
