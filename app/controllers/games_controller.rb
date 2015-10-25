@@ -62,6 +62,7 @@ class GamesController < ApplicationController
       @game.save!
     end
     gon.game = @game.data
+    gon.gameName = @game.name
     render layout: "play" if @game.published > 0
   end
 
