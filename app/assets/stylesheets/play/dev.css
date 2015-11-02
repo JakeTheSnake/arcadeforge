@@ -13,16 +13,17 @@
 
 #splash-overlay {
     background-color: #000000;
-    opacity: 0.5; 
+    opacity: 0.85; 
     position: absolute;
     z-index: 999;
 }
 
 #splash > a {
-    font-size: 13em;
+    font-size: 8em;
     border-style: 2px solid;
     border-color: #ffffff;
     pointer-events: auto;
+    cursor: pointer;
 }
 
 #splash > a:hover {
