@@ -15,6 +15,10 @@
       <a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "application/icon_social_youtube.png" %></a>
       <a href="http://www.reddit.com/r/arcadeforge"><%= image_tag "application/icon_social_reddit.png" %></a>
     </div>
+    <div style="margin-top:15px">
+      <div class="fb-share-button" data-href="<%= game_url(@game) %>" data-layout="button"></div>
+      <div id="get-url-button" class="btn success" data-href="<%= game_url(@game) %>">Get link</div>
+    </div>
     </article>
 </aside>
 
