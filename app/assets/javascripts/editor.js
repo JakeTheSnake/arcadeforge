@@ -59,4 +59,5 @@
 //= require doubleball/ui/imageLibrary
 
 //= require sharing
+//= require tutorial
 

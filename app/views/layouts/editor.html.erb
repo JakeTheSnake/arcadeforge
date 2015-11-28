@@ -55,7 +55,7 @@
         <div id="fb-root"></div>
         <div class="btn-group">
           <div class="fb-share-button" data-href="<%= game_url(@game) %>" data-layout="button"></div>
-          <div id="get-url-button" class="btn success" data-href="<%= game_url(@game) %>">Get link</div>
+          <a id="get-url-button" class="btn success" data-href="<%= game_url(@game) %>">Get link</a>
         </div>
         <!-- END: Needs to be re-written -->
 
@@ -76,5 +76,14 @@
     <div id="dialogue-window"></div>
     <div id="image-select-popup"></div>
     <div id="image-select-overlay"></div>
+    <div id="tutorial-dialogue">
+      <div id="tutorial-content"></div>
+      <div class="btn-group sequenced">
+        <a class="btn success" id="tutorial-prev-button">Previous</a>
+        <a class="btn warning" id="tutorial-skip-button">Leave me alone!</a>
+        <a class="btn success" id="tutorial-next-button">Next</a>
+        <a class="btn success" id="tutorial-done-button">Got it!</a>
+      </div>
+    </div>
   </body>
 </html>
