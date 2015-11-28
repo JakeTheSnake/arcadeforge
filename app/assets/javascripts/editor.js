@@ -58,6 +58,6 @@
 //= require doubleball/ui/controllers/commonObjectControllers
 //= require doubleball/ui/imageLibrary
 
+//= require doubleball/tutorial
 //= require sharing
-//= require tutorial
 

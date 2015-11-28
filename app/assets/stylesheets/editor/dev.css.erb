@@ -1,11 +1,54 @@
 /*! dev.css | http://arcadeforge.io */
 
+#tutorial-content {
+  height: 82%;
+  font: 1.25em 'Georgia';
+  color: white;
+  text-shadow: 1px 2px #222;
+}
+
 #tutorial-dialogue {
-  height: 200px;
-  width: 300px;
+  height: 135px;
+  width: 390px;
   border-radius: 10px;
-  background-color: #d54b35;
+  background-color: #2574A9;
   position: absolute;
+  border: 5px solid #e5a52e;
+  padding: 20px;
+  z-index: 12;
+}
+
+#tutorial-dialogue .btn-group {
+  position: relative;
+  top: 60px;
+}
+
+#tutorial-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 10;
+}
+
+.tutorial-highlighted {
+  z-index: 11;
+  position: relative;
+  pointer-events: none;
+}
+
+#tutorial-dialogue .btn-group a {
+  width: 102px;
+  border-radius: 5px;
+  margin-right: 4px;
+  border: 2px solid #e5a52e;
+}
+
+#tutorial-dialogue .btn-group a:last {
+  margin-right: 0px;
 }
 
 .arrow_box {

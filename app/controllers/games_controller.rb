@@ -32,6 +32,7 @@ class GamesController < ApplicationController
     gon.game = @game.data
     gon.published = @game.published
     gon.gameId = @game.id
+    gon.isFirstGame = current_user.games.count == 1
     gon.auth_key = form_authenticity_token if protect_against_forgery?
   end
 
