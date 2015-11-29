@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="og:image" content="<%= @game.thumbnail.url %>">
     <meta name="og:title" content="<%= @game.name %> - Arcade Forge">
-    <title>Arcade Forge</title>
+    <title><%= @game.name %> - Arcade Forge</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <%= include_gon %>
     <%= stylesheet_link_tag 'play', media: 'all', 'data-turbolinks-track' => true %>
