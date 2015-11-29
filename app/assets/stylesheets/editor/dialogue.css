@@ -36,10 +36,15 @@
 
 .slide-in-from-right {
   -webkit-animation: slide-in-from-right 0.5s forwards;
+  -moz-animation: slide-in-from-right 0.5s forwards;
   -animation: slide-in-from-right 0.5s forwards;
 }
 
 @-webkit-keyframes slide-in-from-right {
+  100% { right: 0; }
+}
+
+@-moz-keyframes slide-in-from-right {
   100% { right: 0; }
 }
 
@@ -54,10 +59,15 @@
 
 .slide-in-from-bottom {
   -webkit-animation: slide-in-from-bottom 0.5s forwards;
+  -moz-animation: slide-in-from-bottom 0.5s forwards;
   -animation: slide-in-from-bottom 0.5s forwards;
 }
 
 @-webkit-keyframes slide-in-from-bottom {
+  100% { bottom: 0; }
+}
+
+@-moz-keyframes slide-in-from-bottom {
   100% { bottom: 0; }
 }
 
@@ -72,10 +82,15 @@
 
 .slide-in-from-left {
   -webkit-animation: slide-in-from-left 0.5s forwards;
+  -moz-animation: slide-in-from-left 0.5s forwards;
   -animation: slide-in-from-left 0.5s forwards;
 }
 
 @-webkit-keyframes slide-in-from-left {
+  100% { left: 0; }
+}
+
+@-moz-keyframes slide-in-from-left {
   100% { left: 0; }
 }
 

@@ -1,6 +1,6 @@
 <% present game_thumbnail do |game_presenter| %>
-  <li class="game-item">
+  <div class="game-item">
         <%= link_to game_presenter.thumbnail, game_thumbnail %>
         <%= link_to game_presenter.name, game_thumbnail %> <span>by <%= game_presenter.username %></span>
-  </li>
+  </div>
 <% end %>
