@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post 'publish', on: :member
   end
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, :controllers => { :registrations => "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get 'home/index'
 

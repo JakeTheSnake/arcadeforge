@@ -10,6 +10,10 @@
               <%= f.email_field :email, autofocus: true %>
               <%= f.label :email %>
             </div>
+            <div class="input-container">
+              <%= f.text_field :username %>
+              <%= f.label :username %>
+            </div>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
@@ -20,10 +24,6 @@
             <div class="input-container">
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
               <%= f.label :password_confirmation %>
-            </div>
-            <div class="input-container">
-              <%= f.password_field :current_password, autocomplete: "off" %>
-              <%= f.label :current_password %>
             </div>
             <%= f.submit "Update", :class => "btn success wide" %>
           </fieldset>

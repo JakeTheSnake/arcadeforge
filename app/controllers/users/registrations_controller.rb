@@ -35,9 +35,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  
+  protected
 
-  # protected
+  def after_inactive_sign_up_path_for(resource)
+    flash.keep(:notice)
+    '/users/sign_in'
+  end
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+  
   # You can put the params you want to permit in the empty array.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.for(:sign_up) << :attribute
@@ -53,8 +62,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def after_inactive_sign_up_path_for(resource)
-    flash.keep(:notice)
-    '/users/sign_in'
-  end
+
 end

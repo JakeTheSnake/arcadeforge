@@ -26,6 +26,10 @@
           <%= f.submit "Log in", :class => "btn success wide" %>
         <% end %>
       </article>
+      
+      <article>
+        <center><%= link_to (image_tag 'facebook_login.png', {:width => 200}), user_omniauth_authorize_path(:facebook) %></center>
+      </article>
       <article>
         <h2>New to ArcadeForge?</h2>
         <%= render "devise/shared/links" %>
