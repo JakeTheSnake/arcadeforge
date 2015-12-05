@@ -8,11 +8,11 @@ gem 'therubyracer',  platforms: :ruby
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+#gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -20,6 +20,9 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'sprockets'
+gem 'sprockets-es6'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -29,12 +32,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Gon is for transfering ruby objects into javascript objects.
 gem 'gon'
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
-gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'react-rails', '1.5.0', github: 'reactjs/react-rails'
 
 
 group :development, :test do

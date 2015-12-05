@@ -30,6 +30,7 @@
 //= require doubleball/ui/htmlStrings
 
 //= require doubleball/engine/actions
+//= require doubleball/engine/actionParameters
 //= require doubleball/engine/freeObject
 //= require doubleball/engine/routeObject
 //= require doubleball/engine/mouseObject
@@ -44,6 +45,8 @@
 //= require doubleball/engine/errors
 //= require doubleball/engine/objectEffects
 //= require doubleball/engine/events
+//= require doubleball/engine/conditions
+//= require doubleball/engine/conditionParameters
 //= require doubleball/engine/version
 
 //= require doubleball/ui/debug
