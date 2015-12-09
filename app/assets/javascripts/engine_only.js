@@ -24,6 +24,7 @@
 //= require doubleball/ui/htmlStrings
 //= require doubleball/engine/baseObject
 //= require doubleball/engine/actions
+//= require doubleball/engine/conditions
 //= require doubleball/engine/freeObject
 //= require doubleball/engine/routeObject
 //= require doubleball/engine/mouseObject
