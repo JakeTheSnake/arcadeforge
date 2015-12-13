@@ -15,4 +15,14 @@ describe "editing a game", :type => :feature do
         visit edit_game_path game
         expect(page).to have_content "Edit game details"
     end
+
+    it "should be possible to change game name" do
+        game = FactoryGirl.create(:game, :user_id => User.first.id)
+        visit edit_game_path game
+
+        fill_in "Name", :with => "NewFavouriteGameName"
+        click_button "Update"
+        
+        expect(Game.first.name).to eq("NewFavouriteGameName")
+    end
 end
