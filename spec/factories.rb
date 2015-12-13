@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence(:username) { |n| "monkey#{n}" }
     password "bananaman123"
     email {"#{username}@test.com"}
+    confirmed_at DateTime.now
   end
 
   factory :game do
