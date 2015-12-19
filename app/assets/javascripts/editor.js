@@ -15,9 +15,9 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
-//= require components
 
 //= require doubleball/engine/gameCreator
+//= require components
 //= require doubleball/engine/restore
 //= require doubleball/engine/borderObjects
 //= require doubleball/engine/componentFunctions
@@ -63,4 +63,5 @@
 
 //= require doubleball/tutorial
 //= require sharing
+
 
