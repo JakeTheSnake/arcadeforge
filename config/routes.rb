@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   post 'images/upload_image'
   get 'images/all_images'
   post 'images/destroy_image'

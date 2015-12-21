@@ -41,6 +41,7 @@ group :development, :test do
   #gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'jasmine-rails'
 end
 
 group :test do 
