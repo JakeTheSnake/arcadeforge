@@ -27,8 +27,8 @@
       </div>
       <div id="library-tabs" class="library-tabs">
         <div class="btn-group sequenced">
-          <a href="#" class="btn tab active" id="global-object-library-tab" data-panelid="global-object-library">Global objects</a>
-          <a href="#" class="btn tab" id="scene-object-library-tab" data-panelid="scene-object-library">Scene objects</a>
+          <a class="btn tab active" id="global-object-library-tab" data-panelid="global-object-library">Global objects</a>
+          <a class="btn tab" id="scene-object-library-tab" data-panelid="scene-object-library">Scene objects</a>
         </div>
       </div>
       <div id="global-object-library" class="object-library-panel">
@@ -40,10 +40,10 @@
         </div>
         <div id="library-menu">
           <div class="btn-group sequenced">
-            <a href="#" id="add-global-object-button" class="btn success">Add</a>
-            <a href="#" id="edit-global-object-button" class="btn edit">Edit</a>
-            <a href="#" id="rename-global-object-button" class="btn warning">Rename</a>
-            <a href="#" id="delete-global-object-button" class="btn warning">Delete</a>
+            <a id="add-global-object-button" class="btn success">Add</a>
+            <a id="edit-global-object-button" class="btn edit">Edit</a>
+            <a id="rename-global-object-button" class="btn warning">Rename</a>
+            <a id="delete-global-object-button" class="btn warning">Delete</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
   </div>
 
   <!-- Column: Middle -->
-  <div class="col middle">
+  <div class="col middle" id="editor-middle-column">
     <div id="scenes" class="border-bottom">
     </div>
     <div id="canvas-container" oncontextmenu="return false;">
