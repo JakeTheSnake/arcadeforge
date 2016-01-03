@@ -36,6 +36,9 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'react-rails', '1.5.0', github: 'reactjs/react-rails'
 
+gem 'sprockets'
+gem 'sprockets-es6'
+
 
 group :development, :test do
   #gem 'spring-commands-rspec'
