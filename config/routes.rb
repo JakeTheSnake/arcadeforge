@@ -18,10 +18,6 @@ Rails.application.routes.draw do
 
   get 'home/about'
 
-  if Rails.env.development? or Rails.env.test? then
-    get 'qunit/tests'
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
