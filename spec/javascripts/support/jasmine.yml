@@ -17,7 +17,7 @@ css_dir: "app/assets/stylesheets"
 # list of file expressions to include as source files
 # relative path from src_dir
 src_files:
-  - "application.{js.coffee,js,coffee}"
+  - "editor.js"
 
 # list of file expressions to include as css files
 # relative path from css_dir
@@ -32,19 +32,21 @@ css_files:
 #   - ../engine/spec/javascripts
 #
 # defaults to spec/javascripts
-spec_dir: app/assets/javascripts/doubleball/spec
+spec_dir: "app/assets/javascripts/doubleball/spec"
 
 # list of file expressions to include as helpers into spec runner
 # relative path from spec_dir
 helpers:
-  - "helpers/**/*.{js.coffee,js,coffee}"
+  - "helpers/**/*.{js}"
 
 # list of file expressions to include as specs into spec runner
 # relative path from spec_dir
 spec_files:
-  - "**/*[Ss]pec.{js.coffee,js,coffee}"
+  - "**/*[Ss]pec.{js.jsx,js,jsx}"
 
 # path to directory of temporary files
 # (spec runner and asset cache)
 # defaults to tmp/jasmine
 tmp_dir: "tmp/jasmine"
+
+use_phantom_gem: false
