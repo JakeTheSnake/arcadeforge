@@ -27,6 +27,7 @@
 //= require doubleball/ui/ui
 //= require doubleball/engine/baseObject
 //= require doubleball/ui/editFunctions
+//= require doubleball/ui/saveState
 //= require doubleball/ui/htmlStrings
 
 //= require doubleball/engine/actions
