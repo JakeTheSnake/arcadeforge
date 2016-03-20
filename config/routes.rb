@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'images/all_images'
   post 'images/destroy_image'
 
+  post 'audios/upload_audio'
+  get 'audios/audios'
+  post 'audios/destroy_audio'
+
   get 'profile/mygames'
 
   resources :games do 
