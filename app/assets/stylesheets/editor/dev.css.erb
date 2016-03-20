@@ -102,7 +102,7 @@
   height: 100px;
 }
 
-#image-select-popup {
+#asset-select-popup {
   height: 400px;
   width: 550px;
   position: absolute;
@@ -114,12 +114,12 @@
 }
 
 
-#image-select-tab-row {
+#asset-select-tab-row {
   position: absolute;
   top: -26px;
 }
 
-#image-select-tab-row .image-select-tab{
+#asset-select-tab-row .image-select-tab{
   float: left;
   background-color: #505050;
   cursor: pointer;
@@ -127,27 +127,27 @@
   padding: 5px;
 }
 
-#image-select-tab-row .image-select-tab.active{
+#asset-select-tab-row .image-select-tab.active{
   cursor: default;
   background-color: #e5a52e;
 }
 
-#image-select-overlay {
+#asset-select-overlay {
   z-index: 2;
 }
 
-#image-select-library-categories {
+#asset-select-library-categories {
   width: 100px;
   height: 400px;
   float: left;
 }
 
-.image-select-library-category {
+.asset-select-library-category {
   padding: 2px 4px 2px 4px;
   cursor: pointer;
 }
 
-.image-select-library-category.active {
+.asset-select-library-category.active {
   background-color: #e5a52e;
   cursor: default;
 }
@@ -160,6 +160,49 @@
 .image-select-library-image img {
   width: 100px;
   height: 100px;
+}
+
+#audio-select-library-items {
+    float: left;
+}
+
+.audio-select-library-item {
+    margin-left: 5px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.audio-select-library-item div {
+    float: left;
+}
+
+.audio-select-library-item-name {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.audio-select-library-item-play {
+    height: 14px;
+    background-color: green;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+.audio-select-library-item-stop {
+    height: 14px;
+    background-color: red;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
 }
 
 /* Image uploading for states 2015-02-12 */

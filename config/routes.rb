@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'images/destroy_image'
 
   post 'audios/upload_audio'
-  get 'audios/audios'
+  get 'audios/all_audios'
   post 'audios/destroy_audio'
 
   get 'profile/mygames'

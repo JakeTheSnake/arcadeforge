@@ -4,9 +4,10 @@ class AudiosController < ApplicationController
 
   def upload_audio
     @audio = Audio.new(audio_params)
+    @audio.id = SecureRandom.uuid
+    @audio.name = @audio.url.original_filename
     @audio.user_id = current_user.id
     @audio.save
-    render :json => @audio
   end
 
   def destroy_audio

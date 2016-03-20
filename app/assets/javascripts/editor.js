@@ -49,6 +49,7 @@
 //= require doubleball/engine/conditions
 //= require doubleball/engine/conditionParameters
 //= require doubleball/engine/version
+//= require doubleball/engine/audioHandler
 
 //= require doubleball/ui/debug
 //= require doubleball/ui/views/freeObjectViews
@@ -61,6 +62,7 @@
 //= require doubleball/ui/views/textObjectViews
 //= require doubleball/ui/controllers/commonObjectControllers
 //= require doubleball/ui/imageLibrary
+//= require doubleball/ui/audioLibrary
 
 //= require doubleball/tutorial
 //= require sharing

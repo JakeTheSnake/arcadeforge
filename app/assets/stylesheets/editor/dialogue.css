@@ -1,6 +1,6 @@
 /*! dialogue.css | http://arcadeforge.io */
 
-#dialogue-overlay, #image-select-overlay {
+#dialogue-overlay, #asset-select-overlay {
   position: absolute;
   top: 0;
   display: none;
