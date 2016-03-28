@@ -67,4 +67,5 @@
 //= require doubleball/tutorial
 //= require sharing
 
-
+//= require RecorderJS/recorder
+//= require RecorderJS/recorderWorker
