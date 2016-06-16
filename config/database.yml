@@ -87,7 +87,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: arcadeforge_production
-  username: prod
+  username: arcadeforge
   password: <%= ENV['ARCADEFORGE_DB_PASS'] %>
-  host: localhost
+  host: arcadeforge-production.cauezfuusf2e.eu-central-1.rds.amazonaws.com
 
