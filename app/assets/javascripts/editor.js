@@ -17,6 +17,7 @@
 //= require react_ujs
 
 //= require doubleball/engine/gameCreator
+//= require doubleball/engine/listeners
 //= require components
 //= require doubleball/engine/restore
 //= require doubleball/engine/borderObjects

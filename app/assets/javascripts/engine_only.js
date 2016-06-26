@@ -15,6 +15,7 @@
 //= require turbolinks
 
 //= require doubleball/engine/gameCreator
+//= require doubleball/engine/listeners
 //= require doubleball/engine/restore
 //= require doubleball/engine/borderObjects
 //= require doubleball/engine/componentFunctions
