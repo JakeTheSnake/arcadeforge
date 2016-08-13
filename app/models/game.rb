@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
     belongs_to :user
-    has_attached_file :thumbnail, :default_url => "cog.png"
+    has_attached_file :thumbnail, :default_url => 'cog.png'
     
     validates :user, presence: true
     validates_attachment_content_type :thumbnail, :content_type => /\Aimage\/.*\Z/

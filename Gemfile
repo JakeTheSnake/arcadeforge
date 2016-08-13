@@ -6,9 +6,9 @@ gem 'mina'
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.0'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '>= 0.19.0.beta'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,10 +32,13 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 
 #gem 'react-rails', '1.5.0', github: 'reactjs/react-rails'
-gem 'react-rails', '1.4.1'
+gem 'react-rails', '1.8.0'
 
 gem 'sprockets'
 gem 'sprockets-es6'
+
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 
 group :development, :test do
