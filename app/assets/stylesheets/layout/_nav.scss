@@ -1,0 +1,13 @@
+/* Nav
+========================================================================================= */
+#nav-main {
+	@media (min-width: $screen-sm) {
+		margin-left: 45px;
+	}
+}
+
+#nav-user {
+	@media (min-width: $screen-sm) {
+		float: right;
+	}
+}

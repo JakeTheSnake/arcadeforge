@@ -1,0 +1,50 @@
+/* CSS Order
+ *
+ * content
+ * display
+ * position
+ * background
+ * width
+ * height
+ * margin
+ * padding
+ * top
+ * right
+ * bottom
+ * left
+ * overflow
+ * color
+ * font
+ * letter-spacing
+ * line-height
+ * text-align
+ * vertical-align
+ * white-space
+ * word-spacing
+ * list-style
+ * border
+ * outline
+ * clip
+ * cursor
+ * box-sizing
+ * float
+ * z-index
+ * visibility
+ *
+ */
+
+/* PX to EM
+ *
+ * 10px		0.714em
+ * 11px		0.786em
+ * 12px		0.857em
+ * 14px		1.000em
+ * 16px		1.143em
+ * 18px		1.286em
+ * 20px		1.429em
+ * 22px		1.571em
+ * 24px		1.714em
+ * 26px		1.857em
+ * 28px		2.000em
+ *
+ */

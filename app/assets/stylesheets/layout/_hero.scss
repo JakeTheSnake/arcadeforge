@@ -1,0 +1,16 @@
+/* Hero
+========================================================================================= */
+#hero {
+	background: url("<%= asset_path 'application/hero/environment.jpg' %>") top center no-repeat;
+	width: 100%;
+	height: 500px;
+	text-align: center;
+
+	&:iframe {
+		overflow: "hidden";
+	}
+}
+
+.hero-brand {
+	margin-bottom: 10px;
+}

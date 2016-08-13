@@ -1,0 +1,68 @@
+/* Buttons
+========================================================================================= */
+.btn {
+	display: inline-block;
+	background-image: none;
+	background-color: transparent;
+	padding: 8px 19px;
+	color: $color-font;
+	font-size: 1.000em;
+	font-family: $sans-serif-font;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+	touch-action: manipulation;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+@mixin btn-colors($class, $color) {
+	.btn-#{$class} {
+		& {
+			background-color: $color;
+		}
+
+		&:hover {
+			background-color: lighten($color, 4%);
+
+			@if ($class != "transparent") {
+				text-decoration: none;
+			}
+		}
+
+		&:active {
+			background-color: darken($color, 4%);
+		}
+	}
+}
+
+@mixin btn-sizes($class, $font-size, $padding) {
+	@if ($class == "wide") {
+		.btn-#{$class} {
+			width: 100%;
+			padding: $padding;
+			font-size: $font-size;
+		}
+	} @else {
+		.btn-#{$class} {
+			padding: $padding;
+			font-size: $font-size;
+		}
+	}	
+}
+
+/* Color variations
+------------------------------------------------------------------ */
+@include btn-colors("default", $color-default);
+@include btn-colors("neutral", $color-neutral);
+@include btn-colors("success", $color-success);
+@include btn-colors("edit", $color-edit);
+@include btn-colors("warning", $color-warning);
+@include btn-colors("transparent", $color-transparent);
+
+/* Size variations
+------------------------------------------------------------------ */
+@include btn-sizes("lg", 1.143em, 14px 28px);

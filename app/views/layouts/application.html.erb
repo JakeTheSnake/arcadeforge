@@ -1,80 +1,57 @@
 <!--<!DOCTYPE html>-->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <title>Arcade Forge</title>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    <%= include_gon %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <%= favicon_link_tag 'favicon.ico' %>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>Arcade Forge</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <%= include_gon %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <%= favicon_link_tag 'favicon.ico' %>
+    </head>
+    <body>
+        <nav id="nav-primary">
+                <div class="navbar">
+                    <a class="navbar-brand" href="#">
+                        <%= link_to image_tag("application/logo_sm.png"), root_path %>
+                    </a>
+
+                    <ul id="nav-main" class="navbar-list">
+                        <li><a class="navbar-link" href="#">Home</a></li>
+                        <li><a class="navbar-link" href="#">Create</a></li>
+                        <li><a class="navbar-link" href="#">Play</a></li>
+                    </ul>
+
+                    <ul id="nav-user" class="navbar-list">
+                        <li><a class="navbar-link" href="#">Login</a></li>
+                        <li><a class="navbar-btn navbar-btn-success" href="#">Sign up</a></li>
+                    </ul>
+                    <a class="navbar-toggle"></a>
+                </div>
+            </nav>
+            
+            <main id="content" role="main">
+                <main>
+                    <%= yield %>
+                </main>
+            </main>
+
+            <footer>
+            </footer>
+    </body>
+
+    <!-- Google Analytics -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-1721500-12', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-1721500-12', 'auto');
+        ga('send', 'pageview');
     </script>
-  </head>
-  <body>
-      <div class="container">
-        <header class="border-bottom">
-          <div class="logo">
-            <%= link_to image_tag("generic/header_logo.png"), root_path %>
-          </div>
-          <nav>
-              <%= link_to "Home", root_path %>
-              <%= link_to "Create", profile_mygames_path %>
-              <%= link_to "Play", games_path %>
-            </ul>
-          </nav>
-
-          <div class="user">
-            <% account_nav.each do |nav_item| %>
-              <%= nav_item %>
-            <% end %>
-          </div>
-        </header>
-
-        <!-- Main content -->
-        <main>
-          <%= yield %>
-        </main>
-
-        <footer class="border-top">
-          <div>
-            <a class="disabled">About</a>
-            <a class="disabled">Terms</a>
-            <a class="disabled">Privacy</a>
-          </div>
-
-          <div>
-            <%= link_to "Login", new_user_session_path %>
-            <%= link_to "Sign up", new_user_registration_path %>
-            <%= link_to "Forgot password", new_user_password_path %>
-          </div>
-
-          <div>
-            <a class="disabled">Features</a>
-            <a class="disabled">Tutorials</a>
-            <a class="disabled">Blog</a>
-          </div>
-
-          <div class="social">
-            <a href="http://www.facebook.com/arcadeforge.io"><%= image_tag "application/icon_social_facebook.png" %></a>
-            <a href="https://twitter.com/arcadeforge"><%= image_tag "application/icon_social_twitter.png" %></a>
-            <a href="https://www.youtube.com/channel/UCMlg5Dx_e1P0amYGkJeYHbg"><%= image_tag "application/icon_social_youtube.png" %></a>
-            <a href="http://www.reddit.com/r/arcadeforge"><%= image_tag "application/icon_social_reddit.png" %></a>
-          </div>
-          <br />
-          <span>Copyright © 2015 ArcadeForge</span>
-        </footer>
-      </div>
-  </body>
 </html>

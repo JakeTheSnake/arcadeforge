@@ -1,30 +1,24 @@
-<div id="super">
-	<%= link_to image_tag("application/logo.png"), root_path, :class => "logo" %>
-	<div class="cta">
-		<%= link_to "Create Game", {:controller => 'games', :action => 'new'}, :id => "btn-creategame", :class => "btn success large" %>
-	</div>
-	<div id="environment">
-		<div class="background">
-		</div>
-	</div>
+<div id="hero">
+    <div id="hero-banner">
+    </div>
+    <!--
+    <img class="hero-brand" src="images/application/logo_lg.png">
+    <div>
+        <a class="btn btn-lg btn-success">Create Game</a>
+    </div>
+    --> 
 </div>
-<section id="home" class="border-top">
-	<div id="presentation">
-		<h2>What is Arcade Forge?</h2>
-
-		<iframe class="embed-vimeo" src="https://www.youtube.com/embed/_0KpiBuctH0?list=PLFUaO6oeqKrkDoiU4L92nZ-ZpSUHoSp9t" width="565" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-		<p>
-			Arcade Forge is an online tool with which you easily and without programming can make simple but personal games to share with your friends. The above videos give an introduction to how quickly a space shooter game can be made. The finished game can be found in the list to the right.
-		</p>
-		<p>
-			Currently we are in a Closed Beta-stage, in which only a limited amount of beta keys are released. If you are interested, Follow our Twitter or Facebook for chances to receive one, or just to stay up to date with development!
-		</p>
-	</div>
-	<div id="featured-games">
-		<h2>Featured Games</h2>
-		<ul class="game-category">
-			<%= render :partial => 'game_thumbnail', :collection => @featured_games %>
-		</ul>
-	</div>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <h2>What is ArcadeFORCE?</h2>
+            
+            <p>Arcade Forge is an online tool with which you easily and without programming can make simple but personal games to share with your friends. The above videos give an introduction to how quickly a space shooter game can be made. The finished game can be found in the list to the right.</p>
+            <p>Currently we are in a Closed Beta-stage, in which only a limited amount of beta keys are released. If you are interested, Follow our Twitter or Facebook for chances to receive one, or just to stay up to date with development!</p>
+        </div>
+        <div class="col-md-7">
+            <h2>Featured Games</h2>
+            
+        </div>
+    </div>
 </section>

@@ -1,0 +1,35 @@
+/* Buttons
+========================================================================================= */
+.game-list {
+	
+}
+
+.game-item {
+	display: inline-block;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.game-item-img {
+	display: block;
+	width: 150px;
+	height: 150px;
+	border: 1px solid rgb(64, 64, 64);
+}
+
+.game-item-title {
+	display: block;
+	color: $color-headlines;
+	font-family: $sans-serif-font;
+}
+
+
+
+.game-item-author {
+	display: block;
+	font-size: 0.857em;
+	
+	&:before {
+		content: 'By ';
+	}
+}

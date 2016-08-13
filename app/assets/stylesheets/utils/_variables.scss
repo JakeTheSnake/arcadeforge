@@ -1,0 +1,41 @@
+/* Colors
+========================================================================================= */
+$color-neutral: #2574a9;
+$color-success: #239d58;
+$color-edit: #e5a52e;
+$color-warning: #ce5144;
+$color-default: #505050;
+$color-transparent: transparent;
+
+$color-headlines: #ffe373;
+$color-links: #65ffff;
+$color-font: #ffffff;
+
+$color-shadow: rgb(30, 30, 30);
+$color-bg: rgb(38, 38, 38);
+$color-panel: rgb(50, 50, 50);
+
+$color-table-head: #424242;
+$color-table-body: #383838;
+$color-table-property: #fdff9a;
+$color-table-value: #65ffff;
+
+/* Typography
+========================================================================================= */
+$sans-serif-font: 'Droid Sans', sans-serif;
+$serif-font: 'Source Serif Pro', serif;
+
+$font-size: 14px !default;
+$font-weight: 400 !default;
+$line-height: 1.286em !default;
+
+/* Grid system
+========================================================================================= */
+$grid-columns: 12 !default;
+$grid-gutter: 20px !default;
+
+/* Screen sizes
+------------------------------------------------------------------------- */
+$screen-sm: 768px !default;
+$screen-md: 992px !default;
+$screen-lg: 1200px !default;

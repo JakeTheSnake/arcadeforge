@@ -1,0 +1,14 @@
+/* Containers
+========================================================================================= */
+@mixin container-fixed() {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: -($grid-gutter / 2);
+    padding-right: -($grid-gutter / 2);
+    
+    @include clearfix;
+}
+
+.container-fluid {
+    @include container-fixed;
+}

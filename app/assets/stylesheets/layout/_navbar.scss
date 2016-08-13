@@ -1,0 +1,152 @@
+/* Navbar
+========================================================================================= */
+.navbar {
+	background-color: $color-panel;
+	height: auto;
+
+	@media (min-width: $screen-sm) {
+		width: 100%;
+		height: 83px;
+		padding: 0 40px;
+	}
+}
+
+.navbar-list {
+	li {
+		width: 100%;
+		margin-bottom: 2px;
+		text-align: center;
+	}
+
+	@media (min-width: $screen-sm) {
+		margin-top: 31px;
+		float: left;
+
+		li {
+			width: auto;
+			margin-bottom: 0px;
+			float: left;
+		}
+	}
+}
+
+/* Navbar brand
+================================================================== */
+.navbar-brand {
+	display: none;
+	padding-top: 7px;
+	float: left;
+
+	@media (min-width: $screen-sm) {
+		display: block;
+	}
+}
+
+/* Navbar toggle
+================================================================== */
+.navbar-toggle {
+	position: absolute;
+	cursor: pointer;
+	background-color: #ff0000;
+	width: 50px;
+	height: 50px;
+	top: 205px;
+	right: 30px;
+
+	@media (min-width: $screen-sm) {
+		display: none;
+	}
+}
+
+/* Navbar links
+================================================================== */
+.navbar-link {
+	display: inline-block;
+	background-image: none;
+	background-color: $color-default;
+	width: 100%;
+	padding: 8px 8px;
+	color: $color-font;
+	font-size: 1.000em;
+	font-family: $sans-serif-font;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+	touch-action: manipulation;
+
+	&:hover {
+		background-color: lighten($color-default, 4%);
+		text-decoration: none;
+	}
+
+	&:active {
+		background-color: darken($color-default, 4%);
+	}
+
+	@media (min-width: $screen-sm) {
+		background-color: transparent;
+		padding: 8px 25px 8px 0;
+		font-size: 1.143em;
+		text-align: left;
+
+		&:hover {
+			background-color: transparent;
+			text-decoration: underline;
+		}
+
+		&:active {
+			background-color: transparent;
+		}
+
+		li:last-child & {
+			padding-right: 20px;
+		}
+	}
+}
+
+/* Navbar buttons
+================================================================== */
+.navbar-btn {
+	display: inline-block;
+	background-image: none;
+	background-color: transparent;
+	width: 100%;
+	padding: 8px 19px;
+	color: $color-font;
+	font-size: 1.000em;
+	font-family: $sans-serif-font;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+	touch-action: manipulation;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin navbar-btn-colors($class, $color) {
+	.navbar-btn-#{$class} {
+		& {
+			background-color: $color;
+		}
+
+		&:hover {
+			background-color: lighten($color, 4%);
+		}
+
+		&:active {
+			background-color: darken($color, 4%);
+		}
+	}
+}
+
+/* Navbar buttons: Color variations
+------------------------------------------------------------------ */
+@include navbar-btn-colors("default", $color-default);
+@include navbar-btn-colors("neutral", $color-neutral);
+@include navbar-btn-colors("success", $color-success);
+@include navbar-btn-colors("edit", $color-edit);
+@include navbar-btn-colors("warning", $color-warning);
