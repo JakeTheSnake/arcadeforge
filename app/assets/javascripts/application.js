@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require greensock/TweenMax
+//= require greensock/easing/EasePack
 //= require turbolinks
 
-//= require global
+//= require application/Startup
+//= require application/Main
+//= require application/MediaQueries
+//= require application/Navigation
