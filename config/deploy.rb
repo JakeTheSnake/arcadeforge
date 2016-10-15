@@ -4,7 +4,7 @@ require 'mina/git'
 require 'mina/rvm'
 
 set :rails_env, 'production'  
-set :domain, '54.93.41.116'  
+set :domain, '52.57.88.38'  
 set :deploy_to, '/home/ubuntu/webapp/'
 set :repository, 'git@github.com:JakeTheSnake/arcadeforge.git'  
 set :branch, 'master'  
