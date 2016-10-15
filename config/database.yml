@@ -89,5 +89,5 @@ production:
   database: arcadeforge_production
   username: arcadeforge
   password: <%= ENV['ARCADEFORGE_DB_PASS'] %>
-  host: arcadeforge-production.cauezfuusf2e.eu-central-1.rds.amazonaws.com
+  host: localhost
 
