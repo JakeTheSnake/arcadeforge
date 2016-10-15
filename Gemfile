@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'gon'
 
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 
 #gem 'react-rails', '1.5.0', github: 'reactjs/react-rails'
 gem 'react-rails', '1.8.0'

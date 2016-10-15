@@ -4,7 +4,7 @@ require 'mina/git'
 require 'mina/rvm'
 
 set :rails_env, 'production'  
-set :domain, '52.57.88.38'  
+set :domain, '54.93.41.116'  
 set :deploy_to, '/home/ubuntu/webapp/'
 set :repository, 'git@github.com:JakeTheSnake/arcadeforge.git'  
 set :branch, 'master'  
@@ -16,11 +16,11 @@ set :identity_file, "/home/#{ENV['USER']}/.ssh/Jake.pem"
 set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
 
 task :environment do  
-  queue %{
+  command %{
 echo "-----> Loading environment"  
 #{echo_cmd %[source ~/.bash_profile]}
 }
-  invoke :'rvm:use[ruby-2.3.0@global]'
+  invoke :'rvm:use', 'ruby-2.2.4@default'
 end
 
 task :setup => :environment do  
@@ -36,7 +36,7 @@ task :deploy => :environment do
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
 
-    to :launch do
+    on :launch do
       invoke :'passenger:restart'
     end
   end
@@ -49,14 +49,14 @@ end
 
 namespace :passenger do  
   task :restart do
-    queue "mkdir #{deploy_to}/current/tmp; touch #{deploy_to}/current/tmp/restart.txt"
+    command "mkdir #{fetch(:deploy_to)}/current/tmp; touch #{fetch(:deploy_to)}/current/tmp/restart.txt"
   end
 end
 
 desc "Invokes a raketask"
 task :invoke => :environment do
-  queue! "cd git/arcadeforge"
-  queue! "bundle exec rake #{ENV['task']} RAILS_ENV=production"
+  command! "cd git/arcadeforge"
+  command! "bundle exec rake #{ENV['task']} RAILS_ENV=production"
 end
 
 RYAML = <<-BASH
@@ -67,11 +67,11 @@ BASH
 namespace :sync do
   task :db => :environment do
     isolate do
-      queue RYAML
-      queue "USERNAME=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} username)"
-      queue "DATABASE=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} database)"
-      queue "PGPASSWORD=$ARCADEFORGE_DB_PASS pg_dump -U $USERNAME -h localhost $DATABASE -c --no-owner -f dump.sql"
-      queue "gzip -f dump.sql"
+      command RYAML
+      command "USERNAME=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} username)"
+      command "DATABASE=$(ryaml /home/ubuntu/git/arcadeforge/shared/config/database.yml #{rails_env} database)"
+      command "PGPASSWORD=$ARCADEFORGE_DB_PASS pg_dump -U $USERNAME -h localhost $DATABASE -c --no-owner -f dump.sql"
+      command "gzip -f dump.sql"
 
       mina_cleanup!
     end
