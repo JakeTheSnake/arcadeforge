@@ -20,7 +20,7 @@ task :environment do
 echo "-----> Loading environment"  
 #{echo_cmd %[source ~/.bash_profile]}
 }
-  invoke :'rvm:use[ruby-2.2.3@default]'
+  invoke :'rvm:use[ruby-2.3.0@global]'
 end
 
 task :setup => :environment do  
