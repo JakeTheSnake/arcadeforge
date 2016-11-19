@@ -19,3 +19,5 @@ pickle-email-*.html
 .project
 shared/
 scm/
+libs
+assets

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>Arcadeforge</title>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../../stylesheets/resets/normalize.css">
+        <link rel="stylesheet" href="../../stylesheets/resets/reset.css">
+        <link rel="stylesheet" href="../../stylesheets/application/application.css">
+        <link rel="stylesheet" href="../../stylesheets/application/dev.css">
+        <link rel="stylesheet" href="../../stylesheets/application/environment.css.erb">
+        <link rel="stylesheet" href="../../stylesheets/application/sections.css">
+        <link rel="stylesheet" href="../../stylesheets/editor/editor.css.erb">
+        <link rel="stylesheet" href="../../stylesheets/editor/dev.css">
+        <link rel="stylesheet" href="../../stylesheets/editor/dialogue.css">
+        <link rel="stylesheet" href="../../stylesheets/editor/object-manager.css.erb">
+        <link rel="stylesheet" href="../../stylesheets/editor/parameters.css">
+        <link rel="stylesheet" href="../../stylesheets/editor/temp.css.erb">
+        <link rel="stylesheet" href="../../stylesheets/generic/generic.css">
+        <link rel="stylesheet" href="../../stylesheets/generic/canvas.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/buttons.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/elements.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/forms.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/helpers.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/layout.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/panels.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/tabs.css">
+        <link rel="stylesheet" href="../../stylesheets/foundation/typography.css">
+        <link rel="stylesheet" href="../../stylesheets/play.css">
+    </head>
+    <body>
+        <div class="container">
+            <header class="border-bottom">
+                <!-- START: Needs to be re-written -->
+                <a id="save-game-button" class="toolbar-icon toolbar-icon-save"></a>
+                <div id="edit-mode" class="btn-group">
+                  <div id="edit-mode-buttons">
+                    <input type="radio" id="edit-game-button" name="edit-mode" data-name="EDIT GAME" checked="checked" />
+                    <label for="edit-game-button"></label>
+                    <input type="radio" id="direct-game-button" data-name="DIRECT GAME"name="edit-mode" />
+                    <label for="direct-game-button"></label>
+                    <input type="radio" id="run-game-button" data-name="RUN GAME" name="edit-mode" />
+                    <label for="run-game-button"></label>
+                  </div>
+                  <span id="edit-mode-label"></span>
+                </div>
+                <div id="published-container" class="btn-group">
+                  <div id="published-buttons">
+                    <input type="radio" id="private-button" name="publish-group" data-name="PRIVATE">
+                    <label class="i-private-button" for="private-button"></label>
+                    <input type="radio" id="publish-button" name="publish-group" data-name="PUBLISHED">
+                    <label class="i-publish-button" for="publish-button"></label>
+                  </div>
+                  <span id="published-label">PRIVATE</span>
+                </div>
+                <!-- END: Needs to be re-written -->
+            </header>
+                  <main>
+
+  <!-- Column: Left -->
+  <div class="col left border-right">
+  </div>
+
+  <!-- Column: Right -->
+  <div id="edit-mode-tools" class="col right border-left">
+
+    <!-- Panel: Propertise -->
+    <div id="properties" class="panel wide">
+      <div class="panel-header">
+        <span>Properties</span>
+      </div>
+      <div id="side-properties-form-container">
+      </div>
+    </div>
+
+    <!-- Panel: Library -->
+    <div id="library" class="panel wide">
+      <div class="panel-header">
+        <span>Objects</span>
+      </div>
+      <div id="library-tabs" class="library-tabs">
+        <div class="btn-group sequenced">
+          <a class="btn tab active" data-panelid="global-object-library">Global objects</a>
+          <a class="btn tab" data-panelid="scene-object-library">Scene objects</a>
+        </div>
+      </div>
+      <div id="global-object-library" class="object-library-panel">
+        <div id="library-preview" class="library-preview">
+        </div>
+        <div class="library-explorer">
+          <ul class="global-object-list">
+          </ul>
+        </div>
+        <div id="library-menu">
+          <div class="btn-group sequenced">
+            <a id="add-global-object-button" class="btn success">Add</a>
+            <a id="edit-global-object-button" class="btn edit">Edit</a>
+            <a id="rename-global-object-button" class="btn warning">Rename</a>
+          </div>
+        </div>
+      </div>
+      <div id="scene-object-library" class="object-library-panel">
+          <div class="library-explorer">
+              <ul class="scene-object-list">
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column: Middle -->
+  <div class="col middle">
+    <div id="scenes" class="border-bottom">
+    </div>
+    <div id="canvas-container" oncontextmenu="return false;">
+    </div>
+  </div>
+</main>
+            </div>
+        <!-- Dialogue -->
+        <div id="dialogue-overlay"></div>
+        <div id="dialogue-window"></div>
+        <div id="asset-select-popup"></div>
+        <div id="asset-select-overlay"></div>
+
+        <!-- Jquery -->
+        <script type="text/javascript" src="libs/jquery-1.9.1.js"></script>
+
+        <!-- ArcadeForge -->
+        <script src="engine/gameCreator.js"></script>
+        <script src="engine/borderObjects.js.erb"></script>
+        <script src="engine/componentFunctions.js"></script>
+        <script src="engine/scene.js"></script>
+        <script src="startup.js"></script>
+        <script src="devobjects.js"></script>
+        <script src="engine/helpers.js"></script>
+        <script src="ui/ui.js"></script>
+        <script src="engine/baseObject.js"></script>
+        <script src="ui/editFunctions.js"></script>
+        <script src="ui/htmlStrings.js"></script>
+        <script src="ui/parameters.js"></script>
+        <script src="ui/eventViewModels.js"></script>
+        <script src="engine/actions.js"></script>
+        <script src="engine/freeObject.js"></script>
+        <script src="engine/routeObject.js"></script>
+        <script src="engine/mouseObject.js"></script>
+        <script src="engine/platformObject.js"></script>
+        <script src="engine/sceneObject.js"></script>
+        <script src="engine/topDownObject.js"></script>
+        <script src="engine/textObject.js"></script>
+        <script src="engine/timerHandler.js"></script>
+        <script src="engine/counter.js"></script>
+        <script src="engine/counterDisplayImage.js"></script>
+        <script src="engine/counterDisplayText.js"></script>
+        <script src="engine/errors.js"></script>
+        <script src="engine/version.js"></script>
+        <script src="ui/debug.js"></script>
+        <script src="engine/objectEffects.js"></script>
+        <script src="engine/events.js"></script>
+        <script src="ui/views/freeObjectViews.js"></script>
+        <script src="ui/views/routeObjectViews.js"></script>
+        <script src="ui/views/topDownObjectViews.js"></script>
+        <script src="ui/views/mouseObjectViews.js"></script>
+        <script src="ui/views/platformObjectViews.js"></script>
+        <script src="ui/views/counterDisplayViews.js"></script>
+        <script src="ui/views/commonObjectViews.js"></script>
+        <script src="ui/views/textObjectViews.js"></script>
+        <script src="ui/controllers/commonObjectControllers.js"></script>
+        <script src="ui/imageLibrary.js"></script>
+    </body>
+</html>
