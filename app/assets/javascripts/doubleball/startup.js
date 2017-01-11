@@ -71,7 +71,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: "savegame",
-            data: {game: {data: GameCreator.saveState()}}
+            data: {game: {data: JSON.stringify(GameCreator.saveState())}}
         }).done(function(reply) {
             if (reply === "ok") {
                 $("#save-message").html("Game was successfully saved!");

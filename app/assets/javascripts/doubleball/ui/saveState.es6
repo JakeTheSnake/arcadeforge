@@ -22,7 +22,7 @@ $.extend(GameCreator, {
         };
         results.props = GameCreator.props;
         results.gameAudio = GameCreator.gameAudio;
-        return JSON.stringify(results);
+        return results;
     },
 
     dereferenceImage: function(globalObj) {
