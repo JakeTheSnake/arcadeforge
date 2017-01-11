@@ -21,9 +21,14 @@ class Game < ActiveRecord::Base
             self.votes = 0
         end
     end
-    
+
     def data
         (self[:data].class == String) ? JSON.parse(self[:data]) : self[:data]
+    end
+
+    def data=(value)
+        jsonvalue = (value.class == String) ? JSON.parse(value) : value
+        write_attribute(:data, jsonvalue)
     end
 
     private
