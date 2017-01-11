@@ -17,21 +17,21 @@ $(document).ready(function() {
     }
     
     GameCreator.bgCanvas = document.createElement("canvas");
-    GameCreator.bgCanvas.id = "bg-canvas"
+    GameCreator.bgCanvas.id = "bg-canvas";
     GameCreator.bgContext = GameCreator.bgCanvas.getContext("2d");
     GameCreator.bgCanvas.width = GameCreator.props.width;
     GameCreator.bgCanvas.height = GameCreator.props.height;
     $("#canvas-container").append(GameCreator.bgCanvas);
 
     GameCreator.mainCanvas = document.createElement("canvas");
-    GameCreator.mainCanvas.id = "main-canvas"
+    GameCreator.mainCanvas.id = "main-canvas";
     GameCreator.mainContext = GameCreator.mainCanvas.getContext("2d");
     GameCreator.mainCanvas.width = GameCreator.props.width;
     GameCreator.mainCanvas.height = GameCreator.props.height;
     $("#canvas-container").append(GameCreator.mainCanvas);
 
     GameCreator.uiCanvas = document.createElement("canvas");
-    GameCreator.uiCanvas.id = "ui-canvas"
+    GameCreator.uiCanvas.id = "ui-canvas";
     GameCreator.uiContext = GameCreator.uiCanvas.getContext("2d");
     GameCreator.uiCanvas.width = GameCreator.props.width;
     GameCreator.uiCanvas.height = GameCreator.props.height;
@@ -48,17 +48,18 @@ $(document).ready(function() {
     var selectedGameMode = "EDIT GAME";
     $("#edit-mode-label").html(selectedGameMode);
 
-    $("#edit-mode-buttons input").on("click", function() {
+    var $edit = $("#edit-mode-buttons");
+    $edit.find("input").on("click", function() {
         selectedGameMode = $(this).data("name");
         $("#edit-mode-label").html(selectedGameMode);
     });
 
-    $("#edit-mode-buttons label").on("mouseover", function() {
+    $edit.find("label").on("mouseover", function() {
         var inputId = $(this).attr("for");
         $("#edit-mode-label").html($("#" + inputId).data("name"));
     });
 
-    $("#edit-mode-buttons label").on("mouseout", function() {
+    $edit.find("label").on("mouseout", function() {
         $("#edit-mode-label").html(selectedGameMode);
     });
 

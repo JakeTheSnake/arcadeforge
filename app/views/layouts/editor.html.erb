@@ -7,9 +7,9 @@
     <meta name="description" content="">
     <title>Arcade Forge</title>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
-    <%= include_gon %>
+    <%= Gon::Base.render_data %>
     <%= stylesheet_link_tag 'editor', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'editor', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'editor' %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
   </head>

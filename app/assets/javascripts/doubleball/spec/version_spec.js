@@ -89,7 +89,7 @@ describe("Version conversion", function() {
             major: major,
             minor: minor,
             patch: patch
-        }
+        };
         return savedGame;
     }
 
@@ -101,6 +101,6 @@ describe("Version conversion", function() {
     function setVersion(maj, min, pat) {
         major = maj;
         minor = min;
-        patch = patch;
+        patch = pat;
     }
 });

@@ -5,8 +5,6 @@ GameCreator.version = {
 
     changeMessages: [],
 
-
-
     convert: function(game) {
         if (game.version === undefined) {
             GameCreator.version.convertTo010(game);

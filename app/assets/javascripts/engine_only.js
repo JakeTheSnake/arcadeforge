@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 
 //= require doubleball/engine/gameCreator
 //= require doubleball/engine/listeners
