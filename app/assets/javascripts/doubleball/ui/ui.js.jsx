@@ -627,8 +627,7 @@ GameCreator.UI = {
                 GameCreator.helpers.populateGlobalObjectPropertiesForm(globalObject.getDefaultState().attributes, GameCreator[globalObject.objectType].objectAttributes, 'add-global-object-form-content');
                 GameCreator.UI.populateImageSelectControls($('#global-object-image-upload-controls'), $('#object-property-image-container input'));
                 $("#save-new-global-object-button").click(function() {
-                    var objectName = $("#add-global-object-name-input").val();
-                    globalObject.objectName = objectName;
+                    globalObject.objectName = $("#add-global-object-name-input").val();
                     GameCreator.addTempGlobalObjectToGame(globalObject);
                     GameCreator.UI.closeDialogue();
                 });

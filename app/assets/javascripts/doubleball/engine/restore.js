@@ -1,6 +1,6 @@
 $.extend(GameCreator, {
     restoreState: function(savedGame, onLoadCallback) {
-        var i, n, name, oldObject, newObject, newScene, savedScene;
+        var i, n, keys, oldObject, newObject, newScene, savedScene;
         GameCreator.version.convert(savedGame);
         GameCreator.scenes = [];
         GameCreator.globalObjects = {};
@@ -32,14 +32,14 @@ $.extend(GameCreator, {
                 });
             }
             if (newObject.events && newObject.events.onKeySets) {
-                var keys = Object.keys(newObject.events.onKeySets);
+                keys = Object.keys(newObject.events.onKeySets);
                 keys.forEach(function(key){
                     newObject.events.onKeySets[key] = newObject.events.onKeySets[key].map(function(caSet){ return GameCreator.restoreCaSet(caSet); });
                 });
             }
 
             if (newObject.parentCounters) {
-                var keys = Object.keys(newObject.parentCounters);
+                keys = Object.keys(newObject.parentCounters);
                 keys.forEach(function(key){
                     newObject.parentCounters[key] = GameCreator.restoreParentCounter(newObject.parentCounters[key]);
                 });
@@ -100,21 +100,21 @@ $.extend(GameCreator, {
     restoreParentCounter: function(parentCounter) {
         var keys, newParentCounter = new GameCreator.Counter();
         $.extend(newParentCounter, parentCounter);
-        keys = Object.keys(newParentCounter.aboveValue)
+        keys = Object.keys(newParentCounter.aboveValue);
         keys.forEach(function(key){
             newParentCounter.aboveValue[key] = newParentCounter.aboveValue[key].map(function(caSet){
                 return GameCreator.restoreCaSet(caSet);
             });
         });
 
-        keys = Object.keys(newParentCounter.belowValue)
+        keys = Object.keys(newParentCounter.belowValue);
         keys.forEach(function(key){
             newParentCounter.belowValue[key] = newParentCounter.belowValue[key].map(function(caSet){
                 return GameCreator.restoreCaSet(caSet);
             });
         });
 
-        keys = Object.keys(newParentCounter.atValue)
+        keys = Object.keys(newParentCounter.atValue);
         keys.forEach(function(key){
             newParentCounter.atValue[key] = newParentCounter.atValue[key].map(function(caSet){
                 return GameCreator.restoreCaSet(caSet);

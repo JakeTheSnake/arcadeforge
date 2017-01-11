@@ -43,7 +43,7 @@
             globalObj.id = GameCreator.globalIdCounter;
             GameCreator.UI.createLibraryItem(globalObj);
             GameCreator.globalObjects[globalObj.objectName] = globalObj;
-            if(globalObj.onAddedToGame) {
+            if (globalObj.onAddedToGame) {
                 globalObj.onAddedToGame();
             }
         },
@@ -269,7 +269,7 @@
                 }
             });
 
-            $("#toolbar-bottom > .col.right").show();
+            $("#toolbar-bottom").find("> .col.right").show();
             GameCreator.UI.setupSceneTabs();
             GameCreator.render(false);
         },
@@ -467,8 +467,6 @@
         },
 
         removeCounterReferencesToGlobalObject: function(globalObjId) {
-            var globalObj = GameCreator.helpers.getGlobalObjectById(globalObjId);
-
             for (var i = 0; i < GameCreator.scenes.length; i += 1) {
                 for (var j = 0; j < GameCreator.scenes[i].objects.length; j += 1) {
                     var sceneObject = GameCreator.scenes[i].objects[j];
@@ -504,6 +502,6 @@
                 }
 
             }
-        },
+        }
     });
 }());
