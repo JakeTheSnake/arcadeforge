@@ -46,7 +46,7 @@ GameCreator.CounterDisplayText.prototype.draw = function(context, obj) {
     GameCreator.invalidate(obj); //TODO: Handle this in a better way.
     var value = 0;
     var counterCarrier = GameCreator.getSceneObjectById(obj.attributes.counterCarrier);
-    
+
     if (counterCarrier) {
         if (counterCarrier.parent.attributes.unique && counterCarrier.parent.counters[obj.attributes.counterName]) {
             value = counterCarrier.parent.counters[obj.attributes.counterName].value;

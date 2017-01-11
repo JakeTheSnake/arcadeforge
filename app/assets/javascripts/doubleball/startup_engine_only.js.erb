@@ -118,7 +118,7 @@ var resize = function() {
     GameCreator.initialize();
 
     if (window.gon && gon.game != null) {
-        GameCreator.restoreState(JSON.parse(gon.game), onAssetLoad);
+        GameCreator.restoreState(gon.game, onAssetLoad);
     }
 });
 
