@@ -22,3 +22,5 @@ scm/
 libs
 assets
 .idea/
+*.log
+.vagrant/

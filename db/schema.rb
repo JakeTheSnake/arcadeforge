@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -26,9 +25,8 @@ ActiveRecord::Schema.define(version: 20160320115436) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.index ["user_id"], name: "index_audios_on_user_id", using: :btree
   end
-
-  add_index "audios", ["user_id"], name: "index_audios_on_user_id", using: :btree
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -44,9 +42,8 @@ ActiveRecord::Schema.define(version: 20160320115436) do
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
     t.boolean  "featured"
+    t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
-
-  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "tags",             default: [], array: true
@@ -57,9 +54,8 @@ ActiveRecord::Schema.define(version: 20160320115436) do
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
     t.integer  "user_id"
+    t.index ["user_id"], name: "index_images_on_user_id", using: :btree
   end
-
-  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -80,14 +76,13 @@ ActiveRecord::Schema.define(version: 20160320115436) do
     t.datetime "confirmation_sent_at"
     t.string   "provider"
     t.string   "uid"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["provider"], name: "index_users_on_provider", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid"], name: "index_users_on_uid", using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["provider"], name: "index_users_on_provider", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["uid"], name: "index_users_on_uid", using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "audios", "users"
 end
